@@ -1,0 +1,1 @@
+Consolidated repo of scripts and data realted to post-processing of simulation output from Delft3D modelling of the Brusdalsvatnet reservoir, including interaction with data collection systems. One focus is path planning for data collection by USVs.
