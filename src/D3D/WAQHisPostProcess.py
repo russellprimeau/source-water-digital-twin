@@ -1,9 +1,15 @@
-# Plot data from Deflt3D WAQ simulation output written to a CSV file (to avoid needing to develop code for reading
-# WAQ-style HIS NetCDF file).csv
+"""
+WAQHisPostProcess.py
+
+Plot data from Deflt3D WAQ simulation output written to a CSV file (to avoid needing to develop code for reading WAQ-style HIS NetCDF file).csv
+"""
 
 import pandas as pd
 import matplotlib.pyplot as plt
 from pathlib import Path
+
+ROOT_DIR = Path(__file__).resolve().parents[2]
+DATA_DIR = ROOT_DIR / 'data'
 
 # Lists of chemical species and observation points, used to loop through output CSV files from different model versions
 # species = ["CnrvTrcr", "DcyTrcr", "SimpNH4", "SimpOxy", "EutrophNH4", "EutrophNO3", "EutrophOXY"]
@@ -11,8 +17,8 @@ species = ["NH4", "NO3"]
 ObsPt= ["Source", "Spjelkavikelva", "Vasstrandlia", "Profiler", "FarField"]
 DisplayPt = {"Source":"Blast Site", "Spjelkavikelva":"Spjelkavikelva", "Vasstrandlia":"Vasstrandlia Pump Intake",
              "Profiler":"Profiler", "FarField":"Nørebotnen"}
-input_directory = Path(r"M:\Documents\External Projects\Fremmerholen\Output\Nitrogen\SingleBlast\Eutroph")
-output_directory = Path(r"M:\Documents\External Projects\Fremmerholen\Output\Nitrogen\SingleBlast\Eutroph\Analysis")
+input_directory = DATA_DIR
+output_directory = DATA_DIR
 
 # Read in time series data for each species and observation point, with conversion factors for concentration units
 for spec in species:

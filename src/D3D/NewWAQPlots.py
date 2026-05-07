@@ -1,5 +1,19 @@
-# Plot data from Deflt3D WAQ simulation output written to a CSV file (to avoid needing to develop code for reading
-# WAQ-style HIS NetCDF file).csv
+"""
+NewWAQPlots.py
+
+Plot data from Deflt3D WAQ simulation output written to a CSV file (to avoid needing to develop code for reading WAQ-style HIS NetCDF file)
+
+Inputs:
+- CSV files containing time series data for each chemical species and observation point, with columns for time and concentration values. 
+The file naming convention is assumed to be: [species][observation_point].csv (e.g., "NH4Source.csv", "NO3Spjelkavikelva.csv", etc.)
+
+Outputs:
+- A combined plot showing the time series of each chemical species at each observation point.
+Different colors and line styles for each model and release scenario. 
+The x-axis represents time (in days post-incident), and the y-axis represents concentration (in gN/m3). 
+A legend is included to differentiate between the different lines.
+
+"""
 
 import numpy as np
 import pandas as pd
@@ -7,8 +21,10 @@ import matplotlib.pyplot as plt
 import matplotlib.colors as colors
 import matplotlib.cm as cmx
 from pathlib import Path
-
 from cartopy.mpl.clip_path import bbox_to_path
+
+ROOT_DIR = Path(__file__).resolve().parents[2]
+DATA_DIR = ROOT_DIR / 'data'
 
 # Plot ALL data:
 # releases = ["SingleBlast", "MultipleBlasts"]
@@ -26,29 +42,11 @@ ObsPt= ["Source", "Spjelkavikelva", "Vasstrandlia", "Profiler", "FarField"]
 # ObsPt= ["Source"]
 DisplayPt = {"Source":"Blast Site", "Spjelkavikelva":"Spjelkavikelva", "Vasstrandlia":"Vasstrandlia Pump Intake",
              "Profiler":"Profiler", "FarField":"Nørebotnen"}
-output_directory = Path(r"M:\Documents\External Projects\Fremmerholen\Output\Nitrogen")
+input_directory = DATA_DIR
+output_directory = DATA_DIR
 
-# # Single-blast models:
-# # 1. Conservative Tracer
-# input_directory = Path(r"M:\Documents\External Projects\Fremmerholen\Output\Nitrogen\SingleBlast\CnrvTrcr")
-# species = ["CnrvTrcr"]
-#
-# # 2. Decaying Tracer
-# input_directory = Path(r"M:\Documents\External Projects\Fremmerholen\Output\Nitrogen\SingleBlast\DcyTrcr")
-# species = ["DcyTrcr"]
-#
-# # 3. Eutrophication model
-# input_directory = Path(r"M:\Documents\External Projects\Fremmerholen\Output\Nitrogen\SingleBlast\Eutroph")
-# species = ["EutrophNH4", "EutrophNO3"]
-#
-# # 4. Simple Oxygen model
-# input_directory = Path(r"M:\Documents\External Projects\Fremmerholen\Output\Nitrogen\SingleBlast\Simp")
-# species = ["SimpNH4", "SimpOxy"]
-#
-# # Distbuted-blast models
-# # 1. Eutrophication model
-# input_directory = Path(r"M:\Documents\External Projects\Fremmerholen\Output\Nitrogen\MultipleBlasts\Eutroph")
-# species = ["EutrophNH4", "EutrophNO3", "EutrophOXY"]
+# Model output CSV files are expected in DATA_DIR using the naming convention
+# [species][observation_point].csv, such as NH4Source.csv.
 
 # Full list of chemical species and observation points:
 allspecies = ["CnrvTrcr", "DcyTrcr", "SimpNH4", "SimpOxy", "EutrophNH4", "EutrophNO3", "EutrophOXY"]
@@ -57,21 +55,16 @@ for i, (release) in enumerate(releases):
     for j, (model) in enumerate(models):
         if release == "SingleBlast":
             if model == "CnrvTrcr":
-                input_directory = Path(r"M:\Documents\External Projects\Fremmerholen\Output\Nitrogen\SingleBlast\CnrvTrcr")
                 species = ["CnrvTrcr"]
             elif model == "DcyTrcr":
-                input_directory = Path(r"M:\Documents\External Projects\Fremmerholen\Output\Nitrogen\SingleBlast\DcyTrcr")
                 species = ["DcyTrcr"]
             elif model == "Eutroph":
-                input_directory = Path(r"M:\Documents\External Projects\Fremmerholen\Output\Nitrogen\SingleBlast\Eutroph")
                 species = ["NH4", "NO3"]
             elif model == "Simp":
-                input_directory = Path(r"M:\Documents\External Projects\Fremmerholen\Output\Nitrogen\SingleBlast\Simp")
                 # species = ["NH4", "Oxy"]
                 species = ["NH4"]
         elif release == "MultipleBlasts":
             if model == "Eutroph":
-                input_directory = Path(r"M:\Documents\External Projects\Fremmerholen\Output\Nitrogen\MultipleBlasts\Eutroph")
                 # species = ["NH4", "NO3", "OXY"]
                 species = ["NH4", "NO3"]
 
@@ -135,13 +128,13 @@ for i, (release) in enumerate(releases):
 combined_df.columns = pd.MultiIndex.from_tuples(combined_df.columns)
 combined_df.columns.names = ['release', 'model', 'species', 'location']
 
-groundtruthNO3 = pd.read_csv(r"M:\Documents\External Projects\Fremmerholen\Output\Nitrogen\GroundTruth\NO3.csv",
+groundtruthNO3 = pd.read_csv(DATA_DIR / 'NO3.csv',
                           parse_dates=['Time [yyyy.MM.dd HH:mm:ss]'],sep=',',header=0,decimal='.')
 reference = pd.Timestamp('2024-08-01 00:00:00')
 groundtruthNO3.insert(1,'days_past',
                    (groundtruthNO3['Time [yyyy.MM.dd HH:mm:ss]'] - reference).dt.total_seconds() / (24 * 3600))
 
-groundtruthNH4 = pd.read_csv(r"M:\Documents\External Projects\Fremmerholen\Output\Nitrogen\GroundTruth\NH4.csv",
+groundtruthNH4 = pd.read_csv(DATA_DIR / 'NH4.csv',
                           parse_dates=['Time [yyyy.MM.dd HH:mm:ss]'],sep=',',header=0,decimal='.')
 reference = pd.Timestamp('2024-08-01 00:00:00')
 groundtruthNH4.insert(1,'days_past',
@@ -257,7 +250,7 @@ outfilename='combined'+'.png'
 out_path = output_directory / outfilename
 
 plt.savefig(out_path, dpi=600)
-combined_df.to_csv('combined_columns.csv')
+combined_df.to_csv(DATA_DIR / 'combined_columns.csv')
 
 plt.close()
 

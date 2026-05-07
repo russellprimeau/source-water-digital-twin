@@ -3,7 +3,8 @@ import matplotlib.pyplot as plt
 import contextily as ctx
 from pathlib import Path
 
-DATA_DIR = Path(__file__).parent.parent / 'data'
+ROOT_DIR = Path(__file__).resolve().parents[2]
+DATA_DIR = ROOT_DIR / 'data'
 
 
 def index_to_alphabet(index):

@@ -1,3 +1,12 @@
+"""
+PathOptimization2.py
+
+Finds the highest-scoring path through all points in cluster_info.csv, starting and ending at specified points,
+subject to a constraint on the total path length.
+
+Writes the path to highscore_path.csv, including the latitude, longitude, score, and a sequential label for each point in the path.
+"""
+
 import pandas as pd
 import numpy as np
 from scipy.spatial.distance import pdist, squareform
@@ -5,7 +14,8 @@ from itertools import permutations
 from geopy.distance import geodesic
 from pathlib import Path
 
-DATA_DIR = Path(__file__).parent.parent / 'data'
+ROOT_DIR = Path(__file__).resolve().parents[2]
+DATA_DIR = ROOT_DIR / 'data'
 
 # Finds the highest-scoring path through all points in the dataframe, starting and ending at specified points,
 # subject to a constraint on the total path length

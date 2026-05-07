@@ -1,10 +1,19 @@
+"""
+
+PathOptimization1.py
+
+Finds the shortest path through all points in the dataframe, starting and ending at specified points. 
+The optimized path is saved to highscore_path.csv.
+"""
+
 import pandas as pd
 import numpy as np
 from scipy.spatial.distance import pdist, squareform
 from itertools import permutations
 from pathlib import Path
 
-DATA_DIR = Path(__file__).parent.parent / 'data'
+ROOT_DIR = Path(__file__).resolve().parents[2]
+DATA_DIR = ROOT_DIR / 'data'
 
 # Finds the shortest path through all points in the dataframe, starting and ending at specified points
 def shortest_path_through_all_points(df, start, end):

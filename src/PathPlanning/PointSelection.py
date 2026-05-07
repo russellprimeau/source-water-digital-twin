@@ -1,3 +1,10 @@
+"""
+PointSelection.py
+
+Clusters the coordinates from Sampling_Priority.csv file using DBSCAN and saves the clustered data to a clustered_coordinates.csv. 
+Also generates a plot of the clusters with a basemap and saves cluster information (centroid and weight) to cluster_info.csv.
+"""
+
 import pandas as pd
 from sklearn.cluster import DBSCAN
 from sklearn.metrics.pairwise import haversine_distances
@@ -6,7 +13,8 @@ import matplotlib.pyplot as plt
 import contextily as ctx
 from pathlib import Path
 
-DATA_DIR = Path(__file__).parent.parent / 'data'
+ROOT_DIR = Path(__file__).resolve().parents[2]
+DATA_DIR = ROOT_DIR / 'data'
 
 # Load the CSV file
 file_path = DATA_DIR / 'Sampling_Priority.csv'

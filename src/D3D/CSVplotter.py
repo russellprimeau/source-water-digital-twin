@@ -1,14 +1,33 @@
+"""
+CSVplotter.py
+
+Generates a scatter plot of Delft3D model calibration iterations based on data from a CSV file. 
+Filters data rows and creates a scatter plot.
+
+Output: 
+-"calibration_w_sizes.png"
+    - The x-axis represents 'Simulation Time/Run Time'.
+    - The y-axis represents 'Root Mean Squared Error'.
+    - The size of the points is scaled based on the '3D Cells' column.
+    - The color of the points is determined by the 'Correlation' column, using a colormap.
+    - A colorbar is added to indicate the correlation values.
+    - A legend is created to indicate the size of the points based on the number of 3D cells.
+"""
+
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
 import matplotlib.cm as cm
 import matplotlib.colors as colors
 from mpl_toolkits.axes_grid1 import make_axes_locatable
+from pathlib import Path
 
 
+ROOT_DIR = Path(__file__).resolve().parents[2]
+DATA_DIR = ROOT_DIR / 'data'
 
 # Step 1: Read the CSV file
-data = pd.read_csv(r"C:\Users\russelbp\GitHub\MiscDelft3D\data\Calibration.csv", sep=';', header=0)
+data = pd.read_csv(DATA_DIR / 'Calibration.csv', sep=';', header=0)
 # filtered_data = data[data['Include?'] > -1]  # Replace with your condition
 data['End'] = pd.to_datetime(data['End'],dayfirst=True)
 filtered_data = data[(data['End'] > pd.Timestamp('26.06.2024 00:00')) & (data['Simulation Time/Run Time'] < 1400)]  # Replace with your condition
@@ -64,5 +83,5 @@ ax.set_ylabel('Root Mean Squared Error')  # Replace with your y-axis label
 # plt.title('Calibration Iterations')
 ax.grid(True)
 plt.tight_layout()  # Keeps the legend from extending out of the figure
-plt.savefig(r"C:\Users\russelbp\NTNU\Research Projects - Publications\ESwA\Images for ESwA\calibration_w_sizes.png", dpi=500)
+plt.savefig(DATA_DIR / 'calibration_w_sizes.png', dpi=500)
 plt.show()

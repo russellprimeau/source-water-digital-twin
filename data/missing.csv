@@ -1,0 +1,23 @@
+script,original_path,expected_local_path,reason
+src/D3D/NewWAQPlots.py,M:\Documents\External Projects\Fremmerholen\Output\Nitrogen\SingleBlast\Eutroph\NH4Source.csv,data/NH4Source.csv,no exact filename match in data
+src/D3D/NewWAQPlots.py,M:\Documents\External Projects\Fremmerholen\Output\Nitrogen\SingleBlast\Eutroph\NO3Source.csv,data/NO3Source.csv,no exact filename match in data
+src/D3D/NewWAQPlots.py,M:\Documents\External Projects\Fremmerholen\Output\Nitrogen\SingleBlast\Eutroph\NH4Spjelkavikelva.csv,data/NH4Spjelkavikelva.csv,no exact filename match in data
+src/D3D/NewWAQPlots.py,M:\Documents\External Projects\Fremmerholen\Output\Nitrogen\SingleBlast\Eutroph\NO3Spjelkavikelva.csv,data/NO3Spjelkavikelva.csv,no exact filename match in data
+src/D3D/NewWAQPlots.py,M:\Documents\External Projects\Fremmerholen\Output\Nitrogen\SingleBlast\Eutroph\NH4Vasstrandlia.csv,data/NH4Vasstrandlia.csv,no exact filename match in data
+src/D3D/NewWAQPlots.py,M:\Documents\External Projects\Fremmerholen\Output\Nitrogen\SingleBlast\Eutroph\NO3Vasstrandlia.csv,data/NO3Vasstrandlia.csv,no exact filename match in data
+src/D3D/NewWAQPlots.py,M:\Documents\External Projects\Fremmerholen\Output\Nitrogen\SingleBlast\Eutroph\NH4Profiler.csv,data/NH4Profiler.csv,no exact filename match in data
+src/D3D/NewWAQPlots.py,M:\Documents\External Projects\Fremmerholen\Output\Nitrogen\SingleBlast\Eutroph\NO3Profiler.csv,data/NO3Profiler.csv,no exact filename match in data
+src/D3D/NewWAQPlots.py,M:\Documents\External Projects\Fremmerholen\Output\Nitrogen\SingleBlast\Eutroph\NH4FarField.csv,data/NH4FarField.csv,no exact filename match in data
+src/D3D/NewWAQPlots.py,M:\Documents\External Projects\Fremmerholen\Output\Nitrogen\SingleBlast\Eutroph\NO3FarField.csv,data/NO3FarField.csv,no exact filename match in data
+src/D3D/NewWAQPlots.py,M:\Documents\External Projects\Fremmerholen\Output\Nitrogen\GroundTruth\NO3.csv,data/NO3.csv,no exact filename match in data
+src/D3D/NewWAQPlots.py,M:\Documents\External Projects\Fremmerholen\Output\Nitrogen\GroundTruth\NH4.csv,data/NH4.csv,no exact filename match in data
+src/D3D/WAQHisPostProcess.py,M:\Documents\External Projects\Fremmerholen\Output\Nitrogen\SingleBlast\Eutroph\NH4Source.csv,data/NH4Source.csv,no exact filename match in data
+src/D3D/WAQHisPostProcess.py,M:\Documents\External Projects\Fremmerholen\Output\Nitrogen\SingleBlast\Eutroph\NO3Source.csv,data/NO3Source.csv,no exact filename match in data
+src/D3D/WAQHisPostProcess.py,M:\Documents\External Projects\Fremmerholen\Output\Nitrogen\SingleBlast\Eutroph\NH4Spjelkavikelva.csv,data/NH4Spjelkavikelva.csv,no exact filename match in data
+src/D3D/WAQHisPostProcess.py,M:\Documents\External Projects\Fremmerholen\Output\Nitrogen\SingleBlast\Eutroph\NO3Spjelkavikelva.csv,data/NO3Spjelkavikelva.csv,no exact filename match in data
+src/D3D/WAQHisPostProcess.py,M:\Documents\External Projects\Fremmerholen\Output\Nitrogen\SingleBlast\Eutroph\NH4Vasstrandlia.csv,data/NH4Vasstrandlia.csv,no exact filename match in data
+src/D3D/WAQHisPostProcess.py,M:\Documents\External Projects\Fremmerholen\Output\Nitrogen\SingleBlast\Eutroph\NO3Vasstrandlia.csv,data/NO3Vasstrandlia.csv,no exact filename match in data
+src/D3D/WAQHisPostProcess.py,M:\Documents\External Projects\Fremmerholen\Output\Nitrogen\SingleBlast\Eutroph\NH4Profiler.csv,data/NH4Profiler.csv,no exact filename match in data
+src/D3D/WAQHisPostProcess.py,M:\Documents\External Projects\Fremmerholen\Output\Nitrogen\SingleBlast\Eutroph\NO3Profiler.csv,data/NO3Profiler.csv,no exact filename match in data
+src/D3D/WAQHisPostProcess.py,M:\Documents\External Projects\Fremmerholen\Output\Nitrogen\SingleBlast\Eutroph\NH4FarField.csv,data/NH4FarField.csv,no exact filename match in data
+src/D3D/WAQHisPostProcess.py,M:\Documents\External Projects\Fremmerholen\Output\Nitrogen\SingleBlast\Eutroph\NO3FarField.csv,data/NO3FarField.csv,no exact filename match in data

@@ -1,10 +1,19 @@
 """
+PathPlotter.py
+
 Several alternative methods to plot CSV files containing a list of coordinates,
 such as those which the path planning utilities in the BrusdalsvatnetDT post-processing module produce.
+
+Methods include:
+- Static matplotlib figure with coordinate points labelled and connected by lines.
+- Folium-based interactive map written to an html file (can open in browser).
+- Plotly-based interactive map displayed in browser.
+- Animated matplotlib figure which draws a thick line to connect points, at constant speed which can be specified.
+Animation can be written to filea as .gif.
+
 """
 import pandas as pd
 import matplotlib.pyplot as plt
-from mpl_toolkits.basemap import Basemap
 import folium
 import plotly.graph_objects as go
 import plotly.express as px
@@ -15,7 +24,8 @@ from geopy.distance import geodesic
 from matplotlib.animation import FuncAnimation, PillowWriter, ImageMagickWriter
 from pathlib import Path
 
-DATA_DIR = Path(__file__).parent.parent / 'data'
+ROOT_DIR = Path(__file__).resolve().parents[2]
+DATA_DIR = ROOT_DIR / 'data'
 
 
 
@@ -36,6 +46,7 @@ def read_coordinates(file_name):
     #         coordinates.append((lat, lon, label))
     #     print(coordinates)
     return coordinates
+
 
 def read_cluster_coordinates(file_name):
     raw = pd.read_csv(file_name, dtype={'cluster': str}, sep=',', header=0, names=['label', 'sensitivity', 'longitude', 'latitude', 'time', 'cluster'],  index_col=None)
