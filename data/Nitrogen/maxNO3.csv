@@ -1,0 +1,11 @@
+Column,Max Value,Datetime
+"('SingleBlast', 'Eutroph', 'NH4', 'Blast Site')",1.19251012802,2024-08-01 05:00:00
+"('SingleBlast', 'Eutroph', 'NH4', 'Spjelkavikelva')",0.00123118516058,2024-08-01 12:00:00
+"('SingleBlast', 'Eutroph', 'NH4', 'Vasstrandlia Pump Intake')",1.99229853024e-05,2024-08-04 17:00:00
+"('SingleBlast', 'Eutroph', 'NH4', 'Profiler')",5.98562746745e-06,2024-08-08 20:00:00
+"('SingleBlast', 'Eutroph', 'NH4', 'Nørebotnen')",3.07638970298e-07,2024-09-13 17:00:00
+"('SingleBlast', 'Eutroph', 'NO3', 'Blast Site')",1.19251012802,2024-08-01 05:00:00
+"('SingleBlast', 'Eutroph', 'NO3', 'Spjelkavikelva')",0.00126676622313,2024-08-01 12:00:00
+"('SingleBlast', 'Eutroph', 'NO3', 'Vasstrandlia Pump Intake')",3.4783330193e-05,2024-08-08 17:00:00
+"('SingleBlast', 'Eutroph', 'NO3', 'Profiler')",1.5574725694e-05,2024-08-25 01:00:00
+"('SingleBlast', 'Eutroph', 'NO3', 'Nørebotnen')",1.20999475257e-05,2024-10-31 16:00:00
