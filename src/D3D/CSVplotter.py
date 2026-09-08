@@ -39,7 +39,13 @@ data.columns = [c.strip() for c in data.columns]
 for column in (X_COLUMN, Y_COLUMN, "Correlation", "3D Cells", "Max Layers", "Simulation Period (h)"):
     data[column] = pd.to_numeric(data[column].astype(str).str.replace(",", ""), errors="coerce")
 
-full_season = data[data["Simulation Period (h)"] >= MIN_FULL_SEASON_HOURS].dropna(
+# Match the actual common comparison window, not just a minimum duration.
+# Inclusion flags belonged to the earlier plot; all ten matching-window runs
+# are included here so parameter extremes remain visible.
+starts = pd.to_datetime(data['Start'], format='%d.%m.%Y %H:%M')
+ends = pd.to_datetime(data['End'], format='%d.%m.%Y %H:%M')
+full_season = data[(starts == pd.Timestamp('2024-04-25')) &
+                   (ends == pd.Timestamp('2024-11-20'))].dropna(
     subset=[X_COLUMN, Y_COLUMN, "Correlation", "3D Cells"]
 )
 if full_season.empty:

@@ -47,22 +47,22 @@ Reviewer 1 cites line numbers from the submitted PDF. Verified against the basel
 
 | ID | Ask (abridged) | Disposition | Plan item | Where | Status |
 |---|---|---|---|---|---|
-| R1-1 | Add 1–2 quantitative results to the abstract (RMSE, r, or latency) | Accept | 1D + 2A | L54 | ◐ scope sentence added; numbers pending Phase 2 |
+| R1-1 | Add 1–2 quantitative results to the abstract (RMSE, r, or latency) | Accept | 1D + 2A | L54 | ☑ RMSE 1.7 / r 0.96 now in the abstract |
 | R1-2 | State novelty vs. the authors' own previous work more explicitly | Accept | 1C | L72 | ☑ |
 | R1-3 | "No existing DTs for surface drinking-water reservoirs" is too strong — support or moderate | Accept | 1A | L108 | ☑ |
-| R1-4 | Clarify separation of calibration / model selection / independent validation | Accept | 3B | L238, §2.2 | ⏸ Phase 3 |
-| R1-5 | Ensemble details: how many members, what varied, how ranges chosen | Accept | 2B | §2.2 | ⏸ Phase 2 |
-| R1-6 | Iterative parameter tuning: main parameters, ranges, stopping criterion | Accept | 2B | L262 | ⏸ Phase 2 |
-| R1-7 | Summarize hydrological calibration + performance indicators without disclosing restricted data | Partial | 3G | L325 | ⏸ Phase 3 |
-| R1-8 | Give numerical performance of the final configuration in text or a small table (RMSE, r, MAE, computation time) | Accept | 2A | §3.1 | ⏸ Phase 2 |
+| R1-4 | Clarify separation of calibration / model selection / independent validation | Accept | 3B | L238, §2.2 | ☐ open by choice; letter offers to add it |
+| R1-5 | Ensemble details: how many members, what varied, how ranges chosen | Accept | 2B | §2.2 | ☑ §2.2 two-stage description + Table A3 |
+| R1-6 | Iterative parameter tuning: main parameters, ranges, stopping criterion | Accept | 2B | L262 | ☑ §2.2 objective, search, budget; Table A3 |
+| R1-7 | Summarize hydrological calibration + performance indicators without disclosing restricted data | Partial | 3G | L325 | ☑ §2.4 procedure + aggregate indicators |
+| R1-8 | Give numerical performance of the final configuration in text or a small table (RMSE, r, MAE, computation time) | Accept | 2A | §3.1 | ☑ Table 6, full-season |
 | R1-9 | Were RMSE < 1 °C and r > 0.95 set before or after seeing results? | Accept | 1J | L337 | ☑ |
 | R1-10 | Is 3.5 kg compound or N mass? Check Eqs. 11–12; add a reference for the reaction expressions | Accept | 1I | L350, L371-383 | ☑ |
-| R1-11 | Explain how historical and 2024 weather data were combined; any discontinuity? | Accept | 3H | L379 | ⏸ Phase 3 |
+| R1-11 | Explain how historical and 2024 weather data were combined; any discontinuity? | Accept | 3H | L379 | ☑ §3.2 gap-filling described |
 | R1-12 | Mark intervention statements as simulation-derived, not experimentally demonstrated | Accept | 1D | L387 | ☑ |
 | R1-13 | "Uncertainty" is too strong for 3 configurations — prefer "model spread" | Accept | 1E | L405, L392 | ☑ |
 | R1-14 | Justify the 50 most sensitive cells, the 100 m clustering threshold, and the 6 km route limit | Accept | 1G | L166, L300, L388 | ☑ |
 | R1-15 | Clarify whether the route was actually executed by the USV | Accept | 1H | L408 | ☑ |
-| R1-16 | Give a percentage or frequency for missing sensor data | Accept | 3E | L414 | ⏸ Phase 3 |
+| R1-16 | Give a percentage or frequency for missing sensor data | Accept | 3E | L414 | ☑ Appendix E coverage table |
 | R1-17 | Keep the temperature-only and path-planning limitations clearly visible | Accept | 1D | L424, L428 | ☑ |
 | R1-18 | Keep "prototype" / "proof-of-concept" / "demonstration" wording in the conclusions | Accept | 1D | L432 | ☑ |
 | R1-19 | Present as a potentially transferable framework, not a demonstrated general solution | Accept | 1D | L434 | ☑ |
@@ -82,13 +82,13 @@ Reviewer 1 cites line numbers from the submitted PDF. Verified against the basel
 |---|---|---|---|---|---|
 | R2-1 | Soften/support the novelty claim (cites Qiu et al. 2023, Kwon et al. 2025); declare the SSRN preprint **in the text** | Accept | 1A + 1B | L74, L108 | ☑ |
 | R2-2 | Only temperature was validated — make chemical/biological validation explicitly future work from the abstract onward | Accept | 1D | L54, L360, L432 | ☑ |
-| R2-3 | M = 3 is too small; show ranking/path stability under a 4th–5th run or resampling | Partial | 2D + Phase 4.2 | §3.3 + appendix | ⏸ Phase 2/4 |
+| R2-3 | M = 3 is too small; show ranking/path stability under a 4th–5th run or resampling | Partial | 2D + Phase 4.2 | §3.3 + appendix | ☑ Appendix F stability; extra members declined |
 | R2-4 | Eq. 8 normalizes σ but Eq. 9 sums raw σ — fix or explain | Accept | 1F + 5C | L286, L297 | ☑ |
-| R2-5 | Missing mass-balance check on contaminant transport | Accept | 3C | appendix + §3.2 | ⏸ Phase 3 |
-| R2-6 | Turbulence closure never stated or validated; acknowledge equifinality | Partial | 1K + 3I | L219, §4 | ◐ text half now |
-| R2-7 | Figs. 1–3 and Table 1 don't pull enough weight (annotate Fig. 1; merge Tables 1 + A1; expand Fig. 2 caption; draw the withheld-data decision in Fig. 3) | Accept | 1L | L116, L156, L241, Table A1 | ◐ text/table done; 2 figure redraws pending |
-| R2-8 | Fig. 5 doesn't let the reader verify the RMSE/r claims — add per-depth panels, residuals, RMSE heatmap by depth × month | Accept | 3A | new appendix | ⏸ Phase 3 |
-| R2-9 | Fig. 6 needs error bars; the computational-time scaling doesn't add up; define "Simulation Time/Run Time" with units | Accept | 2C | Fig. 6, §3.1 | ⏸ Phase 2 ⚠️ |
+| R2-5 | Missing mass-balance check on contaminant transport | Accept | 3C | appendix + §3.2 | ☑ Appendix D whole-domain balance |
+| R2-6 | Turbulence closure never stated or validated; acknowledge equifinality | Partial | 1K + 3I | L219, §4 | ☑ closure + coefficients in Appendix B; equifinality in §4 |
+| R2-7 | Figs. 1–3 and Table 1 don't pull enough weight (annotate Fig. 1; merge Tables 1 + A1; expand Fig. 2 caption; draw the withheld-data decision in Fig. 3) | Accept | 1L | L116, L156, L166, L212, L241, Table A1 | ◐ tables, Fig. 2 caption and the withheld-data path done (Figs. 3 and 4 redrawn); Fig. 1 annotation with the author |
+| R2-8 | Fig. 5 doesn't let the reader verify the RMSE/r claims — add per-depth panels, residuals, RMSE heatmap by depth × month | Accept | 3A | new appendix | ☑ Appendix C, Figures 11-13 |
+| R2-9 | Fig. 6 needs error bars; the computational-time scaling doesn't add up; define "Simulation Time/Run Time" with units | Accept | 2C | Fig. 6, §3.1 | ☑ Fig. 6 regenerated, full-season only, axis defined |
 | R2-10 | Figs. 7/8 need a solute-transport-specific mesh convergence check | Accept | Phase 4.1 | appendix + §3.2 | ⏸ Phase 4 |
 | R2-11 | `Dmax` = 6 km is unjustified — cite Otter battery/range specs or field data | Partial | 1G | L166, L300 | ☑ |
 
@@ -108,11 +108,11 @@ Reviewer 1 cites line numbers from the submitted PDF. Verified against the basel
 
 | ID | Ask (abridged) | Disposition | Plan item | Where | Status |
 |---|---|---|---|---|---|
-| R3-1 | Model configuration too sparse to reproduce: Delft3D FM version, mesh, layers, timestep, BC/IC, solver settings, calibrated values + ranges | Accept | 2B + 3D | appendix | ⏸ Phase 2/3 |
-| R3-2 | Was the same 2024 dataset used for calibration and validation? Discuss overfitting, split the periods, report RMSE/MAE/r | Accept | 2A + 3B | §2.2, §3.1 | ⏸ Phase 2/3 |
-| R3-3 | Spell out the workflow concretely; which steps are automated vs. manual | Accept | 1L (Fig. 3) + 3F | §2.2, Fig. 3/4 | ◐ |
-| R3-4 | Support the <2 h latency claim with actual per-stage timings; discuss robustness to missing data, comms failures, failed runs | Partial | 3F | L240, §4 | ⏸ Phase 3 ⚠️ |
-| R3-5 | Repository lacks components needed to reproduce the results | Accept | Phase 5 | repo | ⏸ Phase 5 ✅ |
+| R3-1 | Model configuration too sparse to reproduce: Delft3D FM version, mesh, layers, timestep, BC/IC, solver settings, calibrated values + ranges | Accept | 2B + 3D | appendix | ☑ Appendix B, two tables |
+| R3-2 | Was the same 2024 dataset used for calibration and validation? Discuss overfitting, split the periods, report RMSE/MAE/r | Accept | 2A + 3B | §2.2, §3.1 | ◐ statistics tabulated; season not split temporally |
+| R3-3 | Spell out the workflow concretely; which steps are automated vs. manual | Accept | 1L (Fig. 3) + 3F | §2.2, Fig. 3/4 | ☑ Appendix E workflow table |
+| R3-4 | Support the <2 h latency claim with actual per-stage timings; discuss robustness to missing data, comms failures, failed runs | Partial | 3F | L240, §4 | ☑ Appendix E latency + robustness ⚠ see 2026-09-08 audit |
+| R3-5 | Repository lacks components needed to reproduce the results | Accept | Phase 5 | repo | ☑ pipeline repaired; 51 data files await commit |
 
 ⚠️ **R3-4** — the best configuration's run time is **6.07 h**, which exceeds the hourly update interval the latency claim depends on. The operational configuration presumably differs from the calibration configuration; this must be stated explicitly rather than left for a reviewer to notice.
 
@@ -129,7 +129,7 @@ Reviewer 1 cites line numbers from the submitted PDF. Verified against the basel
 | Missing `\label`s at L110, L169, L394 | Subsections cannot be cross-referenced | ☑ |
 | `\ref{ch:waterquality}` at L118 missing `Section~` prefix | Renders as a bare "1.1" | ☑ |
 | "Fig. \ref{}" at L463 vs. "Figure~" everywhere else; Fig. 10 `\label` outside `\caption`, no float specifier | Consistency | ☑ |
-| Commented-out `adjustwidth` around Fig. 4 (L222/L225) | Decide deliberately | ☐ |
+| Commented-out `adjustwidth` around Fig. 4 (L222/L225) | Decide deliberately | ☑ removed in Phase 0 |
 | MDPI dummy bib entries `Smith2012qr`, `Smith2013jd`, `Feynman1963118` | Template leftovers | ☑ |
 | Possible duplicate: `xu2024design` (cited L108) vs. staged `w16243668` | Same authors/topic — keep one key | ☑ |
 | Citation-as-subject sentences at L98, L106, L108 | Numeric *Sensors* style renders these as "[27] presents…" | ☑ |
@@ -215,7 +215,9 @@ Nine `TODO` markers remain in `main.tex`. Each marks something that could not be
 
 ### Not possible in this pass
 
-**Fig. 1 annotation and Fig. 3 redraw (both R2-7).** Both are raster PNGs with no source files in the repository, so the update rates cannot be added to Fig. 1 and the "validation only" path cannot be drawn into Fig. 3. The Fig. 3 substance has been handled in prose meanwhile (the withheld-data decision now has its own paragraph). Both figures need editing in whatever tool produced them.
+**Fig. 1 annotation and Fig. 3 redraw (both R2-7).** Both were raster PNGs with no source files in the repository, so at the time neither could be edited. The Fig. 3 substance was handled in prose meanwhile (the withheld-data decision was given its own paragraph).
+
+**Partly superseded.** Figures 3 and 4 were re-derived from scratch, rather than recovered, as SVG sources generated by `src/figures/make_fig3.py` and `make_fig4.py` on a shared toolkit (`src/figures/svgkit.py`); regenerate with `.venv/Scripts/python src/figures/make_all.py`. Figure 4 was included because it had the same missing-source problem and, having been authored about 12 in wide and placed at 5.5 in, rendered its type at roughly 3 pt. Figure 1 was also redrawn, twice, and both attempts were rejected by the author and reverted; the submitted figure stands and the author is handling that comment. The original was recovered from `cd35a4c` if it is wanted again.
 
 
 ---
@@ -261,7 +263,7 @@ Verify or complete each before removing the banner:
 | R2-3 resampling stability | **No** |
 | R2-5 mass balance | **No** — `waq_balance.py` + `-bal.his` available |
 | R2-6 closure named with coefficients | **No** — values confirmed in the `.mdu`, not yet written in |
-| R2-7 Fig. 1 annotated, Fig. 3 redrawn | **No** — raster PNGs, need editing at source |
+| R2-7 Fig. 1 annotated, Fig. 3 redrawn | **Partly** — Figs. 3 and 4 redrawn from SVG sources in `src/figures/`; Fig. 1 unchanged, with the author |
 | R2-8 per-depth panels, residuals, error breakdown | **No** — computable from `ThermalTune` his.nc |
 | R2-9 Fig. 6 units, corrected scaling, error bars | **No** |
 | R3-3 workflow / automated vs manual | **No** |
@@ -429,7 +431,7 @@ At line 8603 the `_requested_outputs_available` guard tests `wants_his`, `wants_
 
 ### Still open
 
-R2-5 mass balance, R2-3 resampling stability, R1-11 weather splicing, R1-7 hydrological calibration narrative, R3-3 workflow detail, R3-4 latency, R2-7 Figures 1 and 3 redraws, Phase 5 repository work. Six TODO comments remain in `main.tex`, five needing author knowledge.
+R2-5 mass balance, R2-3 resampling stability, R1-11 weather splicing, R1-7 hydrological calibration narrative, R3-3 workflow detail, R3-4 latency, Phase 5 repository work. Under R2-7, Figures 3 and 4 are redrawn; the Figure 1 annotation is with the author. Six TODO comments remain in `main.tex`, five needing author knowledge.
 
 
 ---
@@ -718,7 +720,7 @@ Rebuilt with corrected responses for R1-5, R1-6, R2-9 and R3-1, which previously
 Two admissions of incomplete work remain in the letter and are deliberate:
 
 - **R1-4 and R3-2** — the season is not split into calibration and validation periods. The letter states this and offers to add it.
-- **R2-7** — Figures 1 and 3 are not redrawn. They are raster images with no source files in the repository.
+- **R2-7** — the letter is back to its submitted wording and still says the Figure 1 and Figure 3 redraws are outstanding. Figures 3 and 4 have since been redrawn, so **the letter understates what is done** and needs a pass by the author, who is also handling the Figure 1 annotation.
 
 Note that the letter *does* refer to reviewers throughout, which is correct: it is addressed to them. The prohibition applies to the manuscript, where zero such references now render.
 
@@ -742,3 +744,385 @@ This is the second time a replacement span has swallowed adjacent content, after
 `docs/revision/CHANGE_LIST.md` was stale: its line numbers dated from the Phase 0 and 1 revision, when the manuscript was 24 pages rather than 34, and it recorded only what had been done to the Figure 2 caption rather than what remained outstanding.
 
 Regenerated against the current `main.tex` by locating each changed passage programmatically, so the line numbers are correct by construction and will not silently rot. 42 rows, all anchors matched. It now also carries an explicit table of outstanding items (the two figure redraws, the period split, the two declined analyses, and the uncommitted model configuration) and a list of the remaining TODO comments with their line numbers.
+
+---
+
+## Cross-document status audit (2026-09-08)
+
+Internal documents (this tracker, `CHANGE_LIST.md`) and external documents (the compiled PDF, `Cover_letter.docx`) were checked against each other and against the repositories. Current true state: **34 pages, 10 tables, 11 figures, 6 appendices, 6 `%` TODOs, zero rendering placeholders, zero reviewer references in rendered text, zero undefined references or citations.**
+
+### Statements corrected because they had gone stale
+
+| Stale claim | Where | Truth |
+|---|---|---|
+| Model configuration "NOT YET COMMITTED" | `main.tex` TODO at the DAS | The 35 files (5.44 MB) are committed **and pushed**; `git ls-tree HEAD -- data/d3d` returns 35 and `main` is level with `origin/main`. TODO removed; the DAS is now true. |
+| Status columns showing ⏸ Phase 2/3/4 | tracker, R1 / R2 / R3 tables | 19 of them had landed. Updated in place. |
+| "Nine TODO markers remain" / "Six TODO comments remain" / "24 pages" | tracker, two places | Six TODOs, 34 pages. |
+| Cover letter written to `Cover_letter_revised.docx` | tracker | It is `Cover_letter.docx` (319 paragraphs, 36/36 blocks). The `_revised` file no longer exists. |
+| BLOCKER: broken venv, `attrs` 18.2.0 | tracker | Resolved by the author; `attrs` 26.1.0, contextily imports. |
+| "Coherence issue: Figure 6 inconsistent with Section 3.1" | tracker | Resolved when Figure 6 was regenerated from full-season runs only. |
+| "Commit the 5.45 MB model configuration" listed as outstanding | `CHANGE_LIST.md` | Done. |
+| `adjustwidth` decision ☐ | tracker, cross-cutting table | Removed during Phase 0. |
+
+### ⚠️ CONTRADICTION — the two computational-speed figures differ by a factor of ten
+
+This is the most exposed claim left in the manuscript, and Reviewer 2 has already demonstrated a willingness to check this exact arithmetic.
+
+- **Figure 6 and Section 3.1** report a speed-up of **213 to 941** times real time. From `data/Calibration.csv`, those eleven full-season runs took 11.6 to 23.7 wall-clock hours on the high-resolution 40-layer mesh.
+- **Appendix E** reports **approximately 9,400** times real time: 212 simulated days in a median 32.5 minutes.
+- The manuscript states one computing environment (Table 3) and offers this reconciliation: *"That figure refers to simulating an entire season during offline calibration, not to an operational update."* **This does not hold.** The 32.5-minute figure is itself an entire season, so the two numbers describe the same task and cannot be separated this way.
+
+**Two further problems with the same sentence.** Appendix E attributes the timings to "nine full-season runs of the selected configuration." They are the nine runs in `D3DFMRunner/data/projects/tuner_fixed/tune_log.txt`, a one-at-a-time sweep over Ozmidov length scale, Forester iterations, and the Dalton and Stanton numbers. Their parameter values (Ozmidov 0 or 0.01; Dalton and Stanton -1 to -1.6; Forester 0, 5, 20 or 100) match **none** of the selected values in Table A3 (0.0266; -0.794; -1.466; 15), and their surface RMSE is about 2.08 against the selected configuration's 1.73. They share the mesh and vertical discretisation, not the configuration.
+
+**Likely true explanation, not yet verifiable from the repositories.** The committed `dimr_config_parallel.xml` requests **12 MPI partitions**, and the stated hardware is 2 x Xeon Gold 5118, so 24 cores are available. A 10x speed-up from 12-way domain decomposition is entirely plausible. The `Calibration.csv` runs come from a different machine and path (`D:\Russell\Delft3D\Projects\ESwA\...`), and how they were partitioned is not recorded anywhere in either repository. **Author input needed:** were the ESwA calibration runs serial or fewer-partition? If so, both numbers stand and the fix is one sentence naming the partition counts.
+
+### ⚠️ CONTRADICTION — Figure 6's best configuration outperforms the reported one, unexplained
+
+Figure 6's vertical axis is labelled *mean depth-wise RMSE*, and its best full-season point reaches **1.076 °C**. Table 6 reports the selected configuration's *mean of 50 depth bands* as **2.15 °C**. Same quantity by name, twice the error, no explanation in the text.
+
+The selected configuration is **not one of the eleven points in Figure 6**. The Figure 6 campaign runs 25 April to 20 November with Secchi depth 1.0 m, Courant limit 0.7, maximum timestep 30 s and Vicoww/Dicoww between 1e-6 and 1e-3. The selected configuration (`FlowFMnew.mdu`, now committed) runs 22 April to 20 November with Secchi 2.0 m, Courant 0.5, maximum timestep 20 s, Vicoww 5.27e-3 and Dicoww 6.06e-5 — every one of these outside the first-stage grid.
+
+There is a defensible answer and the manuscript already contains half of it: the second stage optimised a weighted objective (surface RMSE at double weight, RMSE at 30 m, and depth-integrated heat content), not mean depth-wise RMSE, so the selected configuration is not expected to win on Figure 6's axis. What is missing is any sentence connecting the two, and the reader is left to infer that a configuration twice as accurate was available and passed over.
+
+A related loose end: Section 2.2 lists the Courant limit and maximum timestep among the **first-stage** structural variables, but the selected values (0.5 and 20 s) appear in no first-stage run and are not among the nine second-stage parameters either. Where they came from is unstated.
+
+### Repository — one concrete break at HEAD
+
+51 files under `data/Nitrogen/` carry the decimal-separator normalisation (`_` to `.`) in the working tree but are **uncommitted**. `NewWAQPlots.py` and `WAQHisPostProcess.py` now set `CONFIG.decimal = "."` and raise on unparseable cells, so a fresh clone of HEAD fails on Figure 8 with a `ValueError`. The guard is behaving correctly; the committed data is what is wrong. The Data Availability Statement promises "the derived datasets from which the figures in this article are generated," so this must be committed before submission.
+
+### Phase 5 work not started
+
+No `src/paths.py`, `src/waq_io.py`, `src/geo_io.py`, `src/make_figures.py`, or `figures/README.md`. `src/D3D/__pycache__/*.pyc` are still tracked. `src/superseded/PathOptimization1.py` still present (now writing to its own filename, so no longer a footgun). `requirements.txt` still omits `pillow`.
+
+### Follow-up, same day
+
+- **Nitrogen CSVs committed** by the author. `git status` is clean apart from this tracker and the change list; the repository at HEAD now regenerates Figure 8. The corresponding row has been dropped from the change list's outstanding table.
+- **Four hyperref warnings fixed.** `Token not allowed in a PDF string (Unicode)` fired twice for `superscript` and twice for `\circ`, both reported at the `\begin{document}` line because that is where hyperref writes the PDF info dictionary. The sources were the affiliation superscripts in `\Author` (MDPI template default, five of them) and the degree symbol added to the abstract during this revision. Both are now wrapped in `\texorpdfstring`, so the typeset output is unchanged while the PDF metadata reads "Russell Primeau, Razak Seidu, ..." and "1.7 degrees Celsius". Rebuilt: 34 pages, **zero** token warnings, zero undefined references or citations. The remaining log warnings are `fancyhdr` `\headheight` notices from the MDPI class and are cosmetic.
+
+**Note on terminology used earlier in this file:** *DAS* means the Data Availability Statement (the `\dataavailability{}` block in `main.tex`).
+
+---
+
+## Speed-up contradiction resolved (2026-09-08)
+
+Author confirmed: the calibration campaign behind Figure 6 was run **serially on a separate workstation**; the full-year ThermalTune run and the operational system use **MPI partitioning**. Confirmed independently in `ThermalTune/output/FlowFMnew.dia`, whose recorded command line is `dflowfm-cli.exe --partition:ndomains=12:icgsolver=6 FlowFMnew.mdu` — twelve partitions, PETSc solver.
+
+Both figures therefore stand. The manuscript now says which scheme each belongs to:
+
+- **Section 3.1** states that Figure 6's runs are serial, on a machine separate from Table 3, and that serial execution was deliberate — results are not exactly reproducible across partition schemes and several timing components scale poorly and unevenly with partition count, so holding the scheme fixed isolates the effect of the configuration. The axis is a relative comparison within that campaign, not operational throughput.
+- **Appendix E** no longer calls those nine runs "the selected configuration" (they are a one-at-a-time sweep sharing only the mesh, vertical discretization and forcing) and now attributes the 32.5-minute median to the Table 3 machine under twelve MPI partitions.
+- The old reconciliation sentence — "that figure refers to simulating an entire season ... not to an operational update" — is **removed**, because it was false: the 32.5-minute figure is itself a whole season. Replaced with the execution-scheme explanation, and with an explicit statement that any benchmark of the online workflow refers to the partitioned configuration.
+- **Appendix B** gains a `Domain decomposition — 12 MPI partitions` row beside the solver.
+
+Rebuilt: 34 pages, zero token warnings, zero undefined references or citations, zero rendering placeholders, zero reviewer references in rendered text, all six appendices referenced.
+
+### ⚠️ NEW FINDING — a tuned parameter the solver ignored
+
+`ThermalTune/output/FlowFMnew.dia` reports nine keywords accepted into `FlowFMnew.mdu` but never used. Seven are inert output or process switches. Two are worth attention, and one is a defect in a reported result:
+
+> `** WARNING: While reading 'FlowFMnew.mdu': keyword [numerics] maxitverticalforester=15 was in file, but not used. Check possible typo.`
+
+**Table A3 reports "Vertical Forester filter iterations, bounds 0 to 20, selected 15" as one of the nine tuned parameters, and the solver ignored it.** D-Flow FM 1.2.184 takes this per constituent (`Maxitverticalforestersal`, `Maxitverticalforestertem`); neither key is present in the `.mdu`, so the vertical Forester filter was at its default of zero throughout. The optimiser therefore explored a dimension with no effect on the model, and the manuscript reports a calibrated value for a setting that did nothing. A reviewer reproducing the run sees this warning in their own `.dia`.
+
+This is an author decision and has **not** been changed: the honest options are to drop the row and describe eight tuned parameters instead of nine, or to keep it with a footnote recording that the setting was inactive. Note that Section 2.2's first stage separately varied "the horizontal and vertical filtering options" through the `HMF?` and `VFF?` columns of `Calibration.csv`, which are different keys — that statement is unaffected.
+
+The second warning, `[wind] cdbreakpoints` and `windspeedbreakpoints` unused, is **benign**: `ICdtyp = 6` selects the Wüest (2005) formulation, which computes the drag coefficient rather than interpolating breakpoints. The values are inert leftovers, not a misconfiguration.
+
+---
+
+## Forester row dropped, file names purged, Figure 6 reconciled (2026-09-08)
+
+### Vertical Forester filter
+
+Per the author, the row is **removed** rather than footnoted. Later calibration iterations found that increasing this value was generally harmful to accuracy; the Figure 6 campaign did use it, but the calibration behind the reported results did not. The second stage is now described as **eight** continuous parameters, in Section 2.2, in Table A3 and in the cover letter. No note about the ignored keyword appears anywhere in the manuscript — the setting is simply not part of the reported calibration.
+
+Section 2.2's first stage still lists "the horizontal and vertical filtering options" among the structural variables, which remains true of the campaign it describes.
+
+### Author directive — no file or project names in the manuscript
+
+**Standing rule: the rendered text must contain no file names, paths, project names or script names.** The reader must be able to follow everything without opening the repository; sharing the files is supplementary validation, not a substitute for description. Use general descriptive terms for assumptions and configuration.
+
+Audited by scanning the rendered text for snake_case, camelCase, filename extensions and Windows paths, then re-scanning the compiled PDF independently. **One violation found and fixed:** Appendix F ended with "reproducible from the repository via `src/PathPlanning/c.StabilityAnalysis.py`", now "reproducible from the accompanying repository."
+
+Everything else the scan raised is benign: `\label` and `\citep` keys (which do not render), math subscripts, `pH`, `gN`, `fDOM`, and a manufacturer datasheet URL. The cover letter is clean by the same test.
+
+**One deliberate exception**, flagged rather than removed: the Data Availability Statement contains the repository URL, which ends in the repository's name. A repository cannot be shared without naming it, and the journal requires the link. It is confined to the statement whose purpose is to give it.
+
+### Figure 6 contradiction closed
+
+Added to Section 3.1, after the mesh-resolution conclusion:
+
+> The configuration reported below is not among the points plotted here. It was selected in the second stage, against a weighted objective dominated by the surface series and by depth-integrated heat content rather than by the depth-averaged error on this axis, and with values of water clarity, timestep, Courant limit and vertical mixing outside the range explored in the first. It therefore scores worse on this axis than the best point shown, and the two are not competing candidates under the same criterion.
+
+This removes the unexplained gap between Figure 6's best point (1.076 °C) and the 2.15 °C reported in Table 6 for the same named quantity, and it does so without naming any run, file or project.
+
+Rebuilt: 34 pages, zero token warnings, zero undefined references or citations, zero rendering placeholders, zero reviewer references, zero file names.
+
+---
+
+## Framing made explicit, and R2-7 closed (2026-09-08)
+
+### Author-supplied figures close two outstanding items
+
+Figures 1, 3 and 4 have been redrawn by the author, with the captions updated to match. This closes **R2-7 in full**, which had been the last reviewer comment carrying outstanding work other than by choice.
+
+- **Figure 1** now names this system's own components — sensors and water body, data processing and the hydrodynamic water quality model, and the three applications — closing the real-to-virtual-to-application loop, in place of the generic Grieves diagram.
+- **Figure 3** draws the withheld-data decision explicitly: the first profile of the season sets the initial condition, every later profile is marked *never forcing*, and all of them pass instead to validation and model selection.
+- **Figure 4** carries the update rates the reviewer asked to see, attached to the steps they govern: retrieval at each platform's publication interval, an hourly model run at twelve MPI partitions costing about a second per simulated hour, and a nowcast published under two hours old. The partition count agrees with the Appendix B row added earlier the same day.
+
+Putting the rates on the update loop rather than on the conceptual framework figure is the better placement, and the cover letter now says so rather than claiming the request was met literally.
+
+### Three framing points now stated in the text
+
+The author identified three things a reader must not have to infer. All three are now in the Introduction.
+
+**1. The method is not what is under test.** Section 1.3 states that the capabilities and limitations of process-based hydrodynamic water quality modelling are established in the reviews cited, that evaluating them is not an aim of this study, and that the governing equations, the discretization and the solver are standard and applied as published, with none of the modelling machinery offered as a contribution. Section 2.2 already described the solver as off-the-shelf; the Introduction now says it first.
+
+**2. Why 3D process-based.** A new paragraph gives both halves of the argument. Predictions derived from conservation laws can be interrogated, tested against quantities they were not fitted to, and extended beyond a short observational record — with the machine-learning emulation of reservoir water quality cited as the comparison point. And resolving vertical and horizontal structure is a precondition for all three applications: the abstraction point lies at depth, the depth at which a plume travels determines whether it reaches that point, and the sampling method depends on contrast between locations.
+
+**3. Novelty is the integration.** The claim in Section 1.2 has been rewritten. It previously rested on "a process-based twin of a drinking water source reservoir, validated against in situ observations", which put the weight on the model. It now states that what is novel is not the model, the equations or the solver, all of which are standard, but the systems integration of a near real-time in situ sensing network with a three-dimensional process-based model of a drinking water source, and the applications the coupling makes possible.
+
+The contributions paragraph was adjusted from "What is technically new here" to "What this paper adds to that work", so it no longer reads as a claim of technical novelty in the model itself.
+
+### Prior art that had to be acknowledged
+
+Searching the bibliography for support surfaced an entry staged but never cited: an operational online three-dimensional forecasting platform for lake hydrodynamics, with a companion automated calibration framework. **Leaving this uncited while claiming a three-dimensional process-based twin as the distinguishing feature would have been a real exposure.** Both are now cited in the novelty paragraph, and the claim is differentiated on the drinking-water-source application and the integration rather than on the dimensionality of the model.
+
+Six previously staged, uncited entries are now used: the dimensionality study, the machine-learning emulation paper, the two Baracchini papers, and two modelling overviews. All resolve; the build reports no undefined citations.
+
+### Cover letter aligned
+
+Three changes: the novelty response now matches the reframed claim and names the acknowledged prior art; the R2-7 response says both figures have been redrawn and explains where the update rates went; and a new paragraph in the covering summary states the scope of the modelling claim, so a reviewer meets it before the point-by-point section.
+
+Manuscript now **35 pages**, build clean, zero undefined references or citations, zero rendering placeholders, zero reviewer references, zero file or project names. Change list at 52 rows, all anchors matched.
+
+---
+
+## Review of the author's manual revision (2026-09-08, later)
+
+The manuscript was substantially rewritten by the author between sessions. It is shorter (28 pages), more careful, and corrects several errors of mine. Five of the six remaining TODOs were resolved; one remains, on manufacturer accuracy and resolution columns.
+
+### Build defects found and fixed
+
+- **The document did not compile.** Two blank lines inside the Equation 10 display terminated math mode, so LaTeX reported *Missing $ inserted* and abandoned the rest of the document at page 27. Blank lines removed; no content changed.
+- **Two citations had no bibliography entry.** `Piccolroaz2024` and `Hipsey2020assessment` were cited in Section 1.3 and the Discussion but were absent from `sources.bib`. Both entries added, **verified against the Crossref API rather than recalled**: Piccolroaz et al., *Reviews of Geophysics* 62(1) e2023RG000816, doi 10.1029/2023RG000816; Hipsey et al., *Environmental Modelling & Software* 128, 104697, doi 10.1016/j.envsoft.2020.104697. Both are apt for the passages that cite them.
+- **A dangling figure reference.** Appendix C and Section 3.1 both point to a residual plot, and the residual dataset and its plotting script existed, but no float carried the label, so `Figure ??` rendered. The float was added.
+
+### My own duplicated work, withdrawn
+
+I wrote `src/D3D/ResidualPlotter.py` before noticing that `src/D3D/ExportThermalResiduals.py` already existed and targets the same `Fig14.png`. Mine has been deleted and the figure regenerated with the author's script, which is the better of the two: three stacked panels matching the depth-validation figure rather than three overlaid series. Two scripts writing one filename is the same footgun as the superseded path optimizer.
+
+### Corrections the author made to my work
+
+- **"Warm bias persists at every depth" was wrong.** The column I described as a bias is the error at the last paired time. The table caption now defines it, and the text states that it is not mean seasonal bias. The residual figure shows why this mattered: at 1 m the model runs about 1.45 °C *cool* on average, so a persistent warm bias was never true.
+- **The stability analysis had a real bug of mine.** DBSCAN relabels clusters between runs, so comparing label sets counted relabelling as a changed route. Comparing the original geographical regions instead moves the bootstrap agreement from 17.9 % to 63.3 %. The rewritten script also emits the LaTeX fragment the appendix inputs, so the reported numbers cannot drift from the analysis.
+- **The calibration narrative was withdrawn.** The two-stage description, the Sobol and Nelder--Mead search, and the tuned-parameter table are gone. The configuration reported is supplied rather than optimised within this study, and the appendix now says so: *"No private optimization procedure is part of the study reported here."* This is the honest position and it supersedes the R1-5, R1-6 and R3-1 responses as previously written.
+- **The operational loop is no longer described as running.** The abstract, Figure 4's caption and Appendix E now distinguish implemented components from a demonstrated unattended service, and the under-two-hours latency claim is withdrawn as unmeasured.
+
+### Cover letter re-synchronised
+
+Every number the letter asserts was checked against the manuscript and the appendix fragments it inputs. **Fifteen paragraphs asserted things the paper no longer contains** and were rewritten: the calibration procedure and parameter table (R1-5, R1-6, R3-1), the grab-sample percentage comparison (R2-2), the stability figures (R2-3), the mass-balance residual, which is 0.0085 % not 0.015 % (R2-5), the speed-up range (R2-9), the automation claims (R3-3), and the latency and robustness claims (R3-4). Re-checked afterwards: the only numbers now in the letter but not the manuscript are section numbers and the reviewer's own arithmetic quoted back in the comment text.
+
+### Repository
+
+The rewritten Data Availability Statement asserts that *"the repository documents which plots can be regenerated from those artifacts."* That was not true: `README.md` still carried empty `Fig. ()` placeholders, a duplicated bullet and pre-rename filenames. It has been rewritten with a figure-by-figure provenance table distinguishing what regenerates here from what comes from solver post-processing that is not distributed. Provenance was verified per figure rather than assumed; two rows were corrected during writing, since neither the profiler calibration history nor panel (a) of the sampling-plan figure is produced by any script in this repository.
+
+All eight scripts run to completion from the repository as it stands.
+
+---
+
+## Calibration discussion reinstated, without the automated search (2026-09-08)
+
+Per the author: the calibration iteration and its table go back in, but **nothing** describing the optimizer or search methods implemented in `D3DFMRunner` — no Sobol exploration, no Nelder--Mead refinement, no evaluation budget, and no weighted objective. That configuration describes a different process from the one that produced these results. The author's point stands on its own: a procedure carried out by hand is not thereby less informative, and reporting it does not oblige the study to ship the tooling.
+
+### Sources used, and deliberately not used
+
+| Reinstated content | Source |
+|---|---|
+| Twenty-five configurations, eleven full-season | `data/Calibration.csv` |
+| Ranges for mesh, layers, clarity, filtering, vertical eddy coefficients, Courant limit, timestep | `data/Calibration.csv` |
+| Selected values for Dalton, Stanton, Ozmidov, Prandtl and the four eddy coefficients | the committed `.mdu` |
+| *Nothing* | `hydro_explore_optimize.json` |
+
+### What went into the manuscript
+
+- **Section 2.2** now opens the calibration description with "by iterative adjustment across successive runs rather than by an automated search", lists the settings varied with a pointer to the new ranges table, names the parameters adjusted in the later iterations, and states the basis on which iteration stopped: comparison against the withheld profiler observations, continued until further adjustment produced no further improvement. It says plainly that the retained configuration is the best of those tried rather than the result of a formal optimization, and that the sequence of trials is not a reproducible search path.
+- **New Table A3**, *Settings varied during the calibration campaign*, with the range covered for each of nine settings, followed by a note that the later hand-adjusted parameters have no retained range and that their values appear in the configuration table.
+- **Ozmidov length scale** added to the configuration table, which had omitted it.
+- The three sentences that had disclaimed any describable process were rewritten: Section 2.2's "a separate supplied configuration", Section 3.1's "was supplied separately... does not describe its optimization history", and Appendix B's "No private optimization procedure is part of the study reported here". Each now distinguishes campaign membership from provenance without denying that a process existed.
+
+The Forester filter row stays out, for the reason the author gave and because the solver's own log records the keyword as read but unused.
+
+Verified after the edit: zero occurrences of Sobol, Nelder--Mead, simplex, evaluation budget or weighted-objective language in the rendered text. Build clean at **29 pages**, zero errors, zero undefined references.
+
+### Cover letter
+
+Eight paragraphs rewritten across R1-5, R1-6 and R3-1. One of them, on the weighted objective with the surface series at double weight, was a description of the automated optimizer that my earlier sweep had missed entirely; it is replaced by the statement that the adjustment was made by hand. A guard now asserts that none of the withdrawn vocabulary survives anywhere in the letter except where a reviewer's own comment is quoted back.
+
+### Note for future edits to the letter
+
+**Paragraph indices are not stable.** The document was opened and saved in Word between sessions, which merged runs and took the paragraph count from 320 to 256. Index-based edits silently hit the wrong paragraph or fail outright. All edits are now anchored on a distinctive substring of the target paragraph and assert a unique match.
+
+### latexdiff
+
+`latexdiff` needs the pure-Perl module `Algorithm::Diff`, which is absent from the only Perl on this machine, Git Bash's `/usr/bin/perl`. No installation is being requested: the same marked-up `.tex` can be produced with Python's standard-library `difflib`, which needs nothing added. That route requires reading the submitted `.tex` from the manuscript repository history, which needs the author's approval first.
+
+### CORRECTION — an unsupported provenance claim, withdrawn (2026-09-08)
+
+The author challenged the reinstated text and was right to. **My error was not confusing Figure 6 with the tuner runs** — those are kept distinct throughout — but asserting that the reported thermal configuration came from *"later iterations"* of the manual campaign behind Figure 6, and then inventing a stopping rule for it. Neither was supported by anything. I inferred a lineage from the instruction to reinstate the calibration discussion rather than from evidence.
+
+The evidence runs the other way. All nine parameters in the committed `.mdu` are exactly the nine in the optimizer's parameter list, every one interior to its configured bounds and non-round to six significant figures:
+
+| Parameter | Value | Configured bounds |
+|---|---|---|
+| Dalton | $-0.79447$ | $-1.6$ to $-0.6$ |
+| Stanton | $-1.46559$ | $-1.6$ to $-0.6$ |
+| Xlozmidov | 0.0266392 | 0.0 to 0.1 |
+| PrandtlNumberTemperature | 0.192679 | 0.1 to 10.0 |
+| Vicoww | 0.00527104 | 1e-06 to 0.01 |
+| Dicoww | 6.06011e-05 | 1e-05 to 0.001 |
+| Vicouv | 0.0225008 | 0.001 to 0.3 |
+| Dicouv | 0.0953328 | 0.001 to 0.3 |
+
+That is the signature of an automated search result, not of hand-picked values, and it is consistent with the author's original statement that no such procedure is part of the study reported here.
+
+**Resolution, confirmed by the author.** The manuscript says nothing about how the reported configuration was reached. What remains is only what `Calibration.csv` supports: the configuration campaign behind Figure 6, described as proceeding "by iterative adjustment across successive runs rather than by an automated search" — with that sentence now bound grammatically to the campaign so it cannot be read as a general claim — and Table A3's ranges, scoped explicitly to that campaign in three places. The reported configuration is presented by its settings alone.
+
+**Appendix E's throughput benchmark stays**, per the author: the nine runs share the mesh, vertical discretization and period, so the median of 32.5 minutes characterizes the solver on that hardware regardless of why the runs were launched. The manuscript describes them only as "nine supplied full-season runs sharing a common mesh and vertical discretization".
+
+**Cover letter re-synced again.** Four paragraphs still carried the withdrawn lineage. R1-6 now separates what can be answered from what cannot: the campaign's settings and ranges are reported; for the evaluated configuration the settings themselves are given rather than a tuning history, and no stopping criterion is supplied, because reconstructing one after the fact would be worse than saying nothing. The guard list now also rejects "later iterations", "made by hand" and "best of those tried".
+
+**Lesson recorded:** when told to reinstate removed material, reinstate only what the sources support. The instruction said what to restore, not that a lineage existed between two run sets. The two remaining uses of "optimization" in the manuscript are the route optimizer in Sections 2.3 and 3.3, which is unrelated.
+
+---
+
+## Cover letter: responses trimmed to the change (2026-09-08)
+
+Per the author, the individual responses had accumulated a great deal of material that does not belong in them: descriptions of the previous state of the manuscript, code and data; endorsements of a reviewer's opinion; and third-person references to the reviewer. A response should say what changed, or what did not, and stop.
+
+Fifty paragraphs rewritten. Removed throughout:
+
+- **Endorsements** — "The reviewer was right to ask", "The reviewer is correct and we are grateful for the close reading", "Both points are accepted", "We accept this", "We agree that", "Reviewer 3 was right".
+- **Previous-state narration** — "has been promoted out of the middle of a methods paragraph", "Section 2.4 no longer says", "the comparison makes the failure visible in a way the previous figure did not", "the previously quoted comparison mixed meshes... and is no longer used".
+- **Meta-commentary** — "We should be straightforward about", "In preparing this response we found", "Checking the arithmetic exposed a more serious problem than the one raised", "Thank you for bringing this to our attention".
+
+**Brief concessions retained**, per the author's follow-up: politeness stays, and acknowledging that something was wrong or misleading is appropriate where a reviewer found a genuine error, provided it is one clause and not a paragraph. So the letter still says "Equation 12 was wrong as printed", "The inconsistency was real", "The claim was too strong", "This justification was not supported", "The count was wrong", "the earlier wording was open to that reading", and "The repository did not support reproduction as submitted" — each followed immediately by the change.
+
+The covering summary is kept and lightly tightened; it is addressed to the editor and reviewers, so collective references there are appropriate. Navigational cross-references between comments ("addressed under Reviewer 2, Comment 11") are also kept, since they save the reader hunting.
+
+Letter now 6,393 words across 256 paragraphs, 36 comments each with a Response and a Changes line. Re-verified afterwards: the only numbers in the letter that are not in the manuscript are section numbers and the reviewer's own arithmetic quoted back in a comment.
+
+---
+
+## Two arguments added (2026-09-08)
+
+### Observability, in Section 1.3
+
+The strongest motivation for a process-based model had been left implicit: it is not only about interpretability, but about what can be observed at all. A new paragraph states that many contaminants are hazardous at concentrations only laboratory analysis resolves, while instruments suitable for continuous deployment cover a limited set of largely physical and optical parameters. Where a hazard is optically expressed it can be observed at high frequency and over wide areas; for a dissolved contaminant established only by grab sampling, no comparable observation stream exists, so neither a data-driven surrogate nor a soft sensor has enough data to be trained or verified against. The paragraph concedes that a process-based model is not exempt from that scarcity, and closes on what it does retain: internal consistency with the conservation laws it solves.
+
+Three previously staged but uncited entries now support it: a review of online surface water quality monitoring technology, a chapter on on-line monitoring for drinking water contamination, and a review of physical-to-virtual sensing.
+
+**Correction to the author's framing, and it strengthens the argument.** The author described Qiu et al. as using optical sensors for chlorophyll. Checking the paper, its monitoring is **video-based observation and satellite remote sensing** -- its own keywords are "satellite remote sensing" and "video monitoring". The text therefore says that the framework tracks algal blooms by video and satellite imagery. This makes the contrast sharper rather than weaker: a surface bloom is visible at a distance, which is exactly what a dissolved contaminant is not.
+
+### Areas for future work, in the Conclusions
+
+The Conclusions previously disposed of future work in one sentence. It now carries an explicit list of seven areas, ordered by how directly each bears on the claims made: chemical and biological validation against a tracer experiment or monitored release; independent validation of the velocity field; transport-specific mesh convergence; the calibration/validation split together with resampling over model configurations; field execution of a planned mission and comparison against alternative sampling strategies; end-to-end operation of the update loop as an unattended service; and replication at water bodies differing in size, depth, residence time and dominant hazard.
+
+The list covers both the analyses deferred from the review and the tasks needed to establish the approach and its transferability independently of any comment. It closes by saying that none is addressed here and that the claims should be read accordingly.
+
+Three responses in the cover letter now point at it, so the deferred items are visibly captured rather than left as promises scattered across the letter.
+
+Build clean at 29 pages, zero errors, zero undefined references.
+
+### Why temperature is the calibration target (2026-09-08)
+
+Section 2.2 already noted, citing Xia et al., that calibrating a 3D hydrodynamic model to temperature alone can overlook important dynamics but remains common practice. What it did not say is *why* the alternative is not taken. Three sentences added:
+
+> The alternative is seldom available. Measuring a three-dimensional velocity field across a water body of this size requires instrumentation deployed at many locations and depths at once, and surveys of lake modelling practice describe calibration as contending with limited direct measurements rather than a surplus of them. Assessments of aquatic ecosystem models likewise find that validation routinely stops at the comparison of simulated state variables against observations, with the process rates and fluxes that would constrain circulation seldom tested.
+
+This turns "no velocity data exist at this site" from a local excuse into a statement about the field, which is the stronger position and is consistent with the equifinality limitation in the Discussion.
+
+**Citations.** `Hipsey2020assessment` was already in use and is the precise support: its assessment hierarchy distinguishes conceptual, state, process and system validation and reports that only the first two are routinely undertaken. A new entry was added and **verified against the Crossref API**, not recalled: Regev, Mesman, Paule-Mercado, Schmid and Siebers, *Navigating lake modelling and calibration: insights from literature and community practice*, Ecological Modelling 515, 111529, 2026, doi 10.1016/j.ecolmodel.2026.111529. Its abstract names limited direct measurements among the recurring challenges of lake model calibration, so it supports the claim made rather than being cited on the strength of its title. Both resolve in the rendered bibliography as [55] and [22].
+
+Build clean at 29 pages, zero errors, zero undefined references.
+
+## Jargon sweep (2026-09-08)
+
+Scanned the rendered text for specialist limnological, numerical, chemical and statistical vocabulary, reporting every term with its first use, its section and its context, so that each could be judged as remove, gloss or keep.
+
+**Removed from the abstract.** "Metalimnion" is gone, along with the depth-band framing and the over-specific "at 2.95~m depth". The clause now reads: a root-mean-square error of 1.73 °C near the surface and 2.15 °C averaged across depth, with the largest discrepancies at intermediate depths in summer. The headline numbers that Reviewer 1 Comment 1 asked for are retained; the stratum name is not. **The abstract now contains no specialist vocabulary at all.**
+
+**Replaced with plain words.**
+
+| Was | Now |
+|---|---|
+| "Within lentic surface waters" | "Within lakes and reservoirs" |
+| "with larger metalimnetic errors" (Conclusions) | "with the largest errors at intermediate depths" |
+| "This dimictic, oligotrophic enlarged natural lake" | "The lake is nutrient-poor, and mixes from top to bottom twice a year, in spring and autumn." |
+| "turnover in dimictic lakes provides uniform initial and final conditions" | "these twice-yearly mixing events leave the water column at a uniform temperature, providing well-defined initial and final conditions" |
+| "the epilimnion, metalimnion and hypolimnion" (Appendix C) | "the surface mixed layer, the transitional layer in which temperature falls sharply with depth, and the cold deep water beneath it" |
+
+**Glossed at first use**, where the term earns its place: vertical stratification ("the layering of a water column by temperature and density"); nowcast ("an estimate of conditions as they are rather than a forecast of conditions to come"); eutrophication ("the nutrient enrichment that drives algal growth"); DBSCAN (now "a density-based clustering analysis (DBSCAN)"); fDOM (expanded to fluorescent dissolved organic matter in the instrument table).
+
+**Kept without gloss, deliberately.** The numerical vocabulary in Section 2.2 and the model configuration appendix -- Courant limit, advection, closure, hydrostatic, eddy viscosity, z-layers, PETSc, Perot, Ozmidov, Smagorinsky, turbulent Schmidt and Prandtl numbers. These sit beside the governing equations and in a table of solver settings whose purpose is reproducibility; a reader who needs them knows them, and glossing each would bury the section. Turbidity, ammonium and nitrate are standard for the venue.
+
+**No DBSCAN citation was added.** The canonical reference is a 1996 conference paper without a DOI, and the entry could not be verified through Crossref, so the algorithm is named and described rather than cited.
+
+Build clean at 29 pages, zero errors, zero undefined references, zero token warnings.
+
+## Document-history language removed (2026-09-08)
+
+Per the author, nothing in the manuscript may refer to a preceding version of the document or code, or to reviewers, editors, comments or review. Everything must read as the author addressing the reader, not as commentary on the document.
+
+Scanned the rendered text for "revised", "previous", "earlier", "prior", "former", "supersedes", "no longer", "now", "has/have been added or corrected", "in response to", "this draft", "the present version", and for reviewer, editor, referee and comment.
+
+**Result: zero references to reviewers, editors, referees or comments were found in the rendered text**, and zero instances of "now" used as document commentary. That part was already clean.
+
+**Fourteen fixes made.** "Revised" appeared eleven times and meant something only relative to a draft the reader has never seen. The runs are renamed so each is self-contained.
+
+| Was | Now |
+|---|---|
+| the revised thermal run / simulation | the thermal simulation |
+| *Revised thermal configuration performance* (table caption) | *Thermal simulation performance* |
+| Because the historical and revised runs differ | Because the campaign runs and the thermal simulation differ |
+| the historical configuration campaign / comparison | the configuration campaign / comparison |
+| not the configuration of every historical experiment | not the configuration of every experiment reported here |
+| retain the earlier scenario outputs | use outputs from a separate scenario configuration |
+| The earlier scenario uses meteorological forcing | The scenario simulation uses meteorological forcing |
+| Neither describes the earlier contaminant demonstrations | Neither describes the contaminant demonstrations |
+
+The preprint disclosure previously enumerated what had changed since the preprint: *"The present article supersedes that version and presents the revised thermal evaluation, expanded model and sensor documentation, and explicit distinctions between demonstrated capabilities and proposed operational use."* That list is document commentary and is gone. What remains is a scholarly cross-reference: **"A preliminary account of this work is available as a preprint [9]; the present article supersedes it."**
+
+This is the one place a preceding version is still named. It is kept deliberately: declaring a preprint is a disclosure obligation, it was asked for in the text, and the wording now reads as a citation of a separate deposited artifact rather than as revision history. Removing it entirely is the author's call.
+
+**Kept as legitimate content**, since they describe the world rather than the document: "prior knowledge" and "previously computed timestep" in the model description; "prior applications to seasonally stratified lakes" in the literature; "Previous assessment has identified several specific hazards" about earlier studies of the lake; "weather forcing data from previous years"; and "systems of this kind are no longer rare" about the state of the field. Also kept: "retained", "archived" and "supplied", which describe data provenance, not document versions.
+
+**Two remaining hits in the PDF are publisher boilerplate**: the "Received / Revised / Accepted" date block that MDPI fills in, and the Disclaimer/Publisher's Note referring to "the editor(s)". Neither is author text.
+
+Build clean at 29 pages, zero errors, zero undefined references, zero token warnings, one TODO comment remaining.
+
+---
+
+## Pre-submission pass (2026-09-08)
+
+### Done in this pass
+
+- **PDF reduced from 25.6 MB to 14.6 MB.** Figure 2 was 4348 px wide with an alpha channel, rendered at 0.99 textwidth: about 670 dpi, more than twice what print resolves. Resampled to 3200 px (about 490 dpi, still well above the 300 dpi minimum) and flattened to RGB. Figure 5's alpha channel was dropped at full resolution. Originals are backed up in the session scratchpad under `fig_originals/`.
+- **DRAFT banner removed from the cover letter.** It instructed its own deletion before sending, and everything it asked to be verified has been. The one item left open by choice is stated twice in the letter body, so nothing is lost.
+- **False claim corrected.** Appendix A said the instrument table "combines manufacturer specifications with the operational calibration record". It carries no manufacturer specification columns. Now: "reports the measured parameters, their units and the operational calibration record for each channel." This matters because it is the exact table Reviewer 2 Comment 7 asked about.
+
+### Verified clean
+
+Build: 29 pages, zero errors, zero undefined references or citations, zero token warnings. No dangling cross-references, no unreferenced figure or table labels, no space-before-punctuation. Letter and manuscript agree on every number; the only numbers in the letter not in the paper are section numbers and the reviewer's own arithmetic quoted back. The 3.5 kg mass basis is arithmetically consistent: 3.5 kg NH4NO3 at 35 % nitrogen gives 1.225 kg N, split as 0.6125 kg each.
+
+### Left for the author
+
+**Blocking.** Nothing is committed or pushed in either repository. The Data Availability Statement points at the GitHub repository, so it is false until this is done. Uncommitted: `main.tex`, `sources.bib`, `Cover_letter.docx`, and untracked `Fig3.svg` and `Fig4.svg` in the manuscript submodule; `README.md`, the plotting scripts, the stability analysis and the regenerated figures in the superrepository.
+
+**Author action.** Red highlighting: the passage-level change list is superseded, so highlight whole sections per `CHANGE_LIST.md`.
+
+**Optional, roughly fifteen minutes.** The single remaining TODO adds manufacturer accuracy and resolution columns to the instrument table from the EXO manual. With the false claim above now corrected, leaving them out is defensible; adding them closes Reviewer 2 Comment 7 completely.
+
+**Known soft inconsistency.** Figure 4 still annotates the nowcast as "under 2 h old" while Appendix E states the full interval has not been measured. The caption frames the whole figure as a proposed loop, which covers it, but the annotation would be better as a design target or removed. Needs an edit to `Fig4.svg`.
+
+**Standing assumptions a reader may probe.** The mass balance is computed on a nutrient run rather than the release scenario, and says so. The provenance of the reported configuration is deliberately unstated. Figure 9a and Figure 10 are not reproducible from the repository, which `README.md` records.

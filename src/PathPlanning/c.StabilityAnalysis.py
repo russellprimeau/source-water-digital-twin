@@ -103,9 +103,25 @@ def main() -> None:
     cells = pd.read_csv(DATA_DIR / "1.Sampling_Priority.csv")
     cells[SENSITIVITY_COLUMN] = cells[SENSITIVITY_COLUMN] / cells[SENSITIVITY_COLUMN].max()
     n_cells = len(cells)
+    cells['cell_id'] = np.arange(n_cells)
 
     base_clusters, base_assign = cluster_cells(cells)
     base_route, base_score, base_len = best_route(base_clusters)
+    cells['region'] = base_assign['cluster'].to_numpy()
+
+    def region_route(frame):
+        """Compare original geographical regions, never transient DBSCAN labels."""
+        clusters, assigned = cluster_cells(frame)
+        visited, score, length = best_route(clusters)
+        regions = tuple(sorted(set(assigned.loc[
+            assigned['cluster'].isin(visited), 'region'].astype(int))))
+        return regions, len(clusters), score, length, assigned
+
+    # Label invariance: row order must not change the selected geographical set.
+    shuffled_route, _, shuffled_score, shuffled_length, _ = region_route(
+        cells.sample(frac=1, random_state=42))
+    assert shuffled_route == base_route
+    assert np.isclose(shuffled_score, base_score) and np.isclose(shuffled_length, base_len)
     print(f"Baseline: {n_cells} cells -> {len(base_clusters)} clusters")
     print(f"  cluster weights: {np.round(base_clusters['Weight'].to_numpy(float), 4).tolist()}")
     print(f"  selected clusters: {base_route}  score={base_score:.4f}  length={base_len:.0f} m")
@@ -116,11 +132,10 @@ def main() -> None:
     loo_routes: Counter = Counter()
     for drop in range(n_cells):
         sub = cells.drop(cells.index[drop])
-        cl, _ = cluster_cells(sub)
-        route, _, _ = best_route(cl)
+        route, count, _, _, _ = region_route(sub)
         loo_routes[route] += 1
         loo_same_route += int(route == base_route)
-        loo_same_count += int(len(cl) == len(base_clusters))
+        loo_same_count += int(count == len(base_clusters))
     print(f"\nLeave-one-out over {n_cells} cells:")
     print(f"  same cluster count : {loo_same_count}/{n_cells} ({100*loo_same_count/n_cells:.1f}%)")
     print(f"  same selected route: {loo_same_route}/{n_cells} ({100*loo_same_route/n_cells:.1f}%)")
@@ -134,14 +149,17 @@ def main() -> None:
     for _ in range(N_BOOTSTRAP):
         idx = rng.integers(0, n_cells, n_cells)
         sub = cells.iloc[idx].reset_index(drop=True)
-        cl, assign = cluster_cells(sub)
-        route, _, _ = best_route(cl)
+        route, count, _, _, assign = region_route(sub)
         boot_routes[route] += 1
-        boot_ncluster[len(cl)] += 1
-        lab = assign["cluster"].to_numpy()
-        for a in range(len(idx)):
-            for b in range(a + 1, len(idx)):
-                i, j = idx[a], idx[b]
+        boot_ncluster[count] += 1
+        # Each original pair contributes at most once per replicate, conditional
+        # on both cells being present; duplicates still affect weights/centroids.
+        unique_assign = assign.drop_duplicates('cell_id')
+        ids = unique_assign['cell_id'].to_numpy(int)
+        lab = unique_assign["cluster"].to_numpy()
+        for a in range(len(ids)):
+            for b in range(a + 1, len(ids)):
+                i, j = ids[a], ids[b]
                 together[i, j] += 1
                 together[j, i] += 1
                 if lab[a] == lab[b]:
@@ -180,6 +198,36 @@ def main() -> None:
     ]
     out["in_selected_route"] = [int(c in base_route) for c in out["cluster"]]
     out.to_csv(OUT_DIR / "sampling_plan_stability.csv", index=False)
+    pd.DataFrame([
+        {'regions': '-'.join(chr(65 + c) for c in route), 'replicates': count,
+         'fraction': count / N_BOOTSTRAP}
+        for route, count in boot_routes.most_common()
+    ]).to_csv(OUT_DIR / 'sampling_route_frequencies.csv', index=False)
+    import json
+    summary = dict(n_cells=n_cells, bootstrap_replicates=N_BOOTSTRAP, seed=RANDOM_SEED,
+                   baseline_regions=[chr(65+c) for c in base_route],
+                   baseline_score=base_score, baseline_distance_m=base_len,
+                   loo_same_regions=loo_same_route, loo_same_cluster_count=loo_same_count,
+                   bootstrap_baseline_fraction=boot_routes[base_route]/N_BOOTSTRAP,
+                   modal_regions=[chr(65+c) for c in boot_routes.most_common(1)[0][0]],
+                   modal_fraction=boot_routes.most_common(1)[0][1]/N_BOOTSTRAP,
+                   cluster_count_frequencies=dict(boot_ncluster))
+    (OUT_DIR / 'sampling_stability_summary.json').write_text(json.dumps(summary, indent=2))
+    vals = out['mean_co_association'].dropna()
+    manuscript = (
+        f"Removing one cell at a time preserved the cluster count in {loo_same_count} of {n_cells} cases "
+        f"and the selected geographical regions in {loo_same_route} cases. "
+        f"The baseline route travels {base_len:,.0f}~m within the 6,000~m budget. "
+        f"In {N_BOOTSTRAP:,} bootstrap replicates, its selected region set recurred in "
+        f"{100*boot_routes[base_route]/N_BOOTSTRAP:.1f}\\% of cases. "
+        f"The most frequent region set was {'--'.join(summary['modal_regions'])}, occurring in "
+        f"{100*summary['modal_fraction']:.1f}\\% of replicates.\n\n"
+        f"Mean pairwise co-association within the four multi-cell baseline clusters ranged from "
+        f"{vals.min():.3f} to {vals.max():.3f}, conditional on both cells being sampled. "
+        "Singleton clusters have no within-cluster pair to assess. These summaries concern "
+        "selected regions rather than exact centroid positions or visit order, both of which may change.\n"
+    )
+    (ROOT_DIR / 'docs/manuscript/sampling_stability_results.tex').write_text(manuscript)
     print(f"\nWritten: {OUT_DIR / 'sampling_plan_stability.csv'}")
 
 

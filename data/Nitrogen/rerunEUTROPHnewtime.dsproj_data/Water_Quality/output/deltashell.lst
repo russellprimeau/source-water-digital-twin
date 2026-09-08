@@ -1,0 +1,2420 @@
+  Deltares, DELWAQ  Version  5.10.00.142431, Jan 26 2023, 11:26:39
+ Execution start: 2024/09/17 12:06:35 
+       ----------> Version number of the input file is:  4.910
+       ----------> Output level of the listfile is: 4
+
+
+ Model :            Water quality calculation               
+                                                            
+
+ Including file: includes_deltashell/B1_t0.inc                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
+
+
+ Run   :                                                    
+                    T0: 2024.01.13 00:00:00  (scu=       1s)
+
+ Intermediate version absolute timer detected !
+ System clock is     1 seconds !
+
+ Closing file: includes_deltashell/B1_t0.inc                                                 
+
+ Continuing on file: deltashell.inp                                                                
+
+ Including file: includes_deltashell/B1_sublist.inc                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
+
+ Closing file: includes_deltashell/B1_sublist.inc                                            
+
+ Continuing on file: deltashell.inp                                                                
+
+ Number of active constituents   : 12
+ Number of inactive constituents :  1
+ Total number of constituents    : 13
+ Number   name
+    1     AAP                 
+    2     DetC                
+    3     DetN                
+    4     DetP                
+    5     GREEN               
+    6     NH4                 
+    7     NO3                 
+    8     PO4                 
+    9     OXY                 
+   10     Cl                  
+   11     IM1                 
+   12     Opal                
+   13     SOD                 
+
+ *********************************************************** B L O C K - 1 *****
+
+
+
+ Factor between two clocks :       86400
+ System clock in date-format  DDHHMMSS 
+ Auxiliary timer in date-format DDHHMMSS 
+
+ The auxiliary timer is not equal to the system timer.
+ All the process fluxes will be scaled from the auxiliary timer to the system timer.
+
+ Including file: includes_deltashell/B2_numsettings.inc                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
+
+ Integration option :               15.70
+
+ Closing file: includes_deltashell/B2_numsettings.inc                                        
+
+ Continuing on file: deltashell.inp                                                                
+
+ Including file: includes_deltashell/B2_simtimers.inc                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+ Start of simulation : 0Y-201D- 0H- 0M- 0S.
+ End of simulation   : 0Y-293D- 0H- 0M- 0S.
+ Selected option for time step size :  0
+ Integration time stepsize is : 0Y-  0D- 1H- 0M- 0S.
+
+ Closing file: includes_deltashell/B2_simtimers.inc                                          
+
+ Continuing on file: deltashell.inp                                                                
+
+ Including file: includes_deltashell/B2_outlocs.inc                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
+
+ Dump areas:
+ option selected for input :    1
+
+ Number of dump areas :    5
+
+ Dump area :    1 : Source              
+ Number of segments in area :              1
+          number   segment
+              1            399
+
+ Dump area :    2 : Spjelkavikelva      
+ Number of segments in area :              1
+          number   segment
+              1            430
+
+ Dump area :    3 : Vasstrandlia        
+ Number of segments in area :              1
+          number   segment
+              1           4658
+
+ Dump area :    4 : Profiler            
+ Number of segments in area :              1
+          number   segment
+              1           4436
+
+ Dump area :    5 : FarField            
+ Number of segments in area :              1
+          number   segment
+              1            718
+
+ Closing file: includes_deltashell/B2_outlocs.inc                                            
+
+ Continuing on file: deltashell.inp                                                                
+
+ Including file: includes_deltashell/B2_outputtimers.inc                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
+
+ Transects:
+ option selected for input : 2
+ No transects used.
+
+
+ Monitoring  timings :
+ Start time : 0Y-201D- 0H- 0M- 0S 
+ Stop time  : 0Y-293D- 0H- 0M- 0S 
+ Time step  : 0Y-  0D- 1H- 0M- 0S 
+
+
+ Output      timings :
+ Start time : 0Y-201D- 0H- 0M- 0S 
+ Stop time  : 0Y-293D- 0H- 0M- 0S 
+ Time step  : 0Y-  0D- 1H- 0M- 0S 
+
+
+ History     timings :
+ Start time : 0Y-201D- 0H- 0M- 0S 
+ Stop time  : 0Y-293D- 0H- 0M- 0S 
+ Time step  : 0Y-  0D- 1H- 0M- 0S 
+
+ Closing file: includes_deltashell/B2_outputtimers.inc                                       
+
+ Continuing on file: deltashell.inp                                                                
+
+ *********************************************************** B L O C K - 2 *****
+
+
+ Including file: includes_deltashell/B3_ugrid.inc                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+
+ Found UGRID keyword
+
+ File containing the mesh(es): D:/Russell/Delft3D/Projects/NitrogenStudy/rerun/dflowfm/DFM_DELWAQ_FlowFM/FlowFM_waqgeom.nc
+
+ NetCDF version: 4.6.1 of Mar 16 2018 14:16:08 $
+
+ Mesh used for Delwaq 2D/3D output: mesh2d
+
+ Closing file: includes_deltashell/B3_ugrid.inc                                              
+
+ Continuing on file: deltashell.inp                                                                
+
+ Including file: includes_deltashell/B3_nrofseg.inc                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
+
+
+ Number of segments :          98700
+
+ Closing file: includes_deltashell/B3_nrofseg.inc                                            
+
+ Continuing on file: deltashell.inp                                                                
+
+ NO process decomposition selected
+
+ option selected for grid layout : 2
+ Grid layout not used.
+
+ Including file: includes_deltashell/B3_attributes.inc                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
+
+ Including file: D:/Russell/Delft3D/Projects/NitrogenStudy/rerun/dflowfm/DFM_DELWAQ_FlowFM/FlowFM.atr                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+
+  2 blocks of time independent attribute contribution
+
+  1 attributes in this block
+
+ Selected file option is   1
+ Information from the standard input file.
+
+ second selected option  1
+
+ constant values without defaults
+ Information will be printed for output option is 5 or higher !
+
+ Pointer of contribution      1 mapped to attribute     1
+
+  1 attributes in this block
+
+ Selected file option is   1
+ Information from the standard input file.
+
+ second selected option  1
+
+ constant values without defaults
+ Information will be printed for output option is 5 or higher !
+
+ Pointer of contribution      1 mapped to attribute     2
+
+ option for time dependent attributes   0
+ NO time dependent attributes
+
+ Volumes:
+
+ Closing file: D:/Russell/Delft3D/Projects/NitrogenStudy/rerun/dflowfm/DFM_DELWAQ_FlowFM/Flow
+
+ Continuing on file: includes_deltashell/B3_attributes.inc                                         
+
+ Closing file: includes_deltashell/B3_attributes.inc                                         
+
+ Continuing on file: deltashell.inp                                                                
+
+ Including file: includes_deltashell/B3_volumes.inc                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
+
+ First  selected option   :      -2
+
+ Information from unformatted intermediate file.
+ Filename is: D:/Russell/Delft3D/Projects/NitrogenStudy/rerun/dflowfm/DFM_DELWAQ_FlowFM/FlowFM.vol                                                                                                                                                                           
+
+ Closing file: includes_deltashell/B3_volumes.inc                                            
+
+ Continuing on file: deltashell.inp                                                                
+
+ *********************************************************** B L O C K - 3 *****
+
+
+ Including file: includes_deltashell/B4_nrofexch.inc                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
+
+
+ Dimensions of the system :
+ Number of exchanges 1st direction :  144760
+ Number of exchanges 2nd direction :       0
+ Number of exchanges 3rd direction :   93765
+ Total number of exchanges         :  238525
+
+ Closing file: includes_deltashell/B4_nrofexch.inc                                           
+
+ Continuing on file: deltashell.inp                                                                
+
+ Number of dispersion arrays       :       0
+
+ Number of velocity arrays         :       0
+
+ Input option                      :       1
+
+ Including file: includes_deltashell/B4_pointers.inc                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
+
+ Option selected for pointers      :       0
+
+ Information from unformatted intermediate file.
+ Filename is: D:/Russell/Delft3D/Projects/NitrogenStudy/rerun/dflowfm/DFM_DELWAQ_FlowFM/FlowFM.poi                                                                                                                                                                           
+
+ Number of boundaries  :     220
+
+
+ boundary  exchange    from        to
+  number    number    segment    segment
+      1      7228        -1       430
+     12     14456       -12      5365
+     23     21684       -23     10300
+     34     28912       -34     15235
+     45     36140       -45     20170
+     56     43368       -56     25105
+     67     50596       -67     30040
+     78     57824       -78     34975
+     89     65052       -89     39910
+    100     72280      -100     44845
+    111     79508      -111     49780
+    122     86736      -122     54715
+    133     93964      -133     59650
+    144    101192      -144     64585
+    155    108420      -155     69520
+    166    115648      -166     74455
+    177    122876      -177     79390
+    188    130104      -188     84325
+    199    137332      -199     89260
+    210    144560      -210     94195
+      2    144561        -2       347
+     13    144562       -13      5282
+     24    144563       -24     10217
+     35    144564       -35     15152
+     46    144565       -46     20087
+     57    144566       -57     25022
+     68    144567       -68     29957
+     79    144568       -79     34892
+     90    144569       -90     39827
+    101    144570      -101     44762
+    112    144571      -112     49697
+    123    144572      -123     54632
+    134    144573      -134     59567
+    145    144574      -145     64502
+    156    144575      -156     69437
+    167    144576      -167     74372
+    178    144577      -178     79307
+    189    144578      -189     84242
+    200    144579      -200     89177
+    211    144580      -211     94112
+      3    144581        -3        64
+     14    144582       -14      4999
+     25    144583       -25      9934
+     36    144584       -36     14869
+     47    144585       -47     19804
+     58    144586       -58     24739
+     69    144587       -69     29674
+     80    144588       -80     34609
+     91    144589       -91     39544
+    102    144590      -102     44479
+    113    144591      -113     49414
+    124    144592      -124     54349
+    135    144593      -135     59284
+    146    144594      -146     64219
+    157    144595      -157     69154
+    168    144596      -168     74089
+    179    144597      -179     79024
+    190    144598      -190     83959
+    201    144599      -201     88894
+    212    144600      -212     93829
+      4    144601        -4       519
+     15    144602       -15      5454
+     26    144603       -26     10389
+     37    144604       -37     15324
+     48    144605       -48     20259
+     59    144606       -59     25194
+     70    144607       -70     30129
+     81    144608       -81     35064
+     92    144609       -92     39999
+    103    144610      -103     44934
+    114    144611      -114     49869
+    125    144612      -125     54804
+    136    144613      -136     59739
+    147    144614      -147     64674
+    158    144615      -158     69609
+    169    144616      -169     74544
+    180    144617      -180     79479
+    191    144618      -191     84414
+    202    144619      -202     89349
+    213    144620      -213     94284
+      5    144621        -5       479
+     16    144622       -16      5414
+     27    144623       -27     10349
+     38    144624       -38     15284
+     49    144625       -49     20219
+     60    144626       -60     25154
+     71    144627       -71     30089
+     82    144628       -82     35024
+     93    144629       -93     39959
+    104    144630      -104     44894
+    115    144631      -115     49829
+    126    144632      -126     54764
+    137    144633      -137     59699
+    148    144634      -148     64634
+    159    144635      -159     69569
+    170    144636      -170     74504
+    181    144637      -181     79439
+    192    144638      -192     84374
+    203    144639      -203     89309
+    214    144640      -214     94244
+      6    144641        -6       206
+     17    144642       -17      5141
+     28    144643       -28     10076
+     39    144644       -39     15011
+     50    144645       -50     19946
+     61    144646       -61     24881
+     72    144647       -72     29816
+     83    144648       -83     34751
+     94    144649       -94     39686
+    105    144650      -105     44621
+    116    144651      -116     49556
+    127    144652      -127     54491
+    138    144653      -138     59426
+    149    144654      -149     64361
+    160    144655      -160     69296
+    171    144656      -171     74231
+    182    144657      -182     79166
+    193    144658      -193     84101
+    204    144659      -204     89036
+    215    144660      -215     93971
+      7    144661        -7       556
+     18    144662       -18      5491
+     29    144663       -29     10426
+     40    144664       -40     15361
+     51    144665       -51     20296
+     62    144666       -62     25231
+     73    144667       -73     30166
+     84    144668       -84     35101
+     95    144669       -95     40036
+    106    144670      -106     44971
+    117    144671      -117     49906
+    128    144672      -128     54841
+    139    144673      -139     59776
+    150    144674      -150     64711
+    161    144675      -161     69646
+    172    144676      -172     74581
+    183    144677      -183     79516
+    194    144678      -194     84451
+    205    144679      -205     89386
+    216    144680      -216     94321
+      8    144681        -8       453
+     19    144682       -19      5388
+     30    144683       -30     10323
+     41    144684       -41     15258
+     52    144685       -52     20193
+     63    144686       -63     25128
+     74    144687       -74     30063
+     85    144688       -85     34998
+     96    144689       -96     39933
+    107    144690      -107     44868
+    118    144691      -118     49803
+    129    144692      -129     54738
+    140    144693      -140     59673
+    151    144694      -151     64608
+    162    144695      -162     69543
+    173    144696      -173     74478
+    184    144697      -184     79413
+    195    144698      -195     84348
+    206    144699      -206     89283
+    217    144700      -217     94218
+      9    144701        -9       127
+     20    144702       -20      5062
+     31    144703       -31      9997
+     42    144704       -42     14932
+     53    144705       -53     19867
+     64    144706       -64     24802
+     75    144707       -75     29737
+     86    144708       -86     34672
+     97    144709       -97     39607
+    108    144710      -108     44542
+    119    144711      -119     49477
+    130    144712      -130     54412
+    141    144713      -141     59347
+    152    144714      -152     64282
+    163    144715      -163     69217
+    174    144716      -174     74152
+    185    144717      -185     79087
+    196    144718      -196     84022
+    207    144719      -207     88957
+    218    144720      -218     93892
+     10    144721       -10      4658
+     21    144722       -21      9593
+     32    144723       -32     14528
+     43    144724       -43     19463
+     54    144725       -54     24398
+     65    144726       -65     29333
+     76    144727       -76     34268
+     87    144728       -87     39203
+     98    144729       -98     44138
+    109    144730      -109     49073
+    120    144731      -120     54008
+    131    144732      -131     58943
+    142    144733      -142     63878
+    153    144734      -153     68813
+    164    144735      -164     73748
+    175    144736      -175     78683
+    186    144737      -186     83618
+    197    144738      -197     88553
+    208    144739      -208     93488
+    219    144740      -219     98423
+     11    144741       -11       399
+     22    144742       -22      5334
+     33    144743       -33     10269
+     44    144744       -44     15204
+     55    144745       -55     20139
+     66    144746       -66     25074
+     77    144747       -77     30009
+     88    144748       -88     34944
+     99    144749       -99     39879
+    110    144750      -110     44814
+    121    144751      -121     49749
+    132    144752      -132     54684
+    143    144753      -143     59619
+    154    144754      -154     64554
+    165    144755      -165     69489
+    176    144756      -176     74424
+    187    144757      -187     79359
+    198    144758      -198     84294
+    209    144759      -209     89229
+    220    144760      -220     94164
+
+ Size of the big matrix for fast solvers is:     486700
+
+ Dispersion:
+
+ Closing file: includes_deltashell/B4_pointers.inc                                           
+
+ Continuing on file: deltashell.inp                                                                
+
+ First  selected option   :       1
+ Information from the standard input file.
+ Constant values without defaults 
+
+
+ Including file: includes_deltashell/B4_cdispersion.inc                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
+ Scale factors:
+                 1           2           3
+              1.0000E+00  1.0000E+00  1.0000E+00
+ Unscaled values:
+         1    1.0000E+00  0.0000E+00  1.0000E-07
+
+ Area:
+
+ Closing file: includes_deltashell/B4_cdispersion.inc                                        
+
+ Continuing on file: deltashell.inp                                                                
+
+ Including file: includes_deltashell/B4_area.inc                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
+
+ First  selected option   :      -2
+
+ Information from unformatted intermediate file.
+ Filename is: D:/Russell/Delft3D/Projects/NitrogenStudy/rerun/dflowfm/DFM_DELWAQ_FlowFM/FlowFM.are                                                                                                                                                                           
+
+ Flows:
+
+ Closing file: includes_deltashell/B4_area.inc                                               
+
+ Continuing on file: deltashell.inp                                                                
+
+ Including file: includes_deltashell/B4_flows.inc                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+
+ First  selected option   :      -2
+
+ Information from unformatted intermediate file.
+ Filename is: D:/Russell/Delft3D/Projects/NitrogenStudy/rerun/dflowfm/DFM_DELWAQ_FlowFM/FlowFM.flo                                                                                                                                                                           
+
+ Lengths:
+
+ Closing file: includes_deltashell/B4_flows.inc                                              
+
+ Continuing on file: deltashell.inp                                                                
+ Option for lengths          :      1
+ Lengths variable over the area.
+
+ Including file: includes_deltashell/B4_length.inc                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
+
+ First  selected option   :       0
+
+ Information from unformatted intermediate file.
+ Filename is: D:/Russell/Delft3D/Projects/NitrogenStudy/rerun/dflowfm/DFM_DELWAQ_FlowFM/FlowFM.len                                                                                                                                                                           
+
+
+ Number of layers in the model:   20
+
+ Closing file: includes_deltashell/B4_length.inc                                             
+
+ Continuing on file: deltashell.inp                                                                
+
+ *********************************************************** B L O C K - 4 *****
+
+
+ Boundary-IDs:       boundary-names:                         boundary-types:
+
+
+ Including file: includes_deltashell/B5_boundlist.inc                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+1                   Boundary name       1                   Boundary01          
+2                   Boundary name       2                   S1                  
+3                   Boundary name       3                   S2                  
+4                   Boundary name       4                   S3                  
+5                   Boundary name       5                   S4                  
+6                   Boundary name       6                   Slettebakk          
+7                   Boundary name       7                   Vasstrandelva       
+8                   Boundary name       8                   Arsetelva           
+9                   Boundary name       9                   Brusdalen           
+10                  Boundary name      10                   VasstrandliaPump    
+11                  Boundary name      11                   Blast               
+12                  Boundary name      12                   Boundary01          
+13                  Boundary name      13                   S1                  
+14                  Boundary name      14                   S2                  
+15                  Boundary name      15                   S3                  
+16                  Boundary name      16                   S4                  
+17                  Boundary name      17                   Slettebakk          
+18                  Boundary name      18                   Vasstrandelva       
+19                  Boundary name      19                   Arsetelva           
+20                  Boundary name      20                   Brusdalen           
+21                  Boundary name      21                   VasstrandliaPump    
+22                  Boundary name      22                   Blast               
+23                  Boundary name      23                   Boundary01          
+24                  Boundary name      24                   S1                  
+25                  Boundary name      25                   S2                  
+26                  Boundary name      26                   S3                  
+27                  Boundary name      27                   S4                  
+28                  Boundary name      28                   Slettebakk          
+29                  Boundary name      29                   Vasstrandelva       
+30                  Boundary name      30                   Arsetelva           
+31                  Boundary name      31                   Brusdalen           
+32                  Boundary name      32                   VasstrandliaPump    
+33                  Boundary name      33                   Blast               
+34                  Boundary name      34                   Boundary01          
+35                  Boundary name      35                   S1                  
+36                  Boundary name      36                   S2                  
+37                  Boundary name      37                   S3                  
+38                  Boundary name      38                   S4                  
+39                  Boundary name      39                   Slettebakk          
+40                  Boundary name      40                   Vasstrandelva       
+41                  Boundary name      41                   Arsetelva           
+42                  Boundary name      42                   Brusdalen           
+43                  Boundary name      43                   VasstrandliaPump    
+44                  Boundary name      44                   Blast               
+45                  Boundary name      45                   Boundary01          
+46                  Boundary name      46                   S1                  
+47                  Boundary name      47                   S2                  
+48                  Boundary name      48                   S3                  
+49                  Boundary name      49                   S4                  
+50                  Boundary name      50                   Slettebakk          
+51                  Boundary name      51                   Vasstrandelva       
+52                  Boundary name      52                   Arsetelva           
+53                  Boundary name      53                   Brusdalen           
+54                  Boundary name      54                   VasstrandliaPump    
+55                  Boundary name      55                   Blast               
+56                  Boundary name      56                   Boundary01          
+57                  Boundary name      57                   S1                  
+58                  Boundary name      58                   S2                  
+59                  Boundary name      59                   S3                  
+60                  Boundary name      60                   S4                  
+61                  Boundary name      61                   Slettebakk          
+62                  Boundary name      62                   Vasstrandelva       
+63                  Boundary name      63                   Arsetelva           
+64                  Boundary name      64                   Brusdalen           
+65                  Boundary name      65                   VasstrandliaPump    
+66                  Boundary name      66                   Blast               
+67                  Boundary name      67                   Boundary01          
+68                  Boundary name      68                   S1                  
+69                  Boundary name      69                   S2                  
+70                  Boundary name      70                   S3                  
+71                  Boundary name      71                   S4                  
+72                  Boundary name      72                   Slettebakk          
+73                  Boundary name      73                   Vasstrandelva       
+74                  Boundary name      74                   Arsetelva           
+75                  Boundary name      75                   Brusdalen           
+76                  Boundary name      76                   VasstrandliaPump    
+77                  Boundary name      77                   Blast               
+78                  Boundary name      78                   Boundary01          
+79                  Boundary name      79                   S1                  
+80                  Boundary name      80                   S2                  
+81                  Boundary name      81                   S3                  
+82                  Boundary name      82                   S4                  
+83                  Boundary name      83                   Slettebakk          
+84                  Boundary name      84                   Vasstrandelva       
+85                  Boundary name      85                   Arsetelva           
+86                  Boundary name      86                   Brusdalen           
+87                  Boundary name      87                   VasstrandliaPump    
+88                  Boundary name      88                   Blast               
+89                  Boundary name      89                   Boundary01          
+90                  Boundary name      90                   S1                  
+91                  Boundary name      91                   S2                  
+92                  Boundary name      92                   S3                  
+93                  Boundary name      93                   S4                  
+94                  Boundary name      94                   Slettebakk          
+95                  Boundary name      95                   Vasstrandelva       
+96                  Boundary name      96                   Arsetelva           
+97                  Boundary name      97                   Brusdalen           
+98                  Boundary name      98                   VasstrandliaPump    
+99                  Boundary name      99                   Blast               
+100                 Boundary name     100                   Boundary01          
+101                 Boundary name     101                   S1                  
+102                 Boundary name     102                   S2                  
+103                 Boundary name     103                   S3                  
+104                 Boundary name     104                   S4                  
+105                 Boundary name     105                   Slettebakk          
+106                 Boundary name     106                   Vasstrandelva       
+107                 Boundary name     107                   Arsetelva           
+108                 Boundary name     108                   Brusdalen           
+109                 Boundary name     109                   VasstrandliaPump    
+110                 Boundary name     110                   Blast               
+111                 Boundary name     111                   Boundary01          
+112                 Boundary name     112                   S1                  
+113                 Boundary name     113                   S2                  
+114                 Boundary name     114                   S3                  
+115                 Boundary name     115                   S4                  
+116                 Boundary name     116                   Slettebakk          
+117                 Boundary name     117                   Vasstrandelva       
+118                 Boundary name     118                   Arsetelva           
+119                 Boundary name     119                   Brusdalen           
+120                 Boundary name     120                   VasstrandliaPump    
+121                 Boundary name     121                   Blast               
+122                 Boundary name     122                   Boundary01          
+123                 Boundary name     123                   S1                  
+124                 Boundary name     124                   S2                  
+125                 Boundary name     125                   S3                  
+126                 Boundary name     126                   S4                  
+127                 Boundary name     127                   Slettebakk          
+128                 Boundary name     128                   Vasstrandelva       
+129                 Boundary name     129                   Arsetelva           
+130                 Boundary name     130                   Brusdalen           
+131                 Boundary name     131                   VasstrandliaPump    
+132                 Boundary name     132                   Blast               
+133                 Boundary name     133                   Boundary01          
+134                 Boundary name     134                   S1                  
+135                 Boundary name     135                   S2                  
+136                 Boundary name     136                   S3                  
+137                 Boundary name     137                   S4                  
+138                 Boundary name     138                   Slettebakk          
+139                 Boundary name     139                   Vasstrandelva       
+140                 Boundary name     140                   Arsetelva           
+141                 Boundary name     141                   Brusdalen           
+142                 Boundary name     142                   VasstrandliaPump    
+143                 Boundary name     143                   Blast               
+144                 Boundary name     144                   Boundary01          
+145                 Boundary name     145                   S1                  
+146                 Boundary name     146                   S2                  
+147                 Boundary name     147                   S3                  
+148                 Boundary name     148                   S4                  
+149                 Boundary name     149                   Slettebakk          
+150                 Boundary name     150                   Vasstrandelva       
+151                 Boundary name     151                   Arsetelva           
+152                 Boundary name     152                   Brusdalen           
+153                 Boundary name     153                   VasstrandliaPump    
+154                 Boundary name     154                   Blast               
+155                 Boundary name     155                   Boundary01          
+156                 Boundary name     156                   S1                  
+157                 Boundary name     157                   S2                  
+158                 Boundary name     158                   S3                  
+159                 Boundary name     159                   S4                  
+160                 Boundary name     160                   Slettebakk          
+161                 Boundary name     161                   Vasstrandelva       
+162                 Boundary name     162                   Arsetelva           
+163                 Boundary name     163                   Brusdalen           
+164                 Boundary name     164                   VasstrandliaPump    
+165                 Boundary name     165                   Blast               
+166                 Boundary name     166                   Boundary01          
+167                 Boundary name     167                   S1                  
+168                 Boundary name     168                   S2                  
+169                 Boundary name     169                   S3                  
+170                 Boundary name     170                   S4                  
+171                 Boundary name     171                   Slettebakk          
+172                 Boundary name     172                   Vasstrandelva       
+173                 Boundary name     173                   Arsetelva           
+174                 Boundary name     174                   Brusdalen           
+175                 Boundary name     175                   VasstrandliaPump    
+176                 Boundary name     176                   Blast               
+177                 Boundary name     177                   Boundary01          
+178                 Boundary name     178                   S1                  
+179                 Boundary name     179                   S2                  
+180                 Boundary name     180                   S3                  
+181                 Boundary name     181                   S4                  
+182                 Boundary name     182                   Slettebakk          
+183                 Boundary name     183                   Vasstrandelva       
+184                 Boundary name     184                   Arsetelva           
+185                 Boundary name     185                   Brusdalen           
+186                 Boundary name     186                   VasstrandliaPump    
+187                 Boundary name     187                   Blast               
+188                 Boundary name     188                   Boundary01          
+189                 Boundary name     189                   S1                  
+190                 Boundary name     190                   S2                  
+191                 Boundary name     191                   S3                  
+192                 Boundary name     192                   S4                  
+193                 Boundary name     193                   Slettebakk          
+194                 Boundary name     194                   Vasstrandelva       
+195                 Boundary name     195                   Arsetelva           
+196                 Boundary name     196                   Brusdalen           
+197                 Boundary name     197                   VasstrandliaPump    
+198                 Boundary name     198                   Blast               
+199                 Boundary name     199                   Boundary01          
+200                 Boundary name     200                   S1                  
+201                 Boundary name     201                   S2                  
+202                 Boundary name     202                   S3                  
+203                 Boundary name     203                   S4                  
+204                 Boundary name     204                   Slettebakk          
+205                 Boundary name     205                   Vasstrandelva       
+206                 Boundary name     206                   Arsetelva           
+207                 Boundary name     207                   Brusdalen           
+208                 Boundary name     208                   VasstrandliaPump    
+209                 Boundary name     209                   Blast               
+210                 Boundary name     210                   Boundary01          
+211                 Boundary name     211                   S1                  
+212                 Boundary name     212                   S2                  
+213                 Boundary name     213                   S3                  
+214                 Boundary name     214                   S4                  
+215                 Boundary name     215                   Slettebakk          
+216                 Boundary name     216                   Vasstrandelva       
+217                 Boundary name     217                   Arsetelva           
+218                 Boundary name     218                   Brusdalen           
+219                 Boundary name     219                   VasstrandliaPump    
+220                 Boundary name     220                   Blast               
+ 
+ Number of different boundary types:   11
+ Type:  Type-string
+     1  Boundary01          
+     2  S1                  
+     3  S2                  
+     4  S3                  
+     5  S4                  
+     6  Slettebakk          
+     7  Vasstrandelva       
+     8  Arsetelva           
+     9  Brusdalen           
+    10  VasstrandliaPump    
+    11  Blast               
+ 
+
+ Closing file: includes_deltashell/B5_boundlist.inc                                          
+
+ Continuing on file: deltashell.inp                                                                
+
+ Time lag option:  0
+ No time lags
+
+ Boundary concentrations
+
+ Including file: includes_deltashell/B5_boundaliases.inc                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
+
+ Closing file: includes_deltashell/B5_boundaliases.inc                                       
+
+ Continuing on file: deltashell.inp                                                                
+
+ Including file: includes_deltashell/B5_bounddata.inc                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+
+ Closing file: includes_deltashell/B5_bounddata.inc                                          
+
+ Continuing on file: deltashell.inp                                                                
+
+ *********************************************************** B L O C K - 5 *****
+
+
+ Including file: includes_deltashell/B6_loads.inc                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+
+ Number of waste loads:    1
+
+
+Number  segment knd wasteload ID          
+                    wasteload name                            wasteload type
+     1      399  0  BlastSite           
+                    waste-load name       1                   waste-load type 1   
+ 
+ Number of different wasteload types:    1
+ Type:  Type-string
+     1  waste-load type 1   
+ 
+
+ Closing file: includes_deltashell/B6_loads.inc                                              
+
+ Continuing on file: deltashell.inp                                                                
+
+ Including file: includes_deltashell/B6_loads_aliases.inc                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+
+ When the DATA_ITEM BlastSite            nr: 
+ Input WASTELOADS nr:    1 is WASTELOADS nr:    1 with ID  : BlastSite           
+
+ Closing file: includes_deltashell/B6_loads_aliases.inc                                      
+
+ Continuing on file: deltashell.inp                                                                
+
+ Including file: includes_deltashell/B6_loads_data.inc                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
+
+ Including file: D:/Russell/Delft3D/Projects/NitrogenStudy/EUTROPHnewtime.dsproj_data/Water_Quality/load_data_tables/EUTROPHfine.tbl                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
+
+ SINGLE BLOCK for DATA_ITEM:
+ Input WDATA_ITEM nr:    1 is WDATA_ITEM nr:    1 with ID  : BlastSite           
+ Input DATA_ITEM BlastSite            nr:    1 will be used for WASTELOADS nr:    1 with ID  : BlastSite           
+
+ CONCENTRATIONs within the item blocks:
+
+ Including file: includes_deltashell\load_data_tables\EUTROPHfine.usefors                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+ Input CONCENTR.  nr:    1 is CONCENTR.  nr:    1 with ID  : AAP                  and local substitution: AAP                 
+ Input CONCENTR.  nr:    2 is CONCENTR.  nr:    2 with ID  : DetC                 and local substitution: DetC                
+ Input CONCENTR.  nr:    3 is CONCENTR.  nr:    3 with ID  : DetN                 and local substitution: DetN                
+ Input CONCENTR.  nr:    4 is CONCENTR.  nr:    4 with ID  : DetP                 and local substitution: DetP                
+ Input CONCENTR.  nr:    5 is CONCENTR.  nr:    5 with ID  : GREEN                and local substitution: GREEN               
+ Input CONCENTR.  nr:    6 is CONCENTR.  nr:    6 with ID  : NH4                  and local substitution: NH4                 
+ Input CONCENTR.  nr:    7 is CONCENTR.  nr:    7 with ID  : NO3                  and local substitution: NO3                 
+ Input CONCENTR.  nr:    8 is CONCENTR.  nr:    8 with ID  : PO4                  and local substitution: PO4                 
+ Input CONCENTR.  nr:    9 is CONCENTR.  nr:    9 with ID  : OXY                  and local substitution: OXY                 
+ Input CONCENTR.  nr:   10 is CONCENTR.  nr:   10 with ID  : Cl                   and local substitution: Cl                  
+ Input CONCENTR.  nr:   11 is CONCENTR.  nr:   11 with ID  : IM1                  and local substitution: IM1                 
+ Input CONCENTR.  nr:   12 is CONCENTR.  nr:   12 with ID  : Opal                 and local substitution: Opal                
+ Input CONCENTR.  nr:   13 is CONCENTR.  nr:   13 with ID  : SOD                  and local substitution: SOD                 
+
+ Closing file: includes_deltashell\load_data_tables\EUTROPHfine.usefors                      
+
+ Continuing on file: D:/Russell/Delft3D/Projects/NitrogenStudy/EUTROPHnewtime.dsproj_data/Water_Qua
+ 
+ Column:  1 contains: AAP                                      Status: used    
+ Column:  2 contains: DetC                                     Status: used    
+ Column:  3 contains: DetN                                     Status: used    
+ Column:  4 contains: DetP                                     Status: used    
+ Column:  5 contains: GREEN                                    Status: used    
+ Column:  6 contains: NH4                                      Status: used    
+ Column:  7 contains: NO3                                      Status: used    
+ Column:  8 contains: PO4                                      Status: used    
+ Column:  9 contains: OXY                                      Status: used    
+ Column: 10 contains: Cl                                       Status: used    
+ Column: 11 contains: IM1                                      Status: used    
+ Column: 12 contains: Opal                                     Status: used    
+ Column: 13 contains: SOD                                      Status: used    
+
+ Closing file: D:/Russell/Delft3D/Projects/NitrogenStudy/EUTROPHnewtime.dsproj_data/Water_Qua
+
+ Continuing on file: includes_deltashell/B6_loads_data.inc                                         
+
+ Closing file: includes_deltashell/B6_loads_data.inc                                         
+
+ Continuing on file: deltashell.inp                                                                
+
+ DATA grouped in         1 blocks of        13 Substance 
+
+ Number of breakpoints with full data:   34
+ breakpoint       1 :  17366400
+ Substance      1           2           3           4           5
+ wasteload    AAP         DetC        DetN        DetP        GREEN       
+         1    0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00
+ Substance      6           7           8           9          10
+ wasteload    NH4         NO3         PO4         OXY         Cl          
+         1    0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00
+ Substance     11          12          13
+ wasteload    IM1         Opal        SOD         
+         1    0.0000E+00  0.0000E+00  0.0000E+00
+ breakpoint       2 :  17380800
+ Substance      1           2           3           4           5
+ wasteload    AAP         DetC        DetN        DetP        GREEN       
+         1    0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00
+ Substance      6           7           8           9          10
+ wasteload    NH4         NO3         PO4         OXY         Cl          
+         1    1.2100E-02  1.2100E-02  0.0000E+00  0.0000E+00  0.0000E+00
+ Substance     11          12          13
+ wasteload    IM1         Opal        SOD         
+         1    0.0000E+00  0.0000E+00  0.0000E+00
+ breakpoint       3 :  17384400
+ Substance      1           2           3           4           5
+ wasteload    AAP         DetC        DetN        DetP        GREEN       
+         1    0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00
+ Substance      6           7           8           9          10
+ wasteload    NH4         NO3         PO4         OXY         Cl          
+         1    0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00
+ Substance     11          12          13
+ wasteload    IM1         Opal        SOD         
+         1    0.0000E+00  0.0000E+00  0.0000E+00
+ breakpoint       4 :  17539200
+ Substance      1           2           3           4           5
+ wasteload    AAP         DetC        DetN        DetP        GREEN       
+         1    0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00
+ Substance      6           7           8           9          10
+ wasteload    NH4         NO3         PO4         OXY         Cl          
+         1    0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00
+ Substance     11          12          13
+ wasteload    IM1         Opal        SOD         
+         1    0.0000E+00  0.0000E+00  0.0000E+00
+ breakpoint       5 :  17553600
+ Substance      1           2           3           4           5
+ wasteload    AAP         DetC        DetN        DetP        GREEN       
+         1    0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00
+ Substance      6           7           8           9          10
+ wasteload    NH4         NO3         PO4         OXY         Cl          
+         1    1.2100E-02  1.2100E-02  0.0000E+00  0.0000E+00  0.0000E+00
+ Substance     11          12          13
+ wasteload    IM1         Opal        SOD         
+         1    0.0000E+00  0.0000E+00  0.0000E+00
+ breakpoint       6 :  17557200
+ Substance      1           2           3           4           5
+ wasteload    AAP         DetC        DetN        DetP        GREEN       
+         1    0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00
+ Substance      6           7           8           9          10
+ wasteload    NH4         NO3         PO4         OXY         Cl          
+         1    0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00
+ Substance     11          12          13
+ wasteload    IM1         Opal        SOD         
+         1    0.0000E+00  0.0000E+00  0.0000E+00
+ breakpoint       7 :  17712000
+ Substance      1           2           3           4           5
+ wasteload    AAP         DetC        DetN        DetP        GREEN       
+         1    0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00
+ Substance      6           7           8           9          10
+ wasteload    NH4         NO3         PO4         OXY         Cl          
+         1    0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00
+ Substance     11          12          13
+ wasteload    IM1         Opal        SOD         
+         1    0.0000E+00  0.0000E+00  0.0000E+00
+ breakpoint       8 :  17726400
+ Substance      1           2           3           4           5
+ wasteload    AAP         DetC        DetN        DetP        GREEN       
+         1    0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00
+ Substance      6           7           8           9          10
+ wasteload    NH4         NO3         PO4         OXY         Cl          
+         1    1.2100E-02  1.2100E-02  0.0000E+00  0.0000E+00  0.0000E+00
+ Substance     11          12          13
+ wasteload    IM1         Opal        SOD         
+         1    0.0000E+00  0.0000E+00  0.0000E+00
+ breakpoint       9 :  17730000
+ Substance      1           2           3           4           5
+ wasteload    AAP         DetC        DetN        DetP        GREEN       
+         1    0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00
+ Substance      6           7           8           9          10
+ wasteload    NH4         NO3         PO4         OXY         Cl          
+         1    0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00
+ Substance     11          12          13
+ wasteload    IM1         Opal        SOD         
+         1    0.0000E+00  0.0000E+00  0.0000E+00
+ breakpoint      10 :  17971200
+ Substance      1           2           3           4           5
+ wasteload    AAP         DetC        DetN        DetP        GREEN       
+         1    0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00
+ Substance      6           7           8           9          10
+ wasteload    NH4         NO3         PO4         OXY         Cl          
+         1    0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00
+ Substance     11          12          13
+ wasteload    IM1         Opal        SOD         
+         1    0.0000E+00  0.0000E+00  0.0000E+00
+ breakpoint      11 :  17985600
+ Substance      1           2           3           4           5
+ wasteload    AAP         DetC        DetN        DetP        GREEN       
+         1    0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00
+ Substance      6           7           8           9          10
+ wasteload    NH4         NO3         PO4         OXY         Cl          
+         1    1.2100E-02  1.2100E-02  0.0000E+00  0.0000E+00  0.0000E+00
+ Substance     11          12          13
+ wasteload    IM1         Opal        SOD         
+         1    0.0000E+00  0.0000E+00  0.0000E+00
+ breakpoint      12 :  17989200
+ Substance      1           2           3           4           5
+ wasteload    AAP         DetC        DetN        DetP        GREEN       
+         1    0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00
+ Substance      6           7           8           9          10
+ wasteload    NH4         NO3         PO4         OXY         Cl          
+         1    0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00
+ Substance     11          12          13
+ wasteload    IM1         Opal        SOD         
+         1    0.0000E+00  0.0000E+00  0.0000E+00
+ breakpoint      13 :  18144000
+ Substance      1           2           3           4           5
+ wasteload    AAP         DetC        DetN        DetP        GREEN       
+         1    0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00
+ Substance      6           7           8           9          10
+ wasteload    NH4         NO3         PO4         OXY         Cl          
+         1    0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00
+ Substance     11          12          13
+ wasteload    IM1         Opal        SOD         
+         1    0.0000E+00  0.0000E+00  0.0000E+00
+ breakpoint      14 :  18158400
+ Substance      1           2           3           4           5
+ wasteload    AAP         DetC        DetN        DetP        GREEN       
+         1    0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00
+ Substance      6           7           8           9          10
+ wasteload    NH4         NO3         PO4         OXY         Cl          
+         1    1.2100E-02  1.2100E-02  0.0000E+00  0.0000E+00  0.0000E+00
+ Substance     11          12          13
+ wasteload    IM1         Opal        SOD         
+         1    0.0000E+00  0.0000E+00  0.0000E+00
+ breakpoint      15 :  18162000
+ Substance      1           2           3           4           5
+ wasteload    AAP         DetC        DetN        DetP        GREEN       
+         1    0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00
+ Substance      6           7           8           9          10
+ wasteload    NH4         NO3         PO4         OXY         Cl          
+         1    0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00
+ Substance     11          12          13
+ wasteload    IM1         Opal        SOD         
+         1    0.0000E+00  0.0000E+00  0.0000E+00
+ breakpoint      16 :  18316800
+ Substance      1           2           3           4           5
+ wasteload    AAP         DetC        DetN        DetP        GREEN       
+         1    0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00
+ Substance      6           7           8           9          10
+ wasteload    NH4         NO3         PO4         OXY         Cl          
+         1    0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00
+ Substance     11          12          13
+ wasteload    IM1         Opal        SOD         
+         1    0.0000E+00  0.0000E+00  0.0000E+00
+ breakpoint      17 :  18331200
+ Substance      1           2           3           4           5
+ wasteload    AAP         DetC        DetN        DetP        GREEN       
+         1    0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00
+ Substance      6           7           8           9          10
+ wasteload    NH4         NO3         PO4         OXY         Cl          
+         1    1.2100E-02  1.2100E-02  0.0000E+00  0.0000E+00  0.0000E+00
+ Substance     11          12          13
+ wasteload    IM1         Opal        SOD         
+         1    0.0000E+00  0.0000E+00  0.0000E+00
+ breakpoint      18 :  18334800
+ Substance      1           2           3           4           5
+ wasteload    AAP         DetC        DetN        DetP        GREEN       
+         1    0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00
+ Substance      6           7           8           9          10
+ wasteload    NH4         NO3         PO4         OXY         Cl          
+         1    0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00
+ Substance     11          12          13
+ wasteload    IM1         Opal        SOD         
+         1    0.0000E+00  0.0000E+00  0.0000E+00
+ breakpoint      19 :  19180800
+ Substance      1           2           3           4           5
+ wasteload    AAP         DetC        DetN        DetP        GREEN       
+         1    0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00
+ Substance      6           7           8           9          10
+ wasteload    NH4         NO3         PO4         OXY         Cl          
+         1    0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00
+ Substance     11          12          13
+ wasteload    IM1         Opal        SOD         
+         1    0.0000E+00  0.0000E+00  0.0000E+00
+ breakpoint      20 :  19195200
+ Substance      1           2           3           4           5
+ wasteload    AAP         DetC        DetN        DetP        GREEN       
+         1    0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00
+ Substance      6           7           8           9          10
+ wasteload    NH4         NO3         PO4         OXY         Cl          
+         1    2.2100E-02  2.2100E-02  0.0000E+00  0.0000E+00  0.0000E+00
+ Substance     11          12          13
+ wasteload    IM1         Opal        SOD         
+         1    0.0000E+00  0.0000E+00  0.0000E+00
+ breakpoint      21 :  19198800
+ Substance      1           2           3           4           5
+ wasteload    AAP         DetC        DetN        DetP        GREEN       
+         1    0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00
+ Substance      6           7           8           9          10
+ wasteload    NH4         NO3         PO4         OXY         Cl          
+         1    0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00
+ Substance     11          12          13
+ wasteload    IM1         Opal        SOD         
+         1    0.0000E+00  0.0000E+00  0.0000E+00
+ breakpoint      22 :  19267200
+ Substance      1           2           3           4           5
+ wasteload    AAP         DetC        DetN        DetP        GREEN       
+         1    0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00
+ Substance      6           7           8           9          10
+ wasteload    NH4         NO3         PO4         OXY         Cl          
+         1    0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00
+ Substance     11          12          13
+ wasteload    IM1         Opal        SOD         
+         1    0.0000E+00  0.0000E+00  0.0000E+00
+ breakpoint      23 :  19281600
+ Substance      1           2           3           4           5
+ wasteload    AAP         DetC        DetN        DetP        GREEN       
+         1    0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00
+ Substance      6           7           8           9          10
+ wasteload    NH4         NO3         PO4         OXY         Cl          
+         1    2.2100E-02  2.2100E-02  0.0000E+00  0.0000E+00  0.0000E+00
+ Substance     11          12          13
+ wasteload    IM1         Opal        SOD         
+         1    0.0000E+00  0.0000E+00  0.0000E+00
+ breakpoint      24 :  19285200
+ Substance      1           2           3           4           5
+ wasteload    AAP         DetC        DetN        DetP        GREEN       
+         1    0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00
+ Substance      6           7           8           9          10
+ wasteload    NH4         NO3         PO4         OXY         Cl          
+         1    0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00
+ Substance     11          12          13
+ wasteload    IM1         Opal        SOD         
+         1    0.0000E+00  0.0000E+00  0.0000E+00
+ breakpoint      25 :  19353600
+ Substance      1           2           3           4           5
+ wasteload    AAP         DetC        DetN        DetP        GREEN       
+         1    0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00
+ Substance      6           7           8           9          10
+ wasteload    NH4         NO3         PO4         OXY         Cl          
+         1    0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00
+ Substance     11          12          13
+ wasteload    IM1         Opal        SOD         
+         1    0.0000E+00  0.0000E+00  0.0000E+00
+ breakpoint      26 :  19368000
+ Substance      1           2           3           4           5
+ wasteload    AAP         DetC        DetN        DetP        GREEN       
+         1    0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00
+ Substance      6           7           8           9          10
+ wasteload    NH4         NO3         PO4         OXY         Cl          
+         1    2.2100E-02  2.2100E-02  0.0000E+00  0.0000E+00  0.0000E+00
+ Substance     11          12          13
+ wasteload    IM1         Opal        SOD         
+         1    0.0000E+00  0.0000E+00  0.0000E+00
+ breakpoint      27 :  19371600
+ Substance      1           2           3           4           5
+ wasteload    AAP         DetC        DetN        DetP        GREEN       
+         1    0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00
+ Substance      6           7           8           9          10
+ wasteload    NH4         NO3         PO4         OXY         Cl          
+         1    0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00
+ Substance     11          12          13
+ wasteload    IM1         Opal        SOD         
+         1    0.0000E+00  0.0000E+00  0.0000E+00
+ breakpoint      28 :  19440000
+ Substance      1           2           3           4           5
+ wasteload    AAP         DetC        DetN        DetP        GREEN       
+         1    0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00
+ Substance      6           7           8           9          10
+ wasteload    NH4         NO3         PO4         OXY         Cl          
+         1    0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00
+ Substance     11          12          13
+ wasteload    IM1         Opal        SOD         
+         1    0.0000E+00  0.0000E+00  0.0000E+00
+ breakpoint      29 :  19454400
+ Substance      1           2           3           4           5
+ wasteload    AAP         DetC        DetN        DetP        GREEN       
+         1    0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00
+ Substance      6           7           8           9          10
+ wasteload    NH4         NO3         PO4         OXY         Cl          
+         1    2.2100E-02  2.2100E-02  0.0000E+00  0.0000E+00  0.0000E+00
+ Substance     11          12          13
+ wasteload    IM1         Opal        SOD         
+         1    0.0000E+00  0.0000E+00  0.0000E+00
+ breakpoint      30 :  19458000
+ Substance      1           2           3           4           5
+ wasteload    AAP         DetC        DetN        DetP        GREEN       
+         1    0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00
+ Substance      6           7           8           9          10
+ wasteload    NH4         NO3         PO4         OXY         Cl          
+         1    0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00
+ Substance     11          12          13
+ wasteload    IM1         Opal        SOD         
+         1    0.0000E+00  0.0000E+00  0.0000E+00
+ breakpoint      31 :  19526400
+ Substance      1           2           3           4           5
+ wasteload    AAP         DetC        DetN        DetP        GREEN       
+         1    0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00
+ Substance      6           7           8           9          10
+ wasteload    NH4         NO3         PO4         OXY         Cl          
+         1    0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00
+ Substance     11          12          13
+ wasteload    IM1         Opal        SOD         
+         1    0.0000E+00  0.0000E+00  0.0000E+00
+ breakpoint      32 :  19540800
+ Substance      1           2           3           4           5
+ wasteload    AAP         DetC        DetN        DetP        GREEN       
+         1    0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00
+ Substance      6           7           8           9          10
+ wasteload    NH4         NO3         PO4         OXY         Cl          
+         1    2.2100E-02  2.2100E-02  0.0000E+00  0.0000E+00  0.0000E+00
+ Substance     11          12          13
+ wasteload    IM1         Opal        SOD         
+         1    0.0000E+00  0.0000E+00  0.0000E+00
+ breakpoint      33 :  19544400
+ Substance      1           2           3           4           5
+ wasteload    AAP         DetC        DetN        DetP        GREEN       
+         1    0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00
+ Substance      6           7           8           9          10
+ wasteload    NH4         NO3         PO4         OXY         Cl          
+         1    0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00
+ Substance     11          12          13
+ wasteload    IM1         Opal        SOD         
+         1    0.0000E+00  0.0000E+00  0.0000E+00
+ breakpoint      34 :  25315200
+ Substance      1           2           3           4           5
+ wasteload    AAP         DetC        DetN        DetP        GREEN       
+         1    0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00
+ Substance      6           7           8           9          10
+ wasteload    NH4         NO3         PO4         OXY         Cl          
+         1    0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00
+ Substance     11          12          13
+ wasteload    IM1         Opal        SOD         
+         1    0.0000E+00  0.0000E+00  0.0000E+00
+
+ ====> input item completed <==== 
+
+
+
+ *********************************************************** B L O C K - 6 *****
+
+ Input constant   nr:    1 is constant   nr:    1 with ID  : ONLY_ACTIVE         
+ constant values in this block.
+ values         1
+ constants    ONLY_ACTIV  
+         1    0.0000E+00
+
+ ====> input item completed <==== 
+
+
+
+ Including file: includes_deltashell/B7_processes.inc                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+ Input constant   nr:    1 is constant   nr:    2 with ID  : ACTIVE_AdsPO4AAP    
+ constant values in this block.
+ values         2
+ constants    ACTIVE_Ads  
+         1    0.0000E+00
+
+ ====> input item completed <==== 
+
+
+ Input constant   nr:    1 is constant   nr:    3 with ID  : ACTIVE_Sed_AAP      
+ constant values in this block.
+ values         3
+ constants    ACTIVE_Sed  
+         1    0.0000E+00
+
+ ====> input item completed <==== 
+
+
+ Input constant   nr:    1 is constant   nr:    4 with ID  : ACTIVE_Compos       
+ constant values in this block.
+ values         4
+ constants    ACTIVE_Com  
+         1    0.0000E+00
+
+ ====> input item completed <==== 
+
+
+ Input constant   nr:    1 is constant   nr:    5 with ID  : ACTIVE_WM_DetC      
+ constant values in this block.
+ values         5
+ constants    ACTIVE_WM_  
+         1    0.0000E+00
+
+ ====> input item completed <==== 
+
+
+ Input constant   nr:    1 is constant   nr:    6 with ID  : ACTIVE_NutRel_Alg   
+ constant values in this block.
+ values         6
+ constants    ACTIVE_Nut  
+         1    0.0000E+00
+
+ ====> input item completed <==== 
+
+
+ Input constant   nr:    1 is constant   nr:    7 with ID  : ACTIVE_SedDetC      
+ constant values in this block.
+ values         7
+ constants    ACTIVE_Sed  
+         1    0.0000E+00
+
+ ====> input item completed <==== 
+
+
+ Input constant   nr:    1 is constant   nr:    8 with ID  : ACTIVE_Secchi       
+ constant values in this block.
+ values         8
+ constants    ACTIVE_Sec  
+         1    0.0000E+00
+
+ ====> input item completed <==== 
+
+
+ Input constant   nr:    1 is constant   nr:    9 with ID  : ACTIVE_WM_DetN      
+ constant values in this block.
+ values         9
+ constants    ACTIVE_WM_  
+         1    0.0000E+00
+
+ ====> input item completed <==== 
+
+
+ Input constant   nr:    1 is constant   nr:   10 with ID  : ACTIVE_SedN_Det     
+ constant values in this block.
+ values        10
+ constants    ACTIVE_Sed  
+         1    0.0000E+00
+
+ ====> input item completed <==== 
+
+
+ Input constant   nr:    1 is constant   nr:   11 with ID  : ACTIVE_WM_DetP      
+ constant values in this block.
+ values        11
+ constants    ACTIVE_WM_  
+         1    0.0000E+00
+
+ ====> input item completed <==== 
+
+
+ Input constant   nr:    1 is constant   nr:   12 with ID  : ACTIVE_GroMrt_Gre   
+ constant values in this block.
+ values        12
+ constants    ACTIVE_Gro  
+         1    0.0000E+00
+
+ ====> input item completed <==== 
+
+
+ Input constant   nr:    1 is constant   nr:   13 with ID  : ACTIVE_PPrLim       
+ constant values in this block.
+ values        13
+ constants    ACTIVE_PPr  
+         1    0.0000E+00
+
+ ====> input item completed <==== 
+
+
+ Input constant   nr:    1 is constant   nr:   14 with ID  : ACTIVE_Sed_Gre      
+ constant values in this block.
+ values        14
+ constants    ACTIVE_Sed  
+         1    0.0000E+00
+
+ ====> input item completed <==== 
+
+
+ Input constant   nr:    1 is constant   nr:   15 with ID  : ACTIVE_NutUpt_Alg   
+ constant values in this block.
+ values        15
+ constants    ACTIVE_Nut  
+         1    0.0000E+00
+
+ ====> input item completed <==== 
+
+
+ Input constant   nr:    1 is constant   nr:   16 with ID  : ACTIVE_Nitrif_NH4   
+ constant values in this block.
+ values        16
+ constants    ACTIVE_Nit  
+         1    0.0000E+00
+
+ ====> input item completed <==== 
+
+
+ Input constant   nr:    1 is constant   nr:   17 with ID  : ACTIVE_DenWat_NO3   
+ constant values in this block.
+ values        17
+ constants    ACTIVE_Den  
+         1    0.0000E+00
+
+ ====> input item completed <==== 
+
+
+ Input constant   nr:    1 is constant   nr:   18 with ID  : ACTIVE_RearOXY      
+ constant values in this block.
+ values        18
+ constants    ACTIVE_Rea  
+         1    0.0000E+00
+
+ ====> input item completed <==== 
+
+
+ Input constant   nr:    1 is constant   nr:   19 with ID  : ACTIVE_SedOXYDem    
+ constant values in this block.
+ values        19
+ constants    ACTIVE_Sed  
+         1    0.0000E+00
+
+ ====> input item completed <==== 
+
+
+ Input constant   nr:    1 is constant   nr:   20 with ID  : ACTIVE_PosOXY       
+ constant values in this block.
+ values        20
+ constants    ACTIVE_Pos  
+         1    0.0000E+00
+
+ ====> input item completed <==== 
+
+
+ Input constant   nr:    1 is constant   nr:   21 with ID  : ACTIVE_Sed_IM1      
+ constant values in this block.
+ values        21
+ constants    ACTIVE_Sed  
+         1    0.0000E+00
+
+ ====> input item completed <==== 
+
+
+ Input constant   nr:    1 is constant   nr:   22 with ID  : ACTIVE_Res_IM1      
+ constant values in this block.
+ values        22
+ constants    ACTIVE_Res  
+         1    0.0000E+00
+
+ ====> input item completed <==== 
+
+
+ Input constant   nr:    1 is constant   nr:   23 with ID  : ACTIVE_DynDepth     
+ constant values in this block.
+ values        23
+ constants    ACTIVE_Dyn  
+         1    0.0000E+00
+
+ ====> input item completed <==== 
+
+
+ Input constant   nr:    1 is constant   nr:   24 with ID  : ACTIVE_Phy_dyn      
+ constant values in this block.
+ values        24
+ constants    ACTIVE_Phy  
+         1    0.0000E+00
+
+ ====> input item completed <==== 
+
+
+ Input constant   nr:    1 is constant   nr:   25 with ID  : ACTIVE_POC_Dyn      
+ constant values in this block.
+ values        25
+ constants    ACTIVE_POC  
+         1    0.0000E+00
+
+ ====> input item completed <==== 
+
+
+ Input constant   nr:    1 is constant   nr:   26 with ID  : ACTIVE_CalTau       
+ constant values in this block.
+ values        26
+ constants    ACTIVE_Cal  
+         1    0.0000E+00
+
+ ====> input item completed <==== 
+
+
+ Input constant   nr:    1 is constant   nr:   27 with ID  : ACTIVE_Veloc        
+ constant values in this block.
+ values        27
+ constants    ACTIVE_Vel  
+         1    0.0000E+00
+
+ ====> input item completed <==== 
+
+
+ Input constant   nr:    1 is constant   nr:   28 with ID  : ACTIVE_Extinc_VL    
+ constant values in this block.
+ values        28
+ constants    ACTIVE_Ext  
+         1    0.0000E+00
+
+ ====> input item completed <==== 
+
+
+ Input constant   nr:    1 is constant   nr:   29 with ID  : ACTIVE_DL_Green     
+ constant values in this block.
+ values        29
+ constants    ACTIVE_DL_  
+         1    0.0000E+00
+
+ ====> input item completed <==== 
+
+
+ Input constant   nr:    1 is constant   nr:   30 with ID  : ACTIVE_NLGreen      
+ constant values in this block.
+ values        30
+ constants    ACTIVE_NLG  
+         1    0.0000E+00
+
+ ====> input item completed <==== 
+
+
+ Input constant   nr:    1 is constant   nr:   31 with ID  : ACTIVE_Rad_Green    
+ constant values in this block.
+ values        31
+ constants    ACTIVE_Rad  
+         1    0.0000E+00
+
+ ====> input item completed <==== 
+
+
+ Input constant   nr:    1 is constant   nr:   32 with ID  : ACTIVE_TF_Green     
+ constant values in this block.
+ values        32
+ constants    ACTIVE_TF_  
+         1    0.0000E+00
+
+ ====> input item completed <==== 
+
+
+ Input constant   nr:    1 is constant   nr:   33 with ID  : ACTIVE_SaturOXY     
+ constant values in this block.
+ values        33
+ constants    ACTIVE_Sat  
+         1    0.0000E+00
+
+ ====> input item completed <==== 
+
+
+ Input constant   nr:    1 is constant   nr:   34 with ID  : ACTIVE_TotDepth     
+ constant values in this block.
+ values        34
+ constants    ACTIVE_Tot  
+         1    0.0000E+00
+
+ ====> input item completed <==== 
+
+
+ Input constant   nr:    1 is constant   nr:   35 with ID  : ACTIVE_S1_Comp      
+ constant values in this block.
+ values        35
+ constants    ACTIVE_S1_  
+         1    0.0000E+00
+
+ ====> input item completed <==== 
+
+
+ Input constant   nr:    1 is constant   nr:   36 with ID  : ACTIVE_ExtPODVL     
+ constant values in this block.
+ values        36
+ constants    ACTIVE_Ext  
+         1    0.0000E+00
+
+ ====> input item completed <==== 
+
+
+ Input constant   nr:    1 is constant   nr:   37 with ID  : ACTIVE_ExtPhDVL     
+ constant values in this block.
+ values        37
+ constants    ACTIVE_Ext  
+         1    0.0000E+00
+
+ ====> input item completed <==== 
+
+
+ Input constant   nr:    1 is constant   nr:   38 with ID  : ACTIVE_CalcRad      
+ constant values in this block.
+ values        38
+ constants    ACTIVE_Cal  
+         1    0.0000E+00
+
+ ====> input item completed <==== 
+
+
+
+ Closing file: includes_deltashell/B7_processes.inc                                          
+
+ Continuing on file: deltashell.inp                                                                
+
+ Including file: includes_deltashell/B7_constants.inc                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+ Input constant   nr:    1 is constant   nr:   39 with ID  : SWAdsP              
+ constant values in this block.
+ values        39
+ constants    SWAdsP      
+         1    0.0000E+00
+
+ ====> input item completed <==== 
+
+
+ Input constant   nr:    1 is constant   nr:   40 with ID  : KdPO4AAP            
+ constant values in this block.
+ values        40
+ constants    KdPO4AAP    
+         1    7.5000E-02
+
+ ====> input item completed <==== 
+
+
+ Input constant   nr:    1 is constant   nr:   41 with ID  : RcDetC              
+ constant values in this block.
+ values        41
+ constants    RcDetC      
+         1    1.0000E-01
+
+ ====> input item completed <==== 
+
+
+ Input constant   nr:    1 is constant   nr:   42 with ID  : TcDetC              
+ constant values in this block.
+ values        42
+ constants    TcDetC      
+         1    1.0500E+00
+
+ ====> input item completed <==== 
+
+
+ Input constant   nr:    1 is constant   nr:   43 with ID  : CTMin               
+ constant values in this block.
+ values        43
+ constants    CTMin       
+         1    3.0000E+00
+
+ ====> input item completed <==== 
+
+
+ Input constant   nr:    1 is constant   nr:   44 with ID  : NCRatGreen          
+ constant values in this block.
+ values        44
+ constants    NCRatGreen  
+         1    1.6000E-01
+
+ ====> input item completed <==== 
+
+
+ Input constant   nr:    1 is constant   nr:   45 with ID  : PCRatGreen          
+ constant values in this block.
+ values        45
+ constants    PCRatGreen  
+         1    2.0000E-02
+
+ ====> input item completed <==== 
+
+
+ Input constant   nr:    1 is constant   nr:   46 with ID  : FrAutGreen          
+ constant values in this block.
+ values        46
+ constants    FrAutGreen  
+         1    3.0000E-01
+
+ ====> input item completed <==== 
+
+
+ Input constant   nr:    1 is constant   nr:   47 with ID  : FrDetGreen          
+ constant values in this block.
+ values        47
+ constants    FrDetGreen  
+         1    7.0000E-01
+
+ ====> input item completed <==== 
+
+
+ Input constant   nr:    1 is constant   nr:   48 with ID  : VSedDetC            
+ constant values in this block.
+ values        48
+ constants    VSedDetC    
+         1    1.0000E-02
+
+ ====> input item completed <==== 
+
+
+ Input constant   nr:    1 is constant   nr:   49 with ID  : TauCSDetC           
+ constant values in this block.
+ values        49
+ constants    TauCSDetC   
+         1    1.0000E-01
+
+ ====> input item completed <==== 
+
+
+ Input constant   nr:    1 is constant   nr:   50 with ID  : RcDetN              
+ constant values in this block.
+ values        50
+ constants    RcDetN      
+         1    1.0000E-01
+
+ ====> input item completed <==== 
+
+
+ Input constant   nr:    1 is constant   nr:   51 with ID  : TcDetN              
+ constant values in this block.
+ values        51
+ constants    TcDetN      
+         1    1.0500E+00
+
+ ====> input item completed <==== 
+
+
+ Input constant   nr:    1 is constant   nr:   52 with ID  : RcDetP              
+ constant values in this block.
+ values        52
+ constants    RcDetP      
+         1    1.0000E-01
+
+ ====> input item completed <==== 
+
+
+ Input constant   nr:    1 is constant   nr:   53 with ID  : TcDetP              
+ constant values in this block.
+ values        53
+ constants    TcDetP      
+         1    1.0500E+00
+
+ ====> input item completed <==== 
+
+
+ Input constant   nr:    1 is constant   nr:   54 with ID  : PPMaxGreen          
+ constant values in this block.
+ values        54
+ constants    PPMaxGreen  
+         1    1.8000E+00
+
+ ====> input item completed <==== 
+
+
+ Input constant   nr:    1 is constant   nr:   55 with ID  : MRespGreen          
+ constant values in this block.
+ values        55
+ constants    MRespGreen  
+         1    4.5000E-02
+
+ ====> input item completed <==== 
+
+
+ Input constant   nr:    1 is constant   nr:   56 with ID  : GRespGreen          
+ constant values in this block.
+ values        56
+ constants    GRespGreen  
+         1    1.5000E-01
+
+ ====> input item completed <==== 
+
+
+ Input constant   nr:    1 is constant   nr:   57 with ID  : Mort0Green          
+ constant values in this block.
+ values        57
+ constants    Mort0Green  
+         1    3.5000E-01
+
+ ====> input item completed <==== 
+
+
+ Input constant   nr:    1 is constant   nr:   58 with ID  : SalM1Green          
+ constant values in this block.
+ values        58
+ constants    SalM1Green  
+         1    0.0000E+00
+
+ ====> input item completed <==== 
+
+
+ Input constant   nr:    1 is constant   nr:   59 with ID  : SalM2Green          
+ constant values in this block.
+ values        59
+ constants    SalM2Green  
+         1    0.0000E+00
+
+ ====> input item completed <==== 
+
+
+ Input constant   nr:    1 is constant   nr:   60 with ID  : TcNit               
+ constant values in this block.
+ values        60
+ constants    TcNit       
+         1    1.0800E+00
+
+ ====> input item completed <==== 
+
+
+ Input constant   nr:    1 is constant   nr:   61 with ID  : CTNit               
+ constant values in this block.
+ values        61
+ constants    CTNit       
+         1    3.0000E+00
+
+ ====> input item completed <==== 
+
+
+ Input constant   nr:    1 is constant   nr:   62 with ID  : COXNIT              
+ constant values in this block.
+ values        62
+ constants    COXNIT      
+         1    1.0000E+00
+
+ ====> input item completed <==== 
+
+
+ Input constant   nr:    1 is constant   nr:   63 with ID  : RcNit               
+ constant values in this block.
+ values        63
+ constants    RcNit       
+         1    1.0000E-01
+
+ ====> input item completed <==== 
+
+
+ Input constant   nr:    1 is constant   nr:   64 with ID  : OOXNIT              
+ constant values in this block.
+ values        64
+ constants    OOXNIT      
+         1    5.0000E+00
+
+ ====> input item completed <==== 
+
+
+ Input constant   nr:    1 is constant   nr:   65 with ID  : TcDenWat            
+ constant values in this block.
+ values        65
+ constants    TcDenWat    
+         1    1.0450E+00
+
+ ====> input item completed <==== 
+
+
+ Input constant   nr:    1 is constant   nr:   66 with ID  : COXDEN              
+ constant values in this block.
+ values        66
+ constants    COXDEN      
+         1    3.0000E+00
+
+ ====> input item completed <==== 
+
+
+ Input constant   nr:    1 is constant   nr:   67 with ID  : RcDenWat            
+ constant values in this block.
+ values        67
+ constants    RcDenWat    
+         1    1.0000E-01
+
+ ====> input item completed <==== 
+
+
+ Input constant   nr:    1 is constant   nr:   68 with ID  : OOXDEN              
+ constant values in this block.
+ values        68
+ constants    OOXDEN      
+         1    1.0000E+00
+
+ ====> input item completed <==== 
+
+
+ Input constant   nr:    1 is constant   nr:   69 with ID  : SWRear              
+ constant values in this block.
+ values        69
+ constants    SWRear      
+         1    1.0000E+00
+
+ ====> input item completed <==== 
+
+
+ Input constant   nr:    1 is constant   nr:   70 with ID  : KLRear              
+ constant values in this block.
+ values        70
+ constants    KLRear      
+         1    3.5000E-01
+
+ ====> input item completed <==== 
+
+
+ Input constant   nr:    1 is constant   nr:   71 with ID  : TCRear              
+ constant values in this block.
+ values        71
+ constants    TCRear      
+         1    1.0240E+00
+
+ ====> input item completed <==== 
+
+
+ Input constant   nr:    1 is constant   nr:   72 with ID  : O2FuncBOD           
+ constant values in this block.
+ values        72
+ constants    O2FuncBOD   
+         1    0.0000E+00
+
+ ====> input item completed <==== 
+
+
+ Input constant   nr:    1 is constant   nr:   73 with ID  : fSOD                
+ constant values in this block.
+ values        73
+ constants    fSOD        
+         1    0.0000E+00
+
+ ====> input item completed <==== 
+
+
+ Input constant   nr:    1 is constant   nr:   74 with ID  : RcSOD               
+ constant values in this block.
+ values        74
+ constants    RcSOD       
+         1    0.0000E+00
+
+ ====> input item completed <==== 
+
+
+ Input constant   nr:    1 is constant   nr:   75 with ID  : VSedIM1             
+ constant values in this block.
+ values        75
+ constants    VSedIM1     
+         1    1.0000E-01
+
+ ====> input item completed <==== 
+
+
+ Input constant   nr:    1 is constant   nr:   76 with ID  : TaucSIM1            
+ constant values in this block.
+ values        76
+ constants    TaucSIM1    
+         1    1.0000E-01
+
+ ====> input item completed <==== 
+
+
+ Input constant   nr:    1 is constant   nr:   77 with ID  : fResS1DM            
+ constant values in this block.
+ values        77
+ constants    fResS1DM    
+         1    0.0000E+00
+
+ ====> input item completed <==== 
+
+
+ Input constant   nr:    1 is constant   nr:   78 with ID  : ExtVlIM1            
+ constant values in this block.
+ values        78
+ constants    ExtVlIM1    
+         1    1.0000E-02
+
+ ====> input item completed <==== 
+
+
+ Input constant   nr:    1 is constant   nr:   79 with ID  : ExtVlBak            
+ constant values in this block.
+ values        79
+ constants    ExtVlBak    
+         1    8.0000E-02
+
+ ====> input item completed <==== 
+
+
+ Input constant   nr:    1 is constant   nr:   80 with ID  : DayL                
+ constant values in this block.
+ values        80
+ constants    DayL        
+         1    5.8000E-01
+
+ ====> input item completed <==== 
+
+
+ Input constant   nr:    1 is constant   nr:   81 with ID  : OptDLGreen          
+ constant values in this block.
+ values        81
+ constants    OptDLGreen  
+         1    5.8000E-01
+
+ ====> input item completed <==== 
+
+
+ Input constant   nr:    1 is constant   nr:   82 with ID  : PrfNH4gree          
+ constant values in this block.
+ values        82
+ constants    PrfNH4gree  
+         1    1.0000E+00
+
+ ====> input item completed <==== 
+
+
+ Input constant   nr:    1 is constant   nr:   83 with ID  : KMDINgreen          
+ constant values in this block.
+ values        83
+ constants    KMDINgreen  
+         1    5.0000E-03
+
+ ====> input item completed <==== 
+
+
+ Input constant   nr:    1 is constant   nr:   84 with ID  : KMPgreen            
+ constant values in this block.
+ values        84
+ constants    KMPgreen    
+         1    1.0000E-03
+
+ ====> input item completed <==== 
+
+
+ Input constant   nr:    1 is constant   nr:   85 with ID  : RadSatGree          
+ constant values in this block.
+ values        85
+ constants    RadSatGree  
+         1    3.0000E+01
+
+ ====> input item completed <==== 
+
+
+ Input constant   nr:    1 is constant   nr:   86 with ID  : TcGroGreen          
+ constant values in this block.
+ values        86
+ constants    TcGroGreen  
+         1    1.0400E+00
+
+ ====> input item completed <==== 
+
+
+ Input constant   nr:    1 is constant   nr:   87 with ID  : TcDecGreen          
+ constant values in this block.
+ values        87
+ constants    TcDecGreen  
+         1    1.0700E+00
+
+ ====> input item completed <==== 
+
+
+ Input constant   nr:    1 is constant   nr:   88 with ID  : ExtVlDetC           
+ constant values in this block.
+ values        88
+ constants    ExtVlDetC   
+         1    4.7000E-01
+
+ ====> input item completed <==== 
+
+
+ Input constant   nr:    1 is constant   nr:   89 with ID  : ExtVlGreen          
+ constant values in this block.
+ values        89
+ constants    ExtVlGreen  
+         1    1.5000E-01
+
+ ====> input item completed <==== 
+
+
+ Input constant   nr:    1 is constant   nr:   90 with ID  : RadSurf             
+ constant values in this block.
+ values        90
+ constants    RadSurf     
+         1   -9.9900E+02
+
+ ====> input item completed <==== 
+
+
+ Input constant   nr:    1 is constant   nr:   91 with ID  : VWind               
+ constant values in this block.
+ values        91
+ constants    VWind       
+         1    3.0000E+00
+
+ ====> input item completed <==== 
+
+
+ Input constant   nr:    1 is constant   nr:   92 with ID  : Chezy               
+ constant values in this block.
+ values        92
+ constants    Chezy       
+         1    5.5000E+01
+
+ ====> input item completed <==== 
+
+
+
+ Closing file: includes_deltashell/B7_constants.inc                                          
+
+ Continuing on file: deltashell.inp                                                                
+
+ Including file: includes_deltashell/B7_functions.inc                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+
+ Closing file: includes_deltashell/B7_functions.inc                                          
+
+ Continuing on file: deltashell.inp                                                                
+
+ Including file: includes_deltashell/B7_parameters.inc                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
+  
+ Input parameter  nr:    1 is parameter  nr:    1 with ID  : Surf                
+
+ Input will be given for all      98700 segments.
+
+ parameter s ordered in groups of segments per parameter .
+ Input comes from binary file: D:/Russell/Delft3D/Projects/NitrogenStudy/rerun/dflowfm/DFM_DELWAQ_FlowFM/FlowFM.srf                                                                                                                                                                            
+ info comes at runtime from binary file: D:/Russell/Delft3D/Projects/NitrogenStudy/rerun/dflowfm/DFM_DELWAQ_FlowFM/FlowFM.srf
+
+ ====> input item completed <==== 
+
+
+
+ Closing file: includes_deltashell/B7_parameters.inc                                         
+
+ Continuing on file: deltashell.inp                                                                
+
+ Including file: includes_deltashell/B7_dispersion.inc                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
+
+ Closing file: includes_deltashell/B7_dispersion.inc                                         
+
+ Continuing on file: deltashell.inp                                                                
+
+ Including file: includes_deltashell/B7_vdiffusion.inc                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
+ Input constant   nr:    1 is constant   nr:   93 with ID  : ACTIVE_VertDisp     
+ constant values in this block.
+ values        93
+ constants    ACTIVE_Ver  
+         1    1.0000E+00
+
+ ====> input item completed <==== 
+
+
+  
+ Input seg-funct. nr:    1 is seg-funct. nr:    1 with ID  : VertDisper          
+
+ Input will be given for all      98700 segments.
+
+ seg-funct.s ordered in groups of segments per seg-funct..
+ Input comes from binary file: D:/Russell/Delft3D/Projects/NitrogenStudy/rerun/dflowfm/DFM_DELWAQ_FlowFM/FlowFM.vdf                                                                                                                                                                            
+ info comes at runtime from binary file: D:/Russell/Delft3D/Projects/NitrogenStudy/rerun/dflowfm/DFM_DELWAQ_FlowFM/FlowFM.vdf
+
+ ====> input item completed <==== 
+
+
+
+ Closing file: includes_deltashell/B7_vdiffusion.inc                                         
+
+ Continuing on file: deltashell.inp                                                                
+
+ Including file: includes_deltashell/B7_segfunctions.inc                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
+  
+ Input seg-funct. nr:    1 is seg-funct. nr:    2 with ID  : Temp                
+
+ Input will be given for all      98700 segments.
+
+ seg-funct.s ordered in groups of segments per seg-funct..
+ Input comes from binary file: D:/Russell/Delft3D/Projects/NitrogenStudy/rerun/dflowfm/DFM_DELWAQ_FlowFM/FlowFM.tem                                                                                                                                                                            
+ info comes at runtime from binary file: D:/Russell/Delft3D/Projects/NitrogenStudy/rerun/dflowfm/DFM_DELWAQ_FlowFM/FlowFM.tem
+
+ ====> input item completed <==== 
+
+
+
+ Closing file: includes_deltashell/B7_segfunctions.inc                                       
+
+ Continuing on file: deltashell.inp                                                                
+
+ Including file: includes_deltashell/B7_numerical_options.inc                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
+ Input constant   nr:    1 is constant   nr:   94 with ID  : CLOSE_ERR           
+ constant values in this block.
+ values        94
+ constants    CLOSE_ERR   
+         1    1.0000E+00
+
+ ====> input item completed <==== 
+
+
+ Input constant   nr:    1 is constant   nr:   95 with ID  : NOTHREADS           
+ constant values in this block.
+ values        95
+ constants    NOTHREADS   
+         1    2.0000E+00
+
+ ====> input item completed <==== 
+
+
+
+ NOTHREADS Keyword found
+ Number of threads for parallel processing set to :     2
+ Input constant   nr:    1 is constant   nr:   96 with ID  : DRY_THRESH          
+ constant values in this block.
+ values        96
+ constants    DRY_THRESH  
+         1    1.0000E-03
+
+ ====> input item completed <==== 
+
+
+ Input constant   nr:    1 is constant   nr:   97 with ID  : maxiter             
+ constant values in this block.
+ values        97
+ constants    maxiter     
+         1    2.0000E+02
+
+ ====> input item completed <==== 
+
+
+ Input constant   nr:    1 is constant   nr:   98 with ID  : tolerance           
+ constant values in this block.
+ values        98
+ constants    tolerance   
+         1    1.0000E-07
+
+ ====> input item completed <==== 
+
+
+ Input constant   nr:    1 is constant   nr:   99 with ID  : iteration report    
+ constant values in this block.
+ values        99
+ constants    iteration   
+         1    0.0000E+00
+
+ ====> input item completed <==== 
+
+
+
+ Closing file: includes_deltashell/B7_numerical_options.inc                                  
+
+ Continuing on file: deltashell.inp                                                                
+
+ Total number of constants        :   99
+
+ Total number of parameters       :    1
+
+ Total number of functions        :    0
+
+ Total number of segment functions:    2
+
+ *********************************************************** B L O C K - 7 *****
+
+
+ Including file: includes_deltashell/B8_initials.inc                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
+
+ Initials for passive substances are in mass/m2
+
+ Option selected for initials    :   1
+ Information from the standard input file.
+ Input initial    nr:    1 is initial    nr:    1 with ID  : AAP                 
+ Input initial    nr:    2 is initial    nr:    2 with ID  : DetC                
+ Input initial    nr:    3 is initial    nr:    3 with ID  : DetN                
+ Input initial    nr:    4 is initial    nr:    4 with ID  : DetP                
+ Input initial    nr:    5 is initial    nr:    5 with ID  : GREEN               
+ Input initial    nr:    6 is initial    nr:    6 with ID  : NH4                 
+ Input initial    nr:    7 is initial    nr:    7 with ID  : NO3                 
+ Input initial    nr:    8 is initial    nr:    8 with ID  : PO4                 
+ Input initial    nr:    9 is initial    nr:    9 with ID  : OXY                 
+ Input initial    nr:   10 is initial    nr:   10 with ID  : Cl                  
+ Input initial    nr:   11 is initial    nr:   11 with ID  : IM1                 
+ Input initial    nr:   12 is initial    nr:   12 with ID  : Opal                
+ Input initial    nr:   13 is initial    nr:   13 with ID  : SOD                 
+ default values in this block.
+ substance      1           2           3           4           5
+ segments     AAP         DetC        DetN        DetP        GREEN       
+         1    0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00  0.0000E+00
+ substance      6           7           8           9          10
+ segments     NH4         NO3         PO4         OXY         Cl          
+         1    0.0000E+00  0.0000E+00  0.0000E+00  1.0000E+01  0.0000E+00
+ substance     11          12          13
+ segments     IM1         Opal        SOD         
+         1    0.0000E+00  0.0000E+00  0.0000E+00
+
+ ====> input item completed <==== 
+
+
+
+ Closing file: includes_deltashell/B8_initials.inc                                           
+
+ Continuing on file: deltashell.inp                                                                
+
+ *********************************************************** B L O C K - 8 *****
+
+
+
+ Option selected for output specification :   1
+ Information from the standard input file.
+
+ Specification of monitor output
+
+ Default output for this file
+
+ Specification of grid dump output
+
+ No output for this file
+
+ Specification of history output
+
+ Including file: includes_deltashell/B9_Hisvar.inc                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
+
+ All substances plus extra output variables
+
+ (     11) number of output variables specified
+
+ Number           Identification        Weight variable
+       1           AlgN                  volume              
+       2           AlgP                  volume              
+       3           SS                    volume              
+       4           TotN                  volume              
+       5           KjelN                 volume              
+       6           TotP                  volume              
+       7           LimDLGreen            volume              
+       8           LimNutGree            volume              
+       9           LimRadGree            volume              
+      10           Chlfa                 volume              
+      11           ExtVlPhyt             volume              
+
+ Specification of map output
+
+ Closing file: includes_deltashell/B9_Hisvar.inc                                             
+
+ Continuing on file: deltashell.inp                                                                
+
+ Including file: includes_deltashell/B9_Mapvar.inc                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
+
+ All substances plus extra output variables
+
+ (     11) number of output variables specified
+
+ Number           Identification 
+       1           AlgN                
+       2           AlgP                
+       3           SS                  
+       4           TotN                
+       5           KjelN               
+       6           TotP                
+       7           LimDLGreen          
+       8           LimNutGree          
+       9           LimRadGree          
+      10           Chlfa               
+      11           ExtVlPhyt           
+
+ Closing file: includes_deltashell/B9_Mapvar.inc                                             
+
+ Continuing on file: deltashell.inp                                                                
+
+ Binary history file switched off
+
+ Binary map file switched off
+
+ NEFIS history file switched on
+
+ NetCDF map file switched on
+
+ NetCDF output options:
+     NetCDF format:   4
+     Deflation level: 0
+     Chunksize:       0 - 0 means no chunking
+     Shuffling:       OFF
+
+ NO BALANCE output : balance option not active !
+ 
+  Determining the place of the output variables
+ 
+   INFO:AlgN                ; NOT FOUND, delwaq will detect variables from process library
+   INFO:AlgP                ; NOT FOUND, delwaq will detect variables from process library
+   INFO:SS                  ; NOT FOUND, delwaq will detect variables from process library
+   INFO:TotN                ; NOT FOUND, delwaq will detect variables from process library
+   INFO:KjelN               ; NOT FOUND, delwaq will detect variables from process library
+   INFO:TotP                ; NOT FOUND, delwaq will detect variables from process library
+   INFO:LimDLGreen          ; NOT FOUND, delwaq will detect variables from process library
+   INFO:LimNutGree          ; NOT FOUND, delwaq will detect variables from process library
+   INFO:LimRadGree          ; NOT FOUND, delwaq will detect variables from process library
+   INFO:Chlfa               ; NOT FOUND, delwaq will detect variables from process library
+   INFO:ExtVlPhyt           ; NOT FOUND, delwaq will detect variables from process library
+        volume              ; Using DELWAQ VOLUME
+        volume              ; Using DELWAQ VOLUME
+        volume              ; Using DELWAQ VOLUME
+        volume              ; Using DELWAQ VOLUME
+        volume              ; Using DELWAQ VOLUME
+        volume              ; Using DELWAQ VOLUME
+        volume              ; Using DELWAQ VOLUME
+        volume              ; Using DELWAQ VOLUME
+        volume              ; Using DELWAQ VOLUME
+        volume              ; Using DELWAQ VOLUME
+        volume              ; Using DELWAQ VOLUME
+   INFO:AlgN                ; NOT FOUND, delwaq will detect variables from process library
+   INFO:AlgP                ; NOT FOUND, delwaq will detect variables from process library
+   INFO:SS                  ; NOT FOUND, delwaq will detect variables from process library
+   INFO:TotN                ; NOT FOUND, delwaq will detect variables from process library
+   INFO:KjelN               ; NOT FOUND, delwaq will detect variables from process library
+   INFO:TotP                ; NOT FOUND, delwaq will detect variables from process library
+   INFO:LimDLGreen          ; NOT FOUND, delwaq will detect variables from process library
+   INFO:LimNutGree          ; NOT FOUND, delwaq will detect variables from process library
+   INFO:LimRadGree          ; NOT FOUND, delwaq will detect variables from process library
+   INFO:Chlfa               ; NOT FOUND, delwaq will detect variables from process library
+   INFO:ExtVlPhyt           ; NOT FOUND, delwaq will detect variables from process library
+  Not all variables available.
+  Number off missing variables :          22
+
+ *********************************************************** B L O C K - 9 *****
+
+
+ Output operations
+Number of periods defined:     0
+ 
+
+ *********************************************************** B L O C K -10 *****
+
+
+
+ Messages presented in this .lst file:
+
+ Number of WARNINGS            :     0
+ Number of ERRORS during input :     0
+ 
+
+
+ Messages presented including .lsp file:
+ Number of WARNINGS            :     1
+
+ Number of ERRORS during input :     0
+
+ Parallel processing with   2 processor(s)
+
+ total real      array space:   49433910
+ total integer   array space:    4071686
+ total character array space:       6730
+ grand total in 4-byte words:   53512326 =   0-GB 214-MB  49-KB 304-Byte.
+ Execution stop : 2024/09/17 12:06:36 
