@@ -94,7 +94,7 @@ class WAQPlotConfig:
     )
     reference_date: pd.Timestamp = pd.Timestamp("2024-08-01 00:00:00")
     show_plots: bool = False
-    decimal: str = "_"
+    decimal: str = "."
     expected_concentration_columns: dict[tuple[str, str, str], str] = field(default_factory=dict)
     no3_plot_species: tuple[str, ...] = ("NO3",)
     nh4_plot_species: tuple[str, ...] = ("NH4",)
@@ -160,6 +160,30 @@ def input_file_name(model: str, spec: str, point: str) -> str:
     return f"{spec}{point}.csv"
 
 
+def _check_numeric(df, source_column, path):
+    """Fail loudly if a concentration column did not parse as numbers.
+
+    The WAQ export previously used '_' as the decimal separator, which pandas
+    silently turns into NaN when reading with the default '.'.  Downstream that
+    surfaces as a column of zeros rather than an error, so the condition is
+    checked here instead of being discovered in a figure.
+    """
+    raw = df[source_column]
+    values = pd.to_numeric(raw, errors="coerce")
+    # A cell that is present but does not parse is the failure we care about:
+    # reading '1_33E-05' with decimal='.' yields NaN, and any row that happens to
+    # be a literal 0 still parses, so an "all NaN" test would miss it entirely.
+    unparsed = values.isna() & raw.notna() & (raw.astype(str).str.strip() != "")
+    if unparsed.any():
+        sample = raw[unparsed].iloc[0]
+        raise ValueError(
+            f"{path}: column '{source_column}' has {int(unparsed.sum())} of {len(raw)} "
+            f"values that did not parse as numbers (e.g. {sample!r}). "
+            f"Check the decimal separator; CONFIG.decimal is currently {CONFIG.decimal!r}."
+        )
+    return values
+
+
 def read_series(
     path: Path,
     output_column: tuple[str, str, str, str],
@@ -168,6 +192,7 @@ def read_series(
     """Read one WAQ CSV and return timestamp plus one MultiIndex-ready value column."""
     df = pd.read_csv(path, parse_dates=[TIME_COLUMN], header=0, decimal=CONFIG.decimal)
     source_column = concentration_column(df, path, expected_column)
+    _check_numeric(df, source_column, path)
     series_df = df[[TIME_COLUMN, source_column]].rename(columns={source_column: output_column})
     return series_df.sort_values(TIME_COLUMN)
 

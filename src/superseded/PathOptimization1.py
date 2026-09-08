@@ -55,7 +55,7 @@ data = {'Latitude': [34.052235, 36.169941, 40.712776],
 df = pd.DataFrame(data)
 
 # Load the CSV file
-file_path = DATA_DIR / 'Sampling_Priority.csv'
+file_path = DATA_DIR / '1.Sampling_Priority.csv'
 df = pd.read_csv(file_path, sep=',', usecols=['Latitude', 'Longitude'])
 
 # Define the starting and ending points
@@ -70,4 +70,4 @@ print(path_coordinates)
 print(f"Total distance: {total_distance} units")
 
 # Save the optimized data to a new CSV file
-pd.DataFrame(path_coordinates, columns=['Latitude', 'Longitude']).to_csv(DATA_DIR / 'highscore_path.csv', index=False)
+pd.DataFrame(path_coordinates, columns=['Latitude', 'Longitude']).to_csv(DATA_DIR / 'superseded_shortest_path.csv', index=False)

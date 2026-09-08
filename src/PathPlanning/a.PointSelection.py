@@ -17,8 +17,20 @@ ROOT_DIR = Path(__file__).resolve().parents[2]
 DATA_DIR = ROOT_DIR / 'data'
 
 # Load the CSV file
-file_path = DATA_DIR / 'Sampling_Priority.csv'
+file_path = DATA_DIR / '1.Sampling_Priority.csv'
 data = pd.read_csv(file_path)
+
+# Normalise the sensitivity values as sigma' = sigma / max(S), per Eq. 8 of the
+# manuscript.  Dividing by a single positive constant is a monotone rescaling, so
+# it changes neither the ranking of cells, the relative cluster weights, nor the
+# route selected; it makes the reported weights dimensionless and comparable
+# between runs.  Earlier versions defined this normalisation but summed the raw
+# values, which is the inconsistency Reviewer 2 identified.
+SENSITIVITY_COLUMN = 'Depth-averaged uncertainty'
+_max_sensitivity = data[SENSITIVITY_COLUMN].max()
+if _max_sensitivity <= 0:
+    raise ValueError(f"{file_path}: maximum sensitivity is {_max_sensitivity}; cannot normalise.")
+data[SENSITIVITY_COLUMN] = data[SENSITIVITY_COLUMN] / _max_sensitivity
 
 # Extract the latitude and longitude values
 coordinates = data[['Latitude', 'Longitude']].values
@@ -67,11 +79,11 @@ plt.ylim(min_latitude, max_latitude)
 plt.show()
 
 # Save the clustered data to a new CSV file
-output_file_path = DATA_DIR / 'clustered_coordinates.csv'
+output_file_path = DATA_DIR / '2.clustered_coordinates.csv'
 data.to_csv(output_file_path, index=False)
 print(f"Clustering analysis completed. The results are saved to {output_file_path}.")
 
 # Save the cluster information to a new CSV file
-cluster_info_file_path = DATA_DIR / 'cluster_info.csv'
+cluster_info_file_path = DATA_DIR / '3.cluster_info.csv'
 cluster_info.to_csv(cluster_info_file_path, index=False)
 print(f"Cluster information saved to {cluster_info_file_path}.")

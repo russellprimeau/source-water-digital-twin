@@ -36,14 +36,14 @@ def matplotlib_method_with_contextily(file_name):
     labels = [coord[2] for coord in coordinates]
 
     # Load the CSV file
-    file_path = DATA_DIR / 'cluster_info.csv'
+    file_path = DATA_DIR / '3.cluster_info.csv'
     df = pd.read_csv(file_path, sep=',', usecols=['Latitude', 'Longitude', 'Weight'])
 
     # Create a figure and axis
     fig, ax = plt.subplots(figsize=(15, 4))
     fontsizer = 17
 
-    clusterpoints = read_cluster_coordinates(DATA_DIR / 'clustered_coordinates.csv')
+    clusterpoints = read_cluster_coordinates(DATA_DIR / '2.clustered_coordinates.csv')
 
     # Extract labels, latitudes, and longitudes
     cluster_lats = [coord[0] for coord in clusterpoints]
@@ -108,7 +108,7 @@ def matplotlib_method_with_contextily(file_name):
 
 if __name__ == '__main__':
     # input_file = 'manual_path.csv'
-    input_file = 'highscore_path.csv'
+    input_file = '4.highscore_path.csv'
     input = DATA_DIR / input_file
 
     # To create a matplotlib figure with lines connecting the points and a Contextily basemap:

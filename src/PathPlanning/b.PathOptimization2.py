@@ -77,7 +77,7 @@ def highest_scoring_path(df, start, end, max_distance):
 # df = pd.DataFrame(data)
 
 # Load the CSV file
-file_path = DATA_DIR / 'cluster_info.csv'
+file_path = DATA_DIR / '3.cluster_info.csv'
 df = pd.read_csv(file_path, sep=',', usecols=['Latitude', 'Longitude', 'Weight'])
 
 print('input', df)
@@ -107,7 +107,7 @@ else:
     print(df.loc[order, 'Weight'])
 
     # Save the optimized data to a new CSV file
-    output_file_path = DATA_DIR / 'highscore_path.csv'
+    output_file_path = DATA_DIR / '4.highscore_path.csv'
 
     # Convert the NumPy array to a DataFrame to output to CSV
     header = ['latitude', 'longitude']
