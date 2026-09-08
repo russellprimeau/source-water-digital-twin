@@ -1,87 +1,93 @@
 """
 CSVplotter.py
 
-Generates a scatter plot of Delft3D model calibration iterations based on data from a CSV file. 
-Filters data rows and creates a scatter plot.
+Model accuracy against computational cost for the Delft3D FM calibration
+campaign, from data/Calibration.csv.
 
-Output: 
--"calibration_w_sizes.png"
-    - The x-axis represents 'Simulation Time/Run Time'.
-    - The y-axis represents 'Root Mean Squared Error'.
-    - The size of the points is scaled based on the '3D Cells' column.
-    - The color of the points is determined by the 'Correlation' column, using a colormap.
-    - A colorbar is added to indicate the correlation values.
-    - A legend is created to indicate the size of the points based on the number of 3D cells.
+Output: data/calibration_w_sizes.png
+
+  - x: simulated time per unit wall-clock time (dimensionless speed-up).
+  - y: mean depth-wise RMSE in water temperature (degrees C).
+  - marker size: number of 3D cells.
+  - marker colour: Pearson correlation coefficient.
+  - vertical bars: the range of RMSE spanned by configurations sharing the
+    same mesh and vertical layer count, i.e. the variation attributable to
+    settings other than spatial resolution.
+
+Only full-season simulations are plotted.  The campaign also contains shorter
+two-month runs, but an RMSE accumulated over a two-month spring window is not
+comparable with one accumulated over a full season that includes autumn
+cooling, and plotting both on a shared axis invites exactly that comparison.
 """
 
-import pandas as pd
-import matplotlib.pyplot as plt
-import numpy as np
 import matplotlib.cm as cm
 import matplotlib.colors as colors
+import matplotlib.pyplot as plt
+import pandas as pd
 from mpl_toolkits.axes_grid1 import make_axes_locatable
 from pathlib import Path
 
-
 ROOT_DIR = Path(__file__).resolve().parents[2]
-DATA_DIR = ROOT_DIR / 'data'
+DATA_DIR = ROOT_DIR / "data"
 
-# Step 1: Read the CSV file
-data = pd.read_csv(DATA_DIR / 'Calibration.csv', sep=';', header=0)
-# filtered_data = data[data['Include?'] > -1]  # Replace with your condition
-data['End'] = pd.to_datetime(data['End'],dayfirst=True)
-filtered_data = data[(data['End'] > pd.Timestamp('26.06.2024 00:00')) & (data['Simulation Time/Run Time'] < 1400)]  # Replace with your condition
-# red_data = data[(data['Index'] > 16) & (data['Index'] < 20)]  # Replace with your condition
+X_COLUMN = "Simulation Time/Run Time"
+Y_COLUMN = "Root Mean Squared Error"
+MIN_FULL_SEASON_HOURS = 4000  # separates full-season runs from the two-month set
 
-# Step 2: Extract the necessary columns
-x = filtered_data['Simulation Time/Run Time']  # Replace with your x-axis column name
-y = filtered_data['Root Mean Squared Error']  # Replace with your y-axis column name
-z = filtered_data['Correlation']
-sizes = filtered_data['3D Cells']/800  # Replace with the column name for scaling
+data = pd.read_csv(DATA_DIR / "Calibration.csv", sep=";", header=0)
+data.columns = [c.strip() for c in data.columns]
+for column in (X_COLUMN, Y_COLUMN, "Correlation", "3D Cells", "Max Layers", "Simulation Period (h)"):
+    data[column] = pd.to_numeric(data[column].astype(str).str.replace(",", ""), errors="coerce")
 
+full_season = data[data["Simulation Period (h)"] >= MIN_FULL_SEASON_HOURS].dropna(
+    subset=[X_COLUMN, Y_COLUMN, "Correlation", "3D Cells"]
+)
+if full_season.empty:
+    raise ValueError("No full-season runs found in Calibration.csv; check 'Simulation Period (h)'.")
 
-norm = colors.Normalize(vmin=z.min(), vmax=z.max())  # Normalize the z values to the range [0, 1]
-cmap = cm.spring  # Choose a colormap
-colors = cmap(norm(z))  # Map the normalized z values to colors
+x = full_season[X_COLUMN]
+y = full_season[Y_COLUMN]
+z = full_season["Correlation"]
+sizes = full_season["3D Cells"] / 800
 
+norm = colors.Normalize(vmin=z.min(), vmax=z.max())
+cmap = cm.spring
 
-# x2 =red_data['Simulation Time/Run Time']  # Replace with your x-axis column name
-# y2 = red_data['Root Mean Squared Error']  # Replace with your y-axis column name
-# red_sizes = red_data['3D Cells']/800  # Replace with the column name for scaling
+fig, ax = plt.subplots(figsize=(7.5, 5.2))
 
+# Range of RMSE across configurations sharing a mesh and layer count.  Each
+# point is a single deterministic simulation, so this is not sampling error; it
+# shows how much of the spread is driven by settings other than the mesh.
+for (_cells, _layers), group in full_season.groupby(["3D Cells", "Max Layers"]):
+    if len(group) < 2:
+        continue
+    ax.vlines(
+        group[X_COLUMN].mean(),
+        group[Y_COLUMN].min(),
+        group[Y_COLUMN].max(),
+        color="0.55",
+        linewidth=1.2,
+        zorder=1,
+    )
 
-# Create the scatter plot
-fig, ax = plt.subplots()
-scatter = ax.scatter(x, y, s=sizes, alpha=1.0, c=colors)
+ax.scatter(x, y, s=sizes, c=cmap(norm(z)), alpha=1.0, zorder=2, edgecolors="none")
 
-# Create legend with example sizes
-divider = make_axes_locatable(ax)  # Create a divider for the existing axes instance
-example_sizes = [10000/800, 40000/800, 70000/800]  # Example sizes
-example_labels = ['≤ 10,000 cells', '10,000 - 40,000 cells', '40,000 - 70,000 cells']  # Corresponding labels
+divider = make_axes_locatable(ax)
+cax = divider.append_axes("right", size="2%", pad=0.05)
+plt.colorbar(cm.ScalarMappable(norm=norm, cmap=cmap), label="Pearson correlation coefficient", cax=cax)
 
+example_sizes = [20000 / 800, 40000 / 800, 65000 / 800]
+example_labels = ["20,000 cells", "40,000 cells", "65,000 cells"]
+handles = [
+    plt.scatter([], [], s=size, label=label, color="black") for size, label in zip(example_sizes, example_labels)
+]
+ax.legend(handles=handles, title="3D cells per model iteration", loc="upper right", fontsize=8, title_fontsize=9)
 
-# Create a colorbar
-cax = divider.append_axes("right", size="2%", pad=0.05)  # Append axes to the right of the current axes
-cbar = plt.colorbar(cm.ScalarMappable(norm=norm, cmap=cmap), label='Correlation', cax=cax)
-
-# Create proxy artists for the legend
-handles = [plt.scatter([], [], s=size, label=label, color='black') for size, label in zip(example_sizes, example_labels)]
-
-# Add legend
-ax.legend(handles=handles, title='3D Cells Per Model Iteration', loc='upper right')
-
-
-# Retrieve existing handles and labels
-handles, labels = scatter.legend_elements()
-
-# Step 3: Create a scatter plot
-
-plt.rcParams['axes.titlesize'] = 25  # You can adjust the size as needed
-plt.rcParams['axes.labelsize'] = 25  # Adjust the size for axis labels
-ax.set_xlabel('Simulation Time/Run Time')  # Replace with your x-axis label
-ax.set_ylabel('Root Mean Squared Error')  # Replace with your y-axis label
-# plt.title('Calibration Iterations')
-ax.grid(True)
-plt.tight_layout()  # Keeps the legend from extending out of the figure
-plt.savefig(DATA_DIR / 'calibration_w_sizes.png', dpi=500)
-plt.show()
+ax.set_xlabel("Simulated time per unit run time (dimensionless)")
+ax.set_ylabel("Mean depth-wise RMSE ($^\\circ$C)")
+ax.grid(True, alpha=0.3)
+plt.tight_layout()
+plt.savefig(DATA_DIR / "calibration_w_sizes.png", dpi=500)
+print(f"Plotted {len(full_season)} full-season configurations "
+      f"(excluded {len(data) - len(full_season)} shorter or incomplete runs).")
+print(f"Written: {DATA_DIR / 'calibration_w_sizes.png'}")
