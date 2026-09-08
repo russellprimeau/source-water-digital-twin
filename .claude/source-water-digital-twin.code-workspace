@@ -1,0 +1,20 @@
+{
+	"folders": [
+		{
+			"path": "../../source-water-digital-twin"
+		},
+		{
+			"path": "../../D3DFMRunner"
+		},
+		{
+			"path": "../../BrusdalsvatnetDT"
+		},
+		{
+			"path": "../../HydrologyML"
+		},
+		{
+			"path": ".."
+		}
+	],
+	"settings": {}
+}
