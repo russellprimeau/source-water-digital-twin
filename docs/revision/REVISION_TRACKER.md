@@ -1126,3 +1126,160 @@ Build: 29 pages, zero errors, zero undefined references or citations, zero token
 **Known soft inconsistency.** Figure 4 still annotates the nowcast as "under 2 h old" while Appendix E states the full interval has not been measured. The caption frames the whole figure as a proposed loop, which covers it, but the annotation would be better as a design target or removed. Needs an edit to `Fig4.svg`.
 
 **Standing assumptions a reader may probe.** The mass balance is computed on a nutrient run rather than the release scenario, and says so. The provenance of the reported configuration is deliberately unstated. Figure 9a and Figure 10 are not reproducible from the repository, which `README.md` records.
+
+## Sonde table completed (2026-09-08)
+
+The manufacturer accuracy and resolution columns are in, closing the last open TODO and completing Reviewer 2 Comment 7. **Zero TODO comments now remain in `main.tex`.**
+
+Values were read from the per-sensor specification blocks of the EXO user manual added to `supplements/`, not recalled. Conductivity figures are converted to the microsiemens per centimetre the table uses (0.001 mS/cm = 1 uS/cm; the 0.0001 to 0.01 mS/cm range-dependent resolution becomes 0.1 to 10 uS/cm).
+
+| Parameter | Accuracy | Resolution |
+|---|---|---|
+| Temperature | ±0.01 °C from −5 to 35 °C; ±0.05 °C from 35 to 50 °C | 0.001 °C |
+| Specific conductivity | ±0.5 % of reading or 1 µS/cm, whichever is greater | 0.1 to 10 µS/cm |
+| pH | ±0.1 within 10 °C of the calibration temperature; ±0.2 over the full range | 0.01 |
+| Dissolved oxygen | ±1 % of reading or 1 % air saturation, whichever is greater, to 200 % | 0.1 % |
+| Turbidity | ±2 % of reading or 0.3 FNU, whichever is greater, to 999 FNU | 0.01 FNU |
+| fDOM | Not specified | 0.01 QSU |
+
+Conductivity and salinity keep their `\multicolumn` statements: the first shares the specific-conductivity sensor and calibration, and the second is derived from conductivity and temperature on the Practical Salinity Scale, so neither carries an independent specification. **fDOM has no manufacturer accuracy figure at all**; the manual gives a linearity of R² > 0.999 over a serial dilution of a 300 ppb quinine sulfate standard and a detection limit of 0.07 ppb QSU, and those are reported in the text rather than forced into an accuracy cell.
+
+### Layout
+
+The first attempt put one wrapping column beside seven fixed ones and ran **116 pt over the text block**, which collided the Accuracy and Resolution headers into "AccuraRceysolution" in the rendered PDF. Caught by inspecting the extracted text rather than trusting a clean exit status, since an overfull box is a warning, not an error.
+
+Rebuilt with Accuracy and Resolution as weighted `tabularx` columns sharing the leftover width 1.4 to 0.6, the fDOM expansion moved into the text, and the headers abbreviated. **No overfull boxes anywhere in the document now.** The rendered page was checked as an image, not only as extracted text.
+
+Text and cover letter both restored to describe the columns. Manuscript at 30 pages, 14.6 MB, zero errors, zero undefined references, zero TODOs.
+
+## Cost of the approach reported as a finding (2026-09-08)
+
+Added to the Conclusions, between the performance paragraph and the transferability paragraph, since it bears on both:
+
+> A further finding concerns the cost of the approach itself. Reaching even approximate agreement with the validation data demanded substantial computation and, more onerous still, sustained data collection and calibration across several dimensions and processes at once: bathymetry and mesh construction, closure of the hydrological balance, meteorological forcing, thermal structure, and the reaction parameters, each carrying its own observational requirement. The advantages set out in Section 1.1 are not withdrawn: a process-based account of transport and reactions remains explicit and inspectable where observations are sparse, and internally consistent with the conservation laws it solves. They are, however, expensive. Where an application does not turn on those properties, or on resolving three-dimensional structure, approaches that demand less data and less computation deserve deliberate consideration alongside this one, and the choice should be made on what the application requires rather than on the sophistication of the method.
+
+This qualifies the argument in Section 1.1 rather than withdrawing it, and it is a stronger position than advocacy: a paper that reports the cost of its own method is harder to accuse of overselling it. It also gives the transferability paragraph that follows something concrete to rest on, since cost is one of the conditions governing transfer.
+
+**A misattribution of mine, caught and corrected.** The paragraph first credited Section 1.1 with claiming that predictions "can be interrogated, tested against quantities they were not fitted to, and extended beyond a short observational record". That was my earlier wording, which the author had since rewritten. Section 1.1 now claims something narrower: an explicit and inspectable account where observations are sparse, internally consistent with the conservation laws solved. The Conclusions paragraph now mirrors what the section actually says. Cross-references were checked against the target text, not just for resolving without error.
+
+One clause added to the cover letter under Reviewer 1 Comment 19, where the transferability framing is answered, since the finding supports that answer directly.
+
+Manuscript at 30 pages, 14.6 MB, zero errors, zero undefined references, zero overfull boxes, zero TODOs.
+
+## Appendix E.1 rewritten as implementation, not status (2026-09-08)
+
+Per the author, Reviewer 3 Comment 3 asks how the pipeline is built, not what state each component is in. The comment names four things: how sensor data is retrieved and processed, how ensembles are generated and the best output chosen, how that output feeds back as the next initial condition, and which steps are automated. The previous table answered none of them directly; it reported implementation status.
+
+**Table A6 is now "Implementation of each stage of the update loop"**, with columns Stage, Implementation and Mode. Ten stages, each naming the actual mechanism: the platforms are networked and publish their current records as HTML pages served at their own addresses; a Windows service runs a Python script on a schedule that fetches those pages, parses the tabulated records and applies range and plausibility checks; cleaned records are written to flat files, a PostgreSQL database and a version-controlled repository, so no single store is the only copy; forcing series are rebuilt from that store for each interval with substituted values tagged by origin; the solver runs as a separate application on a different machine from the acquisition host. Mode is Manual, Automated or Continuous, which keeps the automated-versus-manual answer the comment asks for without making it the subject.
+
+**Two stages that needed prose rather than a table cell.** Ensembles are generated by perturbing features of the forcing rather than by re-deriving the model, using the temperature of surface inflows and an unsteady wind field built from the cumulative hourly averages, with any solver parameter available for the same treatment; members differ only in the perturbed quantity, so the spread reflects that quantity. Selection uses the same criterion as the offline comparison: root-mean-square error of surface temperature against the withheld profiler record, or of depth-averaged temperatures where the interval spans more than one profile. Only the best member is normally kept, and its final state becomes the next initial condition, so the loop advances on a single trajectory. The appendix notes that retaining every member would allow the spread to be propagated instead, which connects this section to the uncertainty question raised elsewhere.
+
+The subsection is retitled *Implementation of the update loop*. The honest framing survives: the sequence has not been operated end to end as an unattended service, and the modes describe how each stage runs rather than a demonstrated schedule.
+
+Cover letter's R3-3 response rewritten to match, including the ensemble and selection rules, since the comment asks about them explicitly.
+
+## Figure 5's black background — my error, fixed
+
+The author reported Figure 5 rendering with a black background in Overleaf. **I caused it.** When reducing the figure payload I called `convert('RGB')` on both oversized figures, which drops the alpha channel and leaves transparent pixels at their stored colour, which was black. Figure 5 was **22.2 % transparent**, so almost a quarter of it turned black; Figure 2 was 1 % transparent and would have shown black fringing at its edges.
+
+Both regenerated from the backed-up originals by compositing onto white before flattening. Figure 2 is still resampled to 3200 px and both keep their reduced sizes, so the payload saving stands: the PDF remains 14.6 MB against the original 25.6 MB.
+
+The lesson is that the size check passed and the build was clean; nothing in the toolchain reports that an image has been silently altered. A rendered figure should be looked at after any transformation, which is how the earlier redrawn figures were checked but not these.
+
+Manuscript at 31 pages, zero errors, zero undefined references, zero overfull boxes, zero TODOs.
+
+## Figure 5 regenerated from the governing history file (2026-09-08)
+
+The author asked whether Figure 5 could be driven from the same source as the per-depth comparison in Appendix C, on the grounds that the two might differ subtly and that reproducibility is better served by plotting exactly the file on hand. It could, and it now is.
+
+**New script**, `src/D3D/ExportThermalProfiles.py`, built on the same pattern as the residual export: an `--extract` mode that reads the merged history file through the companion repository's post-processing tools, and a default mode that redraws the figure from the retained CSV without them. It uses the `Temperature vs. Depth Profiles_All` row of the same `Pairings.csv` that produces the appendix comparison, so the observation matching, depth binning and interpolation are identical by construction rather than by intention.
+
+Extracted: **18,948 paired records across 50 one-metre depth groups**, written to `data/validation/temperature_profiles_ThermalTune_2024.csv` with observed and modelled values at each matched time and depth.
+
+**Verified against the other two artifacts.** Root-mean-square error computed from the new file reproduces the depth table exactly at every depth checked, and the paired-record counts match its N column:
+
+| Depth | RMSE from the Figure 5 data | RMSE from the residual data | N |
+|---|---|---|---|
+| 1 m | 1.936 | 1.936 | 353 |
+| 20 m | 2.954 | 2.954 | 389 |
+| 50 m | 1.565 | 1.565 | 398 |
+
+The concern was well founded. The previous Figure 5 was **not** from this simulation: its caption described calibration to the 2024 dataset and it predated the thermal run reported in Table 3, so the seasonal overview and the depth-resolved statistics beneath it came from different runs. That is now closed.
+
+**What the figure lost.** The previous version carried a schematic inset of the profiler station, showing the winch and its travel through the water column, which is not reproducible from data and has not been carried over. The depth legend it accompanied is replaced by a colour bar. If the schematic is wanted it can be reinstated as a separate panel, but it is illustrative rather than evidential.
+
+Caption updated to state what is plotted and where the same records are used again. `README.md` records the new provenance and notes that extraction needs the companion repository's environment while redrawing does not.
+
+Manuscript at 31 pages, **13.6 MB**, zero errors, zero undefined references, zero overfull boxes, zero TODOs.
+
+## Consistency pass after the Figure 5 regeneration (2026-09-08)
+
+Changing Figure 5's source invalidated statements around it. Six were found and corrected.
+
+**Manuscript.**
+
+- Section 2.2 said the figure showed the comparison "for each iteration of the model configuration". It shows one configuration. Now: the skill of a configuration is evaluated by comparing its vertical temperature profile against the profiler record, and Figure 5 shows that comparison for the configuration evaluated in Section 3.1, across all fifty depth groups.
+- Section 3.1 did not point at Figure 5 at all, which was the substance of Reviewer 2 Comment 8. It now states that Figure 5 plots the same paired records across all depth groups before pointing to the appendix.
+- Appendix C opened by justifying itself against "a single seasonal figure" that could conceal compensating errors. Figure 5 is now depth-resolved, so the justification has changed: fifty overlapping traces obscure the behaviour of any one depth, and the appendix isolates three from the same set of paired records.
+- `Table A6` had become unreferenced when Appendix E.1 was rewritten. LaTeX does not warn about this. Restored.
+- "the dashboard described in the earlier paper" now cites that paper instead of gesturing at it.
+
+**Cover letter.**
+
+- **Reviewer 1 Comment 1 claimed the abstract "notes that errors are larger through the metalimnion". It no longer does.** The abstract was de-jargoned earlier and now reports the largest discrepancies at intermediate depths in summer. The response also quoted 1.7 °C and 0.96 where the abstract gives 1.73 °C, 2.15 °C and 0.962. Both corrected.
+- The covering summary's use of "metalimnion" was changed to match the manuscript's plainer wording.
+- **Reviewer 2 Comment 8's response omitted its strongest point.** The comment is that Figure 5 does not let the reader verify the RMSE and correlation claims; the response described only the new appendix. It now leads with the fact that Figure 5 is drawn from the paired records themselves, so the figure and the reported statistics come from one set of records rather than separate runs.
+- Reviewer 3 Comment 5's response gained the concrete reproducibility gain: the paired records are retained and the scripts that draw Figure 5 and the residual figure read them directly, so the figures cannot drift from the statistics reported beside them.
+- Both affected "Changes in manuscript" lines updated to name Figure 5.
+
+**Verified after.** Zero TODOs, zero rendered reviewer references, zero dangling cross-references, zero unreferenced figures or tables, zero overfull boxes, zero undefined citations, no specialist vocabulary in the abstract. The only numbers in the letter absent from the manuscript remain section numbers and the reviewer's own arithmetic quoted back in a comment. Manuscript at 30 pages, 13.6 MB.
+
+## Observation gaps shaded on Figure 5 (2026-09-08)
+
+The appendix panels already shaded the intervals in which the profiler returned nothing; Figure 5 did not, so a gap spanned by interpolation was indistinguishable from a measured flat signal.
+
+`_PairingResult` already exposes `profile_gap_windows`, so the extract now writes them to `data/validation/temperature_profile_gaps_ThermalTune_2024.csv` alongside the paired records, and the plot shades each interval and carries a third legend entry, *No observations*. Eight gaps were found, the longest running 1 to 5 August. That one explains a feature visible in the figure: the straight segments in the surface traces through early August are interpolation across an outage, not measured behaviour.
+
+The bands come from the same observation record as the appendix panels, so the two figures mark the same outages.
+
+Caption gains one sentence, worded as in the appendix: *Shaded bands indicate periods without observations.*
+
+One implementation note: `matplotlib.patches.Patch` cannot be added to an axes, since it has no path; it is a legend proxy and must be passed as a handle to `legend()`. The first attempt raised `NotImplementedError: Derived must override` during plotting, after the extract had already written both CSVs.
+
+Manuscript at 30 pages, 13.7 MB, zero errors, zero undefined references, zero overfull boxes, zero TODOs.
+
+## Digital twin named as a decision support system (2026-09-08)
+
+**"Decision support system" appeared only in the keyword list.** The concept was present in three places but never named or supported: the abstract's "source-water decision support", Section 1.3's "the virtual-to-real pathway is mediated by human decision-making rather than automated actuation", and one item in the future-work list. A keyword the body never uses is a weak place for the framing to live.
+
+Added to Section 1.2, immediately after the passage establishing that these systems lack automated control of the real object, since decision support is what they offer in its place:
+
+> What such systems offer in place of actuation is decision support. Hazeleger et al. describe digital twins of the Earth as decision support systems for environmental challenges, whose purpose is to monitor, forecast and assess the system together with the consequences of human intervention in it; within the water sector, Brahmbhatt et al. couple a twin of a distribution network to a decision support system for quality regulation and leak localization. The prototype described here is of that kind. It estimates a state that is not observed directly, and every action that follows is taken by an operator.
+
+This completes an argument the section already half made. It had established, via Kritzinger's control requirement and Blair's weather-forecasting counter-example, that a natural-system twin cannot actuate its subject; it had not said what it does instead.
+
+### Citations
+
+**`hazeleger2024digital`** is new. Hazeleger et al., *Digital twins of the Earth with and for humans*, Communications Earth & Environment 5:463, 2024, doi 10.1038/s43247-024-01626-x. Verified against the Crossref API for the bibliographic record, and **its abstract was read directly rather than inferred**: it states that "digital twins of the Earth are decision support systems for addressing environmental challenges" and that their purpose is "to monitor, forecast and assess the Earth system and the consequences of human interventions on the Earth system". The sentence in the manuscript paraphrases that claim and nothing more. Two of its authors, Bauer and Stevens, also wrote the Earth digital twin paper already cited a few sentences earlier, so the two sit naturally together.
+
+**`BRAHMBHATT2023100127`** was already staged in the bibliography and never cited: Brahmbhatt, Maheshwari and Gudi, *Digital twin assisted decision support system for quality regulation and leak localization task in large-scale water distribution networks*. It is the water-sector instance, and usefully it is in **distribution**, which complements this paper's focus on the **source**, so it supports the framing without competing for novelty.
+
+Both resolve in the rendered bibliography as [42] and [43]. The term now appears in the abstract, the keywords, Section 1.2 and the Conclusions.
+
+Manuscript at 31 pages, 13.7 MB, zero errors, zero undefined references, zero overfull boxes, zero TODOs.
+
+## Unprompted additions attached to the comments they answer (2026-09-08)
+
+Per the author, a revision is better received when every change is presented as responsive to a comment rather than as work undertaken on our own initiative. Five additions had been made without a comment prompting them. Each has a comment it genuinely bears on, so the letter now presents it there.
+
+| Addition | Attached to | Why it fits |
+|---|---|---|
+| Decision support framing in Section 1.2, with the Hazeleger and Brahmbhatt citations | **R2-1** | The comment asks for the novelty claim to be *better supported*. Naming the class the system belongs to, with literature, is that support, and it is what makes a narrowed claim meaningful: what is new is the integration and the applications, not the category. |
+| Observability argument in Section 1.1 | **R2-2** | The comment is that only temperature is validated. The addition explains *why* the chemical constituents are the hard case: for a dissolved contaminant established only by grab sampling there is no observation stream to validate against, which is the same reason a process-based model was chosen. |
+| Why temperature is the standard calibration target, in Section 2.2 | **R2-6** | The comment is that the closure is never validated independently. The addition places the absence of velocity data as a gap the field has not closed rather than an oversight peculiar to this study, without excusing it. |
+| Seven-item future work list and the cost-of-approach paragraph, in the Conclusions | **R1-17** | The comment asks that the limitations stay visible when discussing maturity. A concrete list of what remains undone, and what the approach costs, is what keeps them from reading as a formality. |
+| Observation gaps shaded on Figure 5 | **R2-8** | The comment is that Figure 5 does not let the reader verify the claims. Marking where there were no observations is part of that: the longest gap, 1 to 5 August, accounts for the straight segments in the surface traces. |
+
+**One overstatement caught while writing.** The R2-8 text first said that "both the figure and the appendix panels now shade" the gaps. The appendix panels already did; that is where the idea came from. Corrected to say Figure 5 now shades them as the appendix panels already did.
+
+Letter now 7,158 words across 255 paragraphs, 36 comments each with a Response and a Changes line. Re-checked afterwards: no endorsement or previous-state language has crept back in, and the only numbers in the letter absent from the manuscript remain section numbers and the reviewer's own arithmetic quoted back in a comment.

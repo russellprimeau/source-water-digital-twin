@@ -28,7 +28,7 @@ All commands below are run from the repository root.
 | 2 | Catchment map | External GIS, ESRI base imagery | No |
 | 3 | HWQM inputs, solvers and outputs | Drawn by hand, `docs/manuscript/Fig3.svg` | Source file only |
 | 4 | Proposed operational update loop | Drawn by hand, `docs/manuscript/Fig4.svg` | Source file only |
-| 5 | Temperature profiles, model against observations | Solver post-processing outside this repository | No |
+| 5 | Temperature, model against observations at all depths | `src/D3D/ExportThermalProfiles.py` | `data/validation/temperature_profiles_ThermalTune_2024.csv` and `..._gaps_...csv` |
 | 6 | Accuracy against computational cost | `src/D3D/CSVplotter.py` | `data/Calibration.csv` |
 | 7 | Ammonium field 12 h post-release | Solver post-processing outside this repository | No |
 | 8 | Concentration time series at five sites | `src/D3D/NewWAQPlots.py` | `data/Nitrogen/` |
@@ -49,6 +49,16 @@ Appendix F's stability figures are produced by `src/PathPlanning/c.StabilityAnal
 which writes both the summary datasets under `data/validation/` and the LaTeX fragment
 `docs/manuscript/sampling_stability_results.tex` that the appendix includes, so the
 reported numbers cannot drift from the analysis that produced them.
+
+Figures 5 and 14 are regenerated from retained paired records: each script reads a CSV of
+observation-matched values and redraws the figure, and each also carries an `--extract`
+mode that rebuilds that CSV from the solver history file using the post-processing tools
+in the companion repository. Both draw on the same history file and the same pairing
+definitions as the per-depth comparison, so the seasonal overview and the depth-resolved
+statistics cannot drift apart. The extract also records the intervals in which the
+profiler returned nothing, which the figure shades, so a gap spanned by interpolation is
+not mistaken for a measured flat signal. Extraction needs the companion repository's own
+virtual environment; redrawing from the retained CSV does not.
 
 Figures marked as produced outside this repository come from the model post-processing
 tools that read the solver's native output files. Those output files are large and are
@@ -94,7 +104,7 @@ support the text rather than a numbered figure; it opens plot windows by default
 the mesh, the `.mdu` and `.ext` control files, the boundary and meteorological forcing
 series, the initial-condition fields and the DIMR configuration. It is provided so the
 configuration can be inspected and the simulation repeated with an independently obtained
-solver. It is not the configuration of every historical experiment described in the paper.
+solver. It is not the configuration of every experiment described in the paper.
 
 ## Superseded
 
