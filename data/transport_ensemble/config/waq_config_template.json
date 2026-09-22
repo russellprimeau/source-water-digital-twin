@@ -1,0 +1,258 @@
+{
+  "_instructions": [
+    "Copy this file, fill in the required fields, and pass it to <RUNNER>/src/waq/f_run_waq.py with --config or set CONFIG_PATH in that script.",
+    "Fields marked AUTO are read from the resolved <model>.hyd file automatically — do not add them.",
+    "The runner finds <model>.hyd from the project .mdu name and WaqOutputDir; if no .mdu is found it searches for one unique .hyd under the project.",
+    "Remove the leading underscore comment keys (_instructions, _notes) before using.",
+    "Date/time strings must be ISO format: 'YYYY-MM-DD HH:MM:SS'",
+    "Hydrodynamic coupling-file paths are not needed here — they come from the HYD file."
+  ],
+
+  "_note_dynamic": [
+    "Choose ONE model dynamic per run. Preferred form is a single dynamic field.",
+    "Use a built-in keyword such as 'oxygen-simple', or a path to an editable dynamic JSON.",
+    "When a path is used, the dynamic key is read from that JSON file.",
+    "WAQ nutrient IDs use the selected dynamic's constituent basis. External NH4/NO3/NO2 files are expected as N mass, PO4/AAP as P mass, and Si/Opal as Si mass unless the dynamic says otherwise.",
+    "Basis notation may put the element or molecule before or after the physical unit, e.g. ugN/l and ug/l N are equivalent."
+  ],
+  "dynamic": "../../../templates/waq/dynamics/oxygen-simple.json",
+
+  "_note_dynamic_options": {
+    "oxygen-simple":        "NH4 (constituent-basis, usually gN/m3), CBOD5 (g/m3), OXY (g/m3), SOD (g/m2 passive)",
+    "oxygen-bod":           "OXY (g/m3), CBOD5 (g/m3) — simpler O2/BOD with salinity/temp",
+    "tracers":              "cTR1/cTR2/cTR3 and dTR1/dTR2/dTR3 (g/m3) — conservative and decaying tracers",
+    "eutrophication-duflow": "A, DP, PP, NORG, NH4, NO3 (WAQ constituent basis; nutrients usually N/P mass) — simplified eutrophication (DUFLOW EUTROFIA)",
+    "cadmium":              "IM1 (g/m3), Cd (g/m3), IM1S1/CdS1 (g/m2 passive) — single-metal sorption, real Kd defaults",
+    "copper":               "IM1 (g/m3), Cu (g/m3), IM1S1/CuS1 (g/m2 passive) — single-metal sorption, real Kd defaults",
+    "lead":                 "IM1 (g/m3), Pb (g/m3), IM1S1/PbS1 (g/m2 passive) — single-metal sorption, real Kd defaults",
+    "zinc":                 "IM1 (g/m3), Zn (g/m3), IM1S1/ZnS1 (g/m2 passive) — single-metal sorption, real Kd defaults",
+    "mercury":              "IM1 (g/m3), Hg (g/m3), IM1S1/HgS1 (g/m2 passive) — single-metal sorption, real Kd defaults",
+    "nickel":               "IM1 (g/m3), Ni (g/m3), IM1S1/NiS1 (g/m2 passive) — single-metal sorption, real Kd defaults",
+    "chromium":             "IM1 (g/m3), Cr (g/m3), IM1S1/CrS1 (g/m2 passive) — single-metal sorption, real Kd defaults",
+    "arsenic":              "IM1 (g/m3), As (g/m3), IM1S1/AsS1 (g/m2 passive) — single-metal sorption, real Kd defaults",
+    "vanadium":             "IM1 (g/m3), Va (g/m3), IM1S1/VaS1 (g/m2 passive) — single-metal sorption, real Kd defaults",
+    "suspended-sediment":   "IM1/2/3 (g/m3) in water, IM1S1/IM2S1/IM3S1 (g/m2 passive) in bed",
+    "coliform-bacteria":    "Salinity (g/m3), EColi (MPN/100ml)",
+    "trace-metals-duflow":  "AS/CU/NI/PB/ZN totals plus POC/AOC/DOC/SS water and passive bed phases (DUFLOW METAL)",
+    "oxygen-bod-sediment":  "OXY, CBOD5 (g/m3), SOD (g/m2 passive) — native, from Deltares' own .sub template",
+    "eutrophication-dynamo-1sp": "NH4/NO3 as N, PO4/AAP as P, Opal as Si where selected units are gN/gP/gSi per m3; other active substances use their dynamic units — native DYNAMO, 1 algae species",
+    "eutrophication-dynamo-2sp": "NO3/NH4 as N, PO4/AAP as P, Si as Si where selected units are gN/gP/gSi per m3; other active substances use their dynamic units + full S1 sediment layer — native DYNAMO, 2 algae species",
+    "eutrophication-bloom": "NH4/NO3 as N, PO4 as P, Si/Opal as Si where selected units are gN/gP/gSi per m3; POC/PON/POP/POS and algae use dynamic units — native BLOOM, no sediment",
+    "eutrophication-bloom-sediment": "NH4/NO3 as N, PO4 as P, Si/Opal as Si where selected units are gN/gP/gSi per m3; other active substances use their dynamic units + sediment layer — native BLOOM",
+    "protist":              "Continuity/OXY plus NH4/NO3 as N, PO4 as P, Si/Opal as Si where selected units are gN/gP/gSi per m3; organic pools and algae use dynamic units + S1 sediment — richest single-species native template"
+  },
+
+  "_note_folderName": "Name used for output files: output/WAQ/<folderName>_his.nc, _map.nc",
+  "folderName": "scenario_01",
+
+  "_note_times": "Simulation period.  Must fall within the hydrodynamic simulation period.",
+  "startTime": "2021-01-01 00:00:00",
+  "stopTime":  "2021-06-30 00:00:00",
+
+  "_note_refDate": [
+    "Optional fallback for HYD-only WAQ runs where no .mdu is supplied.",
+    "Use the MDU RefDate format, e.g. 20240207 or '2024-02-07 00:00:00'.",
+    "When an .mdu is supplied, its RefDate is authoritative and this value is ignored."
+  ],
+  "refDate": null,
+
+  "_note_timeFormat": "DELWAQ duration rendering format for timestep fields; JSON timestep values remain seconds. DDHHMMSS matches the bundled INP template.",
+  "timeFormat": "DDHHMMSS",
+
+  "_note_timeStep1": [
+    "DELWAQ calculation timestep in seconds. Optional override.",
+    "Defaults to the hydrodynamic coupling timestep from the .hyd file when omitted.",
+    "Set this explicitly to a smaller value than the HYD timestep for conditionally-stable",
+    "integration schemes (e.g. 5, 12) that need a finer step than a coarse hydrodynamic",
+    "coupling interval allows. Must evenly divide the HYD timestep."
+  ],
+  "timeStep1": null,
+
+  "_note_outputTimeSteps": [
+    "WAQ output intervals in seconds.",
+    "historyTimeStep controls history/time-series output at obsPoints/obsFiles.",
+    "mapTimeStep controls full-grid map output; this is often coarser because *_map.nc files can become large.",
+    "Both must be even multiples of the hydrodynamic coupling timestep."
+  ],
+  "historyTimeStep": 3600,
+  "mapTimeStep": 21600,
+
+  "_note_timeStep2": "Legacy fallback for older configs. If historyTimeStep/mapTimeStep are omitted, both use timeStep2; new configs should leave this null.",
+  "timeStep2": null,
+
+  "_note_outputFormats": [
+    "Controls DELWAQ Block 9 history/map file switches.",
+    "Preferred/default for this project is NetCDF history/map output, because g_waq_post.py parses *_his.nc and *_map.nc.",
+    "binaryHistory/binaryMap request DELWAQ native binary .his/.map files as backup/diagnostic outputs.",
+    "netcdfHistory/netcdfMap request NEFIS/NetCDF output; with UGRID geometry this is written as NetCDF.",
+    "These switches do not control WAQ final-state restart artifacts such as *_res.map or .res."
+  ],
+  "outputFormats": {
+    "binaryHistory": false,
+    "binaryMap": false,
+    "netcdfHistory": true,
+    "netcdfMap": true
+  },
+
+  "_note_balanceOutput": [
+    "Controls DELWAQ mass-balance (flux) output.",
+    "Preferred/default is enabled and detailed so g_waq_post.py --plot-balance has balance terms available.",
+    "enabled:  true/false - turn mass-balance output on/off.",
+    "detailed: true/false - if true, report each boundary/load/transport term separately",
+    "          instead of lumped totals (DELWAQ BAL_NOLUMP* keywords).",
+    "timeStep: balance-output interval in seconds. Omit/null to match mapTimeStep."
+  ],
+  "balanceOutput": { "enabled": true, "detailed": true, "timeStep": null },
+
+  "_note_solver": [
+    "scheme: DELWAQ integration option, '<base scheme>.<sub-option digits>'.",
+    "        Valid base scheme numbers: 1-5, 10-16, 19-24 (0 and 6-9/17-18 are invalid).",
+    "        15 (default) - implicit upwind, iterative solver: unconditionally stable,",
+    "                        works for any timestep/unstructured grid. DELWAQ's own 'safe' choice.",
+    "        16 - as 15 but central vertical discretisation; better for stratified/pycnocline",
+    "                        systems, but not strictly positive/monotone.",
+    "        12 - horizontal explicit + vertical implicit, more accurate, but only",
+    "                        conditionally stable: requires a small enough timeStep1.",
+    "        The optional sub-option digits after the decimal point set legacy",
+    "        NODISP-AT-NOFLOW/NODISP-AT-BOUND/LOWER-ORDER-AT-BOUND keywords; 0 sets none.",
+    "maxiter:   GMRES solver maximum iterations.  Increase if you get 'ERROR in GMRES'.",
+    "tolerance: GMRES convergence tolerance.  Tighten (smaller) for more accurate results."
+  ],
+  "scheme":    15,
+  "maxiter":   1000,
+  "tolerance": 1e-7,
+
+  "_note_obsOutputLayers": [
+    "History output layer selection for 3-D WAQ runs.",
+    "\"all\" writes one monitoring station per vertical layer at each obsPoints/obsFiles location.",
+    "\"single\" keeps the legacy one-segment monitoring output."
+  ],
+  "obsOutputLayers": "all",
+
+  "_note_obsPoints": [
+    "Monitoring locations for history (time-series) output.",
+    "Inline form uses WGS84 coordinates.",
+    "Each entry: [name, latitude, longitude]",
+    "Can be used alongside obsFiles. Leave empty [] if no inline monitoring points are needed."
+  ],
+  "obsPoints": [],
+
+  "_note_obsFiles": [
+    "Optional external-file form for history-output monitoring locations.",
+    "Each item points to a PLI or XYN file in the model's native grid coordinates.",
+    "PLI: each feature must contain exactly one point; the feature name becomes the monitoring point name.",
+    "XYN: each row is x y name, matching the hydro ObsFile format; the row name becomes the monitoring point name.",
+    "A name field may be supplied only for a single-point file to override the file's point name.",
+    "Relative file paths are resolved relative to this JSON config file.",
+    "Example value for obsFiles:",
+    "  {",
+    "    \"items\": [",
+    "      {\"locationFile\": \"../input/waq_observations.pli\"},",
+    "      {\"locationFile\": \"../input/FlowFM_obs.xyn\"},",
+    "      {\"name\": \"Intake\", \"locationFile\": \"../input/intake_obs.pli\"}",
+    "    ]",
+    "  }"
+  ],
+  "obsFiles": null,
+
+  "_note_loadsData": [
+    "Point-source discharge locations.",
+    "Each entry: [name, latitude, longitude]",
+    "Leave empty [] if there are no point sources.",
+    "The name must be unique and ≤20 characters (DELWAQ load-ID limit)."
+  ],
+  "loadsData": [],
+
+  "_note_loadsTimeSeries": [
+    "Time-varying concentrations and flow for each point source in loadsData.",
+    "Omit or set to null if loadsData is empty.",
+    "",
+    "Mapping rule: rows[*].values[i] belongs to loadsData[i]. For example,",
+    "              values[0] is the first load in loadsData, values[1] is the second load, etc.",
+    "",
+    "substances: list of DELWAQ substance IDs to specify. FLOW (m3/s) must come first",
+    "            if you want to set the discharge flow rate. All other substances must already use",
+    "            the selected WAQ constituent basis. Common nutrients: NH4/NO3/NO2 as gN/m3,",
+    "            PO4/AAP as gP/m3, and Si/Opal as gSi/m3 where those units are used.",
+    "            DELWAQ reads these numbers directly; it does not convert molecular mass.",
+    "rows:       list of timesteps in strictly ascending order.",
+    "  time:     ISO 8601 string, e.g. \"2021-01-01T00:00:00\"",
+    "  values:   one sub-array per load, positionally matched to loadsData.",
+    "            each sub-array has one value per substance in the same order as \"substances\".",
+    "",
+    "TIME LINEAR DATA interpolation is used between rows (linear, not step-function).",
+    "",
+    "Example value for loadsTimeSeries with two sources (Sewage1, Sewage2) and three substances (FLOW, OXY, NH4):",
+    "  {",
+    "    \"substances\": [\"FLOW\", \"OXY\", \"NH4\"],",
+    "    \"rows\": [",
+    "      {\"time\": \"2021-01-01T00:00:00\", \"values\": [[0.10, 7.5, 0.5], [0.08, 7.2, 0.4]]},",
+    "      {\"time\": \"2021-06-30T00:00:00\", \"values\": [[0.15, 8.1, 0.6], [0.12, 7.8, 0.5]]}",
+    "    ]",
+    "  }"
+  ],
+  "loadsTimeSeries": null,
+
+  "_note_loadsFiles": [
+    "Optional external-file form for large point-source load time series.",
+    "Use this instead of, or alongside, loadsData/loadsTimeSeries when source flows have many timesteps.",
+    "Each item is one WAQ load. The PLI must contain exactly one point.",
+    "The TIM columns must be: time_minutes_since_MDU_RefDate, then one column per substance.",
+    "FLOW (m3/s) must be first when present. Other substances are concentrations in the selected WAQ constituent basis.",
+    "For common nutrient dynamics this means NH4/NO3/NO2 as N mass, PO4/AAP as P mass, and Si/Opal as Si mass where those units are used.",
+    "DELWAQ reads TIM load values directly; external files should already be basis-correct before TIM generation.",
+    "The item name is the authoritative WAQ load ID and must be unique across loadsData and loadsFiles.",
+    "Relative file paths are resolved relative to this JSON config file.",
+    "Use <RUNNER>/src/utils/waq/build_waq_load_tim.py to create these TIM files from hydrodynamic source TIM files.",
+    "Use e_check_waq_inputs.py --config <this file> --plot-timeseries to visually inspect WAQ load series."
+  ],
+  "loadsFiles": null,
+
+  "_note_initialConditions": [
+    "Initial concentrations for every substance in the selected dynamic are required.",
+    "Preferred form: initialConditions object keyed by substance ID.",
+    "Uniform form: either a number such as 8.0 or an object such as {\"type\": \"uniform\", \"value\": 0.1}.",
+    "Depth-profile form example: {\"type\": \"depthProfile\", \"depths\": [0.5, 2.5, 5.0], \"values\": [8.0, 7.5, 6.8]}",
+    "  Depths are metres positive downward and values are linearly interpolated/extrapolated",
+    "  to layer-center depths auto-derived from the HYD/MDU geometry, then repeated horizontally for each model layer.",
+    "Set initialLayerDepths to \"auto\" or omit it for normal use; provide a numeric list only as an override.",
+    "Use <RUNNER>/src/utils/waq/profiler_do_initial_conditions.py to convert profiler DO percent saturation",
+    "  in sensorParms(6), with temperature from sensorParms(1), into an OXY depthProfile in g/m3.",
+    "3D-field form examples: {\"type\": \"field3d\", \"values\": [8.0, 8.1, 7.9]} or {\"type\": \"field3d\", \"file\": \"../input/oxy_initial.json\"}",
+    "  Field values must contain one numeric value per WAQ segment.",
+    "Active substances use the selected WAQ constituent basis. Common nutrients: NH4/NO3/NO2 as gN/m3, PO4/AAP as gP/m3, and Si/Opal as gSi/m3 where those units are used.",
+    "Passive bed substances use the selected dynamic's bed unit, usually g/m2.",
+    "DELWAQ reads initial-condition numbers directly; external field/profile files should already be basis-correct.",
+    "Relative field3d file paths are resolved relative to this JSON config file.",
+    "Legacy useforsFrom + multiline initial is still accepted, but it must also cover every dynamic substance."
+  ],
+  "_note_initialConditionsSource": [
+    "Optional alternative to initialConditions for spin-up/follow-on workflows.",
+    "Set to {\"type\": \"delwaqRestartMap\", \"file\": \"../../../output/WAQ/previous_run_res.map\"} to initialize from an existing DELWAQ native final-state restart artifact.",
+    "The file must already exist from a previous WAQ run. D3DFMRunner does not configure when DELWAQ emits *_res.map/.res restart artifacts.",
+    "This uses DELWAQ Block 8 binary restart input and supports only native *_res.map/.res artifacts, not NetCDF *_map.nc.",
+    "When initialConditionsSource is set, remove or set initialConditions to null, keep useforsFrom empty, and keep initial empty.",
+    "Relative file paths are resolved relative to this JSON config file."
+  ],
+  "initialConditionsSource": null,
+  "initialLayerDepths": "auto",
+  "initialConditions": {
+    "OXY": 8.0,
+    "NH4": { "type": "uniform", "value": 0.1 },
+    "CBOD5": {
+      "type": "depthProfile",
+      "depths": [0.0, 5.0, 10.0],
+      "values": [2.0, 1.5, 1.0]
+    },
+    "SOD": 0.0
+  },
+
+  "_note_legacy_initial": [
+    "Legacy uniform-only syntax retained for old configs:",
+    "useforsFrom: list of substance IDs receiving initial conditions.",
+    "initial: one substance per line as '<SubstanceName> <value>'.",
+    "Substances no longer default silently to 0; preflight errors if any dynamic substance is missing."
+  ],
+  "useforsFrom": [],
+  "initial": ""
+}

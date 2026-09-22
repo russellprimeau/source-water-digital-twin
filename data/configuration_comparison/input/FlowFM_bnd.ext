@@ -1,0 +1,11 @@
+
+[boundary]
+quantity=waterlevelbnd
+locationFile=Spjelkavikelva.pli
+forcingFile=WaterLevel.bc
+returnTime=0.0000000e+000
+
+[boundary]
+quantity=tracerbndContaminant
+locationFile=Spjelkavikelva.pli
+forcingFile=Contaminant.bc

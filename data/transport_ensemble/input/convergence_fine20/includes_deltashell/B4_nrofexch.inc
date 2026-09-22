@@ -1,0 +1,1 @@
+144760 0 93765 ; number of exchanges in three directions

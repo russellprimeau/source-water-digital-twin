@@ -1,0 +1,5 @@
+SEG_FUNCTIONS
+'Temp'
+ALL
+BINARY_FILE '<COUPLING>/FlowFM.tem'
+

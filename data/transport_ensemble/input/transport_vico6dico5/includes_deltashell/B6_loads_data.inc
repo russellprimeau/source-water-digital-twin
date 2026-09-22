@@ -1,0 +1,14 @@
+ITEM 'BlastSite'
+CONCENTRATION
+cTR1
+cTR2
+cTR3
+dTR1
+dTR2
+dTR3
+TIME BLOCK DATA
+; Loads: BlastSite | Substances: cTR1, cTR2, cTR3, dTR1, dTR2, dTR3
+2024/08/01-00:00:00  0.0  0.0  0.0  0.0  0.0  0.0
+2024/08/01-04:00:00  1.0  0.0  0.0  1.0  0.0  1.0
+2024/08/01-05:00:00  0.0  0.0  0.0  0.0  0.0  0.0
+2024/08/31-00:00:00  0.0  0.0  0.0  0.0  0.0  0.0

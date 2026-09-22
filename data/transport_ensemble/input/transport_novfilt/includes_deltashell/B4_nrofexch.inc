@@ -1,0 +1,1 @@
+289520 0 192465 ; number of exchanges in three directions

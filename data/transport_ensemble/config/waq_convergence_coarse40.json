@@ -1,0 +1,242 @@
+{
+  "_purpose": [
+    "Solute-transport mesh convergence check.",
+    "",
+    "The same release as the scenario, carried on the 40_low_filtered coupling:",
+    "2603 horizontal cells and 40 vertical layers. Compared against the",
+    "other three cases at the monitoring points and on the whole-domain mass",
+    "balance, since fields on different meshes have no cell-by-cell correspondence.",
+    "",
+    "Run with, in the model-running repository (<RUNNER>), which is not published:",
+    "  <RUNNER>/.venv/Scripts/python <RUNNER>/src/waq/f_run_waq.py \\",
+    "    --config <RUNNER>/data/sources/config/waq/waq_convergence_coarse40.json \\",
+    "    --hyd <RUNNER>/data/projects/OldTunes/7mnth/40_low_filtered/DFM_DELWAQ_FlowFM/FlowFM.hyd \\",
+    "    --project <RUNNER>/data/projects/Convergence_coarse40 \\",
+    "    --delft <DELFT3D>"
+  ],
+  "dynamic": "dynamics/tracers_rates_a.json",
+  "folderName": "convergence_coarse40",
+  "startTime": "2024-08-01 00:00:00",
+  "stopTime": "2024-08-11 00:00:00",
+  "refDate": "20240401",
+  "timeFormat": "DDHHMMSS",
+  "timeStep1": 3600,
+  "historyTimeStep": 86400,
+  "mapTimeStep": 86400,
+  "timeStep2": null,
+  "outputFormats": {
+    "binaryHistory": false,
+    "binaryMap": false,
+    "netcdfHistory": true,
+    "netcdfMap": true
+  },
+  "balanceOutput": {
+    "enabled": true,
+    "detailed": true,
+    "timeStep": null
+  },
+  "scheme": 15.7,
+  "maxiter": 1000,
+  "tolerance": 1e-07,
+  "obsOutputLayers": "single",
+  "obsPoints": [
+    [
+      "Source",
+      62.468988,
+      6.390492
+    ],
+    [
+      "Spjelkavikelva",
+      62.466005,
+      6.388955
+    ],
+    [
+      "Vasstrandlia",
+      62.471035,
+      6.41763
+    ],
+    [
+      "Profiler",
+      62.474425,
+      6.461499
+    ],
+    [
+      "FarField",
+      62.483782,
+      6.565302
+    ]
+  ],
+  "obsFiles": null,
+  "loadsData": [
+    [
+      "BlastSite",
+      62.468821,
+      6.390936
+    ]
+  ],
+  "loadsTimeSeries": {
+    "interpolation": "block",
+    "substances": [
+      "cTR1",
+      "cTR2",
+      "cTR3",
+      "dTR1",
+      "dTR2",
+      "dTR3"
+    ],
+    "rows": [
+      {
+        "time": "2024-08-01T00:00:00",
+        "values": [
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ]
+      },
+      {
+        "time": "2024-08-01T04:00:00",
+        "values": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            1.0
+          ]
+        ]
+      },
+      {
+        "time": "2024-08-01T05:00:00",
+        "values": [
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ]
+      },
+      {
+        "time": "2024-08-11T00:00:00",
+        "values": [
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ]
+      }
+    ]
+  },
+  "loadsFiles": null,
+  "initialConditionsSource": null,
+  "initialLayerDepths": [
+    1.25,
+    3.75,
+    6.25,
+    8.75,
+    11.25,
+    13.75,
+    16.25,
+    18.75,
+    21.25,
+    23.75,
+    26.25,
+    28.75,
+    31.25,
+    33.75,
+    36.25,
+    38.75,
+    41.25,
+    43.75,
+    46.25,
+    48.75,
+    51.25,
+    53.75,
+    56.25,
+    58.75,
+    61.25,
+    63.75,
+    66.25,
+    68.75,
+    71.25,
+    73.75,
+    76.25,
+    78.75,
+    81.25,
+    83.75,
+    86.25,
+    88.75,
+    91.25,
+    93.75,
+    96.25,
+    98.75
+  ],
+  "initialConditions": {
+    "cTR1": 0.0,
+    "cTR2": 0.0,
+    "cTR3": 0.0,
+    "dTR1": 0.0,
+    "dTR2": 0.0,
+    "dTR3": 0.0
+  },
+  "useforsFrom": [],
+  "initial": "",
+  "_note_initialLayerDepths": [
+    "Forty z-layers. Every initial condition is zero, so this list only has to",
+    "exist and be monotonic; it carries no information about the vertical grid."
+  ],
+  "_note_balanceOutput": [
+    "Off, to match the archived run this validates against."
+  ],
+  "_note_obsPoints": [
+    "The five monitoring cells of the run this validates against: segments 399,",
+    "430, 4658, 4436 and 718, given here as the lon/lat of each cell centre. The",
+    "archived run names them ObsPoint 1-5; the names used here are the ones the",
+    "committed series carry, assigned by matching values, not by position."
+  ],
+  "_note_scheme": [
+    "15.7, not 15. The integer part selects the iterative GMRES solver; the",
+    "digits after the point are flags the kernel reads as bits 0-2 of intopt:",
+    "no dispersion at zero flow, no dispersion across open boundaries, and a",
+    "lower-order scheme at open boundaries. All three are set in the run this",
+    "validates against, and they change the transport matrix, so a bare 15",
+    "does not reproduce it."
+  ],
+  "_note_load": [
+    "One-hour pulse of 1.0 g/s into cTR1, dTR1 and dTR3, block interpolation.",
+    "cTR1 carries no reaction; dTR1 and dTR3 decay at the two rates set in the",
+    "dynamics file. cTR2, cTR3 and dTR2 are unused: the process library defines",
+    "no decay-rate constant for tracer 2, and one conservative tracer is enough.",
+    "No FLOW column, so the values are mass loads and Block 6 carries no CONC."
+  ],
+  "_note_mapTimeStep": [
+    "Daily. The spread score is evaluated on the final full-domain field only,",
+    "so hourly maps would cost gigabytes of output that nothing reads."
+  ],
+  "_note_window": [
+    "Ten days. The sampling plan is generated at a fixed horizon after the",
+    "release, and the window extends past it far enough to show that the",
+    "retained cells do not depend on exactly where that horizon is put."
+  ],
+  "_note_mesh": [
+    "2603 cells per layer, 40 layers."
+  ],
+  "_note_release": [
+    "The release sits at the centre of the coarse mesh cell nearest the blast",
+    "site, 34 m from the site itself. The blast site proper falls outside the",
+    "2,603-cell mesh, whose coarser shoreline excludes it, and a convergence",
+    "check is only meaningful if every case releases at the same place."
+  ]
+}

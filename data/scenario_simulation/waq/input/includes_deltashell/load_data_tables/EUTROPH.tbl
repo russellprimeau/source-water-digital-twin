@@ -1,0 +1,11 @@
+DATA_ITEM
+'BlastSite'
+CONCENTRATIONS
+INCLUDE 'includes_deltashell\load_data_tables\EUTROPH.usefors'
+TIME BLOCK DATA
+'AAP' 'DetC' 'DetN' 'DetP' 'GREEN' 'NH4' 'NO3' 'PO4' 'OXY' 'Cl' 'IM1' 'Opal' 'SOD'
+2024/08/01-00:00:00 0 0 0 0 0 0 0 0 0 0 0 0 0
+2024/08/01-04:00:00 0 0 0 0 0 0.5 0.5 0 0 0 0 0 0
+2024/08/01-05:00:00 0 0 0 0 0 0 0 0 0 0 0 0 0
+2024/11/01-00:00:00 0 0 0 0 0 0 0 0 0 0 0 0 0
+

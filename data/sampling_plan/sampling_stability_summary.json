@@ -1,0 +1,37 @@
+{
+  "n_cells": 60,
+  "bootstrap_replicates": 2000,
+  "seed": 20240401,
+  "baseline_regions": [
+    "B",
+    "C",
+    "D",
+    "E",
+    "F"
+  ],
+  "baseline_score": 56.8827857066453,
+  "baseline_distance_m": 6942.255883495876,
+  "loo_same_regions": 53,
+  "loo_same_cluster_count": 46,
+  "bootstrap_baseline_fraction": 0.0915,
+  "modal_regions": [
+    "B",
+    "C",
+    "D",
+    "E"
+  ],
+  "modal_fraction": 0.262,
+  "cluster_count_frequencies": {
+    "7": 395,
+    "9": 392,
+    "8": 488,
+    "11": 118,
+    "10": 246,
+    "6": 240,
+    "5": 78,
+    "12": 23,
+    "3": 1,
+    "4": 17,
+    "13": 2
+  }
+}

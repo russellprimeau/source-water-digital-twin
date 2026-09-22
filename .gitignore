@@ -1,0 +1,53 @@
+# ---------------------------------------------------------------------------
+# Solver output
+#
+# Model *configuration* and *forcing* are distributed so that the simulations
+# reported in the manuscript can be reproduced with an independently obtained
+# copy of the Delft3D FM kernel (see the Data Availability Statement).  Model
+# *output* is not: it runs to tens of gigabytes.  What the figures and tables
+# need has been reduced to the small precursor files published beside them,
+# so nothing here is required to regenerate a result in the article.
+#
+# One rule, because the layout groups every simulation set the same way:
+# data/<set>/output/ is the solver's working tree and is never published.
+# ---------------------------------------------------------------------------
+/data/*/output/
+
+# Per-partition artifacts inside a distributed input set: the solver rewrites
+# these from the unpartitioned configuration on every run.
+/data/*/input/*_[0-9][0-9][0-9][0-9].mdu
+/data/*/input/*_[0-9][0-9][0-9][0-9]_net.nc
+/data/*/input/*.cache
+/data/*/input/*.dia
+/data/*/input/*.log
+
+# Interactive dashboards exported from the solver's own viewer: tens of MB of
+# generated HTML, regenerable and not cited by the article.
+/data/*/input_map.html
+/data/*/input_timeseries.html
+
+# Local working copies of model trees that predate the published layout.
+/data/d3d/
+
+# ---------------------------------------------------------------------------
+# Generated figures and tables
+#
+# Every script writes what it draws or tabulates into output/.  All of it is
+# regenerated from the committed inputs by the commands in README.md, so the
+# repository publishes what the results are made from rather than the results
+# themselves.
+# ---------------------------------------------------------------------------
+/output/
+
+# ---------------------------------------------------------------------------
+# Editor, OS and interpreter artifacts
+# ---------------------------------------------------------------------------
+__pycache__/
+*.pyc
+*.pyo
+Thumbs.db
+~$*
+.venv/
+.claude/
+.vscode/
+*.code-workspace

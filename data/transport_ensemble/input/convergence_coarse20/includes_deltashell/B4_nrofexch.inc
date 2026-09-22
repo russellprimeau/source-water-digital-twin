@@ -1,0 +1,1 @@
+75660 0 49457 ; number of exchanges in three directions

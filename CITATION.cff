@@ -1,0 +1,58 @@
+cff-version: 1.2.0
+title: >-
+  Code and data for "A Digital Twin Prototype for Protecting Surface
+  Source Waters"
+message: >-
+  If you use this software or the data published with it, please cite
+  both the article and this repository.
+type: software
+license: MIT
+repository-code: https://github.com/russellprimeau/source-water-digital-twin
+abstract: >-
+  Model configuration and forcing for the simulation sets reported in the
+  article, the reduced precursor files its figures and tables are drawn
+  from, and the scripts that produce each of them. Solver output, the
+  hydrodynamic couplings, the Delft3D FM and DELWAQ kernels and
+  third-party lake-level records are not included; README.md states what
+  each exclusion is and why.
+keywords:
+  - digital twin
+  - source water protection
+  - drinking water
+  - hydrodynamic modelling
+  - water quality
+  - Delft3D FM
+  - DELWAQ
+  - unmanned surface vehicle
+authors:
+  # Add each author's ORCID as: orcid: "https://orcid.org/0000-0000-0000-0000"
+  - family-names: Primeau
+    given-names: Russell
+    affiliation: Norwegian University of Science and Technology
+  - family-names: Seidu
+    given-names: Razak
+    affiliation: Norwegian University of Science and Technology
+  - family-names: Zhang
+    given-names: Houxiang
+    affiliation: Norwegian University of Science and Technology
+  - family-names: Han
+    given-names: Peihua
+    affiliation: Norwegian University of Science and Technology
+  - family-names: Li
+    given-names: Guoyuan
+    affiliation: Norwegian University of Science and Technology
+preferred-citation:
+  type: article
+  title: A Digital Twin Prototype for Protecting Surface Source Waters
+  # Fill in journal, year, volume, pages and DOI once the article is assigned them.
+  authors:
+    - family-names: Primeau
+      given-names: Russell
+    - family-names: Seidu
+      given-names: Razak
+    - family-names: Zhang
+      given-names: Houxiang
+    - family-names: Han
+      given-names: Peihua
+    - family-names: Li
+      given-names: Guoyuan

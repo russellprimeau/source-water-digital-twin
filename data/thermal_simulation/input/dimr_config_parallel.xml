@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dimrConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://schemas.deltares.nl/dimr http://content.oss.deltares.nl/schemas/latest/dimr.xsd"
+    xmlns="http://schemas.deltares.nl/dimr">
+  <documentation>
+    <fileVersion>1.03</fileVersion>
+    <createdBy>D3DFMRunner</createdBy>
+    <creationDate>2026-08-10T19:37:32</creationDate>
+  </documentation>
+  <control>
+    <start name="FlowFMnew"/>
+  </control>
+  <component name="FlowFMnew">
+    <library>dflowfm</library>
+    <process>0 1 2 3 4 5 6 7 8 9 10 11</process>
+    <mpiCommunicator>DFM_COMM_DFMWORLD</mpiCommunicator>
+    <workingDir>.</workingDir>
+    <inputFile>FlowFMnew.mdu</inputFile>
+  </component>
+</dimrConfig>

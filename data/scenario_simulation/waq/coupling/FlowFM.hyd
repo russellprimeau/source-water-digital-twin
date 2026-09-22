@@ -1,0 +1,97 @@
+file-created-by  Deltares, D-Flow FM Version 1.2.177.142431, Jan 26 2023, 11:34:53
+file-creation-date  2024-09-07, 23:36:11                                        
+task      full-coupling
+geometry  unstructured
+horizontal-aggregation no
+reference-time              '20240113000000'
+hydrodynamic-start-time     '20240801000000'
+hydrodynamic-stop-time      '20241101000000'
+hydrodynamic-timestep       '00000000010000'
+conversion-ref-time         '20240113000000'
+conversion-start-time       '20240801000000'
+conversion-stop-time        '20241101000000'
+conversion-timestep         '00000000010000'
+grid-cells-first-direction                    4935
+grid-cells-second-direction                      1
+number-hydrodynamic-segments-per-layer        4935
+number-hydrodynamic-layers                      20
+number-water-quality-segments-per-layer       4935
+number-water-quality-layers                     20
+number-horizontal-exchanges                 144760
+number-vertical-exchanges                    93765
+hydrodynamic-file           'FlowFM'
+aggregation-file            none
+vertical-aggregation-file   none
+boundaries-file             'FlowFM.bnd'
+waqgeom-file                'FlowFM_waqgeom.nc'
+grid-indices-file           'FlowFM.bnd'
+grid-coordinates-file       'FlowFM_waqgeom.nc'
+volumes-file                'FlowFM.vol'
+areas-file                  'FlowFM.are'
+flows-file                  'FlowFM.flo'
+velocities-file             'FlowFM.vel'
+pointers-file               'FlowFM.poi'
+lengths-file                'FlowFM.len'
+salinity-file               none
+temperature-file            'FlowFM.tem'
+vert-diffusion-file         'FlowFM.vdf'
+horizontal-surfaces-file    'FlowFM.srf'
+surfaces-file               'FlowFM.srfold'
+shear-stresses-file         'FlowFM.tau'
+attributes-file             'FlowFM.atr'
+hydrodynamic-layers
+       0.050000
+       0.050000
+       0.050000
+       0.050000
+       0.050000
+       0.050000
+       0.050000
+       0.050000
+       0.050000
+       0.050000
+       0.050000
+       0.050000
+       0.050000
+       0.050000
+       0.050000
+       0.050000
+       0.050000
+       0.050000
+       0.050000
+       0.050000
+end-hydrodynamic-layers
+water-quality-layers   
+       1.000000
+       1.000000
+       1.000000
+       1.000000
+       1.000000
+       1.000000
+       1.000000
+       1.000000
+       1.000000
+       1.000000
+       1.000000
+       1.000000
+       1.000000
+       1.000000
+       1.000000
+       1.000000
+       1.000000
+       1.000000
+       1.000000
+       1.000000
+end-water-quality-layers
+sink-sources
+         1        -2       347       -999.000000       -999.000000          6.417280         62.477079  S1
+         2        -3        64       -999.000000       -999.000000          6.566340         62.484044  S2
+         3        -4       519       -999.000000       -999.000000          6.432965         62.467872  S3
+         4        -5       479       -999.000000       -999.000000          6.411025         62.465054  S4
+         5        -6       206       -999.000000       -999.000000          6.501754         62.483902  Slettebakk
+         6        -7       556       -999.000000       -999.000000          6.455646         62.470777  Vasstrandelva
+         7        -8       453       -999.000000       -999.000000          6.395126         62.465137  Arsetelva
+         8        -9       127       -999.000000       -999.000000          6.528359         62.481524  Brusdalen
+         9       -10      4658       -999.000000       -999.000000          6.417680         62.471053  VasstrandliaPump
+        10       -11       399       -999.000000       -999.000000          6.390495         62.469051  Blast
+end-sink-sources

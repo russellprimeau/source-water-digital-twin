@@ -1,0 +1,15 @@
+MASS/M2
+INITIALS
+'cTR1'
+'cTR2'
+'cTR3'
+'dTR1'
+'dTR2'
+'dTR3'
+DEFAULTS
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0

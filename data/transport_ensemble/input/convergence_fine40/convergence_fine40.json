@@ -1,0 +1,107 @@
+{
+    "model_type": "tracers",
+    "wq_obs": [
+        [
+            "Source",
+            62.468988,
+            6.390492
+        ],
+        [
+            "Spjelkavikelva",
+            62.466005,
+            6.388955
+        ],
+        [
+            "Vasstrandlia",
+            62.471035,
+            6.41763
+        ],
+        [
+            "Profiler",
+            62.474425,
+            6.461499
+        ],
+        [
+            "FarField",
+            62.483782,
+            6.565302
+        ]
+    ],
+    "wq_obs_segments": [
+        [
+            399,
+            "Source"
+        ],
+        [
+            430,
+            "Spjelkavikelva"
+        ],
+        [
+            4658,
+            "Vasstrandlia"
+        ],
+        [
+            4436,
+            "Profiler"
+        ],
+        [
+            718,
+            "FarField"
+        ]
+    ],
+    "wq_obs_station_aliases": [
+        {
+            "stationId": "Source",
+            "location": "Source",
+            "segment": 399,
+            "baseSegment": 399,
+            "layerIndex": null,
+            "fileLayerIndex": null,
+            "layerLabel": "Surface"
+        },
+        {
+            "stationId": "Spjelkavikelva",
+            "location": "Spjelkavikelva",
+            "segment": 430,
+            "baseSegment": 430,
+            "layerIndex": null,
+            "fileLayerIndex": null,
+            "layerLabel": "Surface"
+        },
+        {
+            "stationId": "Vasstrandlia",
+            "location": "Vasstrandlia",
+            "segment": 4658,
+            "baseSegment": 4658,
+            "layerIndex": null,
+            "fileLayerIndex": null,
+            "layerLabel": "Surface"
+        },
+        {
+            "stationId": "Profiler",
+            "location": "Profiler",
+            "segment": 4436,
+            "baseSegment": 4436,
+            "layerIndex": null,
+            "fileLayerIndex": null,
+            "layerLabel": "Surface"
+        },
+        {
+            "stationId": "FarField",
+            "location": "FarField",
+            "segment": 718,
+            "baseSegment": 718,
+            "layerIndex": null,
+            "fileLayerIndex": null,
+            "layerLabel": "Surface"
+        }
+    ],
+    "wq_segments_per_layer": 4935,
+    "wq_layers": 40,
+    "wq_loads": [
+        [
+            1045,
+            "BlastSite"
+        ]
+    ]
+}
