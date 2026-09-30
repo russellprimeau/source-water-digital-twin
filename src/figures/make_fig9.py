@@ -107,7 +107,9 @@ def check_caption(length):
     the check runs exactly as before; where none is, the length is still printed,
     so the value the caption has to state is never left unreported.
     """
-    drawn = '%s~m' % format(round(length), ',')
+    # No thousands separator: the journal sets four-digit numbers unseparated, so
+    # a separated string here would never match the caption it is checking.
+    drawn = '%d~m' % round(length)
     print('  route length drawn: %s' % drawn)
     manuscript = manuscript_path()
     if manuscript is None:

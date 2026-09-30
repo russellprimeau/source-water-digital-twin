@@ -147,7 +147,7 @@ def write_ensemble_table(rows, cut):
              f"% Qualifying threshold {cut:.4f} degC "
              f"= {QUALIFYING_FACTOR:g} x the best of {len(rows)} candidates.",
              r"    \footnotesize",
-             r"    \begin{tabularx}{\textwidth}{@{}l c c c r c@{}}",
+             r"    \begin{tabularx}{\textwidth}{l CCC C C}",
              r"    \toprule",
              r"        \textbf{Configuration} & \textbf{Vertical} & \textbf{Vertical} "
              r"& \textbf{Vertical} & \textbf{RMSE} & \textbf{In} " + eol,

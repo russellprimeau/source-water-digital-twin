@@ -493,7 +493,9 @@ def _render(values, how):
     if how == 'span':
         lo, hi = min(values), max(values)
         return trim(lo) if lo == hi else '%s to %s' % (trim(lo), trim(hi))
-    shown = ['{:,}'.format(int(v)) if v >= 1000 and v == int(v) else trim(v)
+    # The journal sets four-digit numbers without a thousands separator, so the
+    # separator starts at five digits.
+    shown = ['{:,}'.format(int(v)) if v >= 10000 and v == int(v) else trim(v)
              for v in values]
     return shown[0] if len(shown) == 1 else (
         ' or '.join(shown) if len(shown) == 2
@@ -510,7 +512,7 @@ def write_ranges_table():
              '%% From the retained model-configuration comparison records in %s.'
              % CSV.name,
              r'    \footnotesize',
-             r'    \begin{tabularx}{\textwidth}{@{}l X@{}}',
+             r'    \begin{tabularx}{\textwidth}{L L}',
              r'    \toprule',
              r'        \textbf{Setting} & \textbf{Range covered} ' + eol,
              r'    \midrule']

@@ -267,8 +267,9 @@ def main() -> None:
     manuscript = (
         f"Removing one cell at a time preserved the cluster count in {loo_same_count} of {n_cells} cases "
         f"and the selected geographical regions in {loo_same_route} cases. "
-        f"The baseline route travels {base_len:,.0f}~m within the {MAX_PATH_LENGTH_M:,.0f}~m budget. "
-        f"In {N_BOOTSTRAP:,} bootstrap replicates, {bootstrap_sentence}\n\n"
+        # The journal sets four-digit numbers without a thousands separator.
+        f"The baseline route travels {base_len:.0f}~m within the {MAX_PATH_LENGTH_M:.0f}~m budget. "
+        f"In {N_BOOTSTRAP:d} bootstrap replicates, {bootstrap_sentence}\n\n"
         + co_sentence +
         "Singleton clusters have no within-cluster pair to assess. These summaries concern "
         "selected regions rather than exact centroid positions or visit order, both of which may change.\n"
